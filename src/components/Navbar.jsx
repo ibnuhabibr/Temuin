@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ReactComponent as Logo } from '../assets/logo-temuin.svg';
+import logoSrc from '../assets/logo-temuin.svg';
 
 const Navbar = () => {
   return (
@@ -14,7 +14,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
-              <Logo className="h-10 w-auto" />
+              <img src={logoSrc} alt="Temuin Logo" className="h-10 w-auto" />
             </motion.div>
           </Link>
 
@@ -27,6 +27,8 @@ const Navbar = () => {
               >
                 Beranda
               </Link>
+              {/* Temporarily disabled dead links */}
+              {/* 
               <Link
                 to="/kategori"
                 className="font-medium text-slate-700 hover:text-emerald-500 transition-colors duration-200 px-3 py-2 rounded-md text-sm"
@@ -46,6 +48,7 @@ const Navbar = () => {
               >
                 Daftar Bisnis
               </motion.button>
+              */}
             </div>
           </div>
 
