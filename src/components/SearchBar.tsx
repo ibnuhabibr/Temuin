@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FiSearch } from 'react-icons/fi';
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiSearch, FiX } from 'react-icons/fi';
 import { SearchHandler } from '../types/umkm';
 
 interface SearchBarProps {
@@ -11,6 +11,15 @@ interface SearchBarProps {
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch, placeholder = "Cari UMKM, makanan, atau layanan..." }) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
+  // Debounce search functionality
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      onSearch(searchTerm);
+    }, 300); // 300ms debounce delay
+
+    return () => clearTimeout(timeoutId);
+  }, [searchTerm, onSearch]);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSearch(searchTerm);
@@ -18,8 +27,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, placeholder = "Cari UMK
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
-    onSearch(e.target.value);
   };
+
+  const handleClear = useCallback(() => {
+    setSearchTerm('');
+    onSearch('');
+  }, [onSearch]);
 
   return (
     <motion.form
@@ -38,16 +51,39 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, placeholder = "Cari UMK
           value={searchTerm}
           onChange={handleChange}
           placeholder={placeholder}
-          className="w-full pl-12 pr-4 py-4 text-slate-900 placeholder-slate-500 bg-white rounded-full shadow-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200"
+          className="w-full pl-12 pr-24 py-5 text-slate-900 placeholder-slate-500 bg-white rounded-2xl shadow-soft border border-slate-200/50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent focus:shadow-soft-lg transition-all duration-300"
         />
+        
+        {/* Clear Button */}
+        <AnimatePresence>
+          {searchTerm.length > 0 && (
+            <motion.button
+              type="button"
+              onClick={handleClear}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ duration: 0.2 }}
+              className="absolute inset-y-0 right-16 flex items-center pr-2"
+            >
+              <div className="bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-800 p-2 rounded-lg transition-all duration-200">
+                <FiX className="h-4 w-4" />
+              </div>
+            </motion.button>
+          )}
+        </AnimatePresence>
+
+        {/* Search Button */}
         <motion.button
           type="submit"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="absolute inset-y-0 right-0 pr-2 flex items-center"
+          className="absolute inset-y-0 right-0 pr-3 flex items-center"
         >
-          <div className="bg-gradient-to-r from-emerald-500 to-green-500 text-white p-3 rounded-full shadow-md hover:shadow-lg transition-shadow duration-200">
-            <FiSearch className="h-4 w-4" />
+          <div className="bg-gradient-primary text-white p-3 rounded-xl shadow-soft hover:shadow-soft-lg transition-all duration-300">
+            <FiSearch className="h-5 w-5" />
           </div>
         </motion.button>
       </div>

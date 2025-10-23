@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiMapPin } from 'react-icons/fi';
+import {
+  FiMapPin
+} from 'react-icons/fi';
 import RatingStars from './RatingStars';
 import { Umkm } from '../types/umkm';
 
@@ -10,16 +12,33 @@ interface UmkmCardProps {
 }
 
 const UmkmCard: React.FC<UmkmCardProps> = ({ umkm }) => {
+  // Function to map facility names to icons
+  const getFacilityIcon = (facilityName: string): React.JSX.Element | null => {
+    const lowerCaseName = facilityName.toLowerCase();
+    
+    if (lowerCaseName.includes('wifi')) return <div className="h-3 w-3 rounded-full bg-blue-500"></div>;
+    if (lowerCaseName.includes('parkir')) return <div className="h-3 w-3 rounded-full bg-green-500"></div>;
+    if (lowerCaseName.includes('ac')) return <div className="h-3 w-3 rounded-full bg-cyan-500"></div>;
+    if (lowerCaseName.includes('merokok')) return <div className="h-3 w-3 rounded-full bg-orange-500"></div>;
+    if (lowerCaseName.includes('tempat duduk')) return <div className="h-3 w-3 rounded-full bg-purple-500"></div>;
+    if (lowerCaseName.includes('takeaway')) return <div className="h-3 w-3 rounded-full bg-red-500"></div>;
+    if (lowerCaseName.includes('delivery')) return <div className="h-3 w-3 rounded-full bg-yellow-500"></div>;
+    if (lowerCaseName.includes('pickup')) return <div className="h-3 w-3 rounded-full bg-yellow-600"></div>;
+    if (lowerCaseName.includes('24 jam')) return <div className="h-3 w-3 rounded-full bg-indigo-500"></div>;
+    if (lowerCaseName.includes('express')) return <div className="h-3 w-3 rounded-full bg-pink-500"></div>;
+    if (lowerCaseName.includes('spare part')) return <div className="h-3 w-3 rounded-full bg-gray-500"></div>;
+    if (lowerCaseName.includes('ruang tunggu')) return <div className="h-3 w-3 rounded-full bg-teal-500"></div>;
+    if (lowerCaseName.includes('custom')) return <div className="h-3 w-3 rounded-full bg-slate-500"></div>;
+    
+    return null; // Return null for unmapped facilities
+  };
+
   return (
     <Link to={`/umkm/${umkm.id}`}>
       <motion.div
-        whileHover={{ 
-          scale: 1.03, 
-          y: -5,
-          boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1)"
-        }}
-        transition={{ type: 'spring', stiffness: 300 }}
-        className="group bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer"
+        whileHover={{ y: -4, scale: 1.02 }}
+        transition={{ duration: 0.2 }}
+        className="card overflow-hidden"
       >
         {/* Image */}
         <div className="relative h-48 overflow-hidden">
@@ -47,59 +66,62 @@ const UmkmCard: React.FC<UmkmCardProps> = ({ umkm }) => {
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-8 space-y-6">
           {/* Category Badge */}
           <div className="mb-3">
-            <span className="bg-emerald-100 text-emerald-800 rounded-full px-3 py-1 text-sm font-medium">
+            <span className="bg-primary-100 text-primary-800 rounded-full px-4 py-2 text-sm font-medium">
               {umkm.category}
             </span>
           </div>
 
-          {/* Name */}
-          <h3 className="font-poppins font-bold text-slate-900 text-lg mb-2 line-clamp-1">
-            {umkm.name}
-          </h3>
-
-          {/* Description */}
-          <p className="text-slate-600 text-sm mb-3 line-clamp-2">
-            {umkm.description}
-          </p>
-
-          {/* Rating */}
-          <div className="mb-3">
-            <RatingStars rating={umkm.rating} size="sm" />
+          {/* Title and Description */}
+          <div>
+            <h3 className="text-xl font-semibold text-slate-900 mb-3 hover:text-primary-600 transition-colors">
+              {umkm.name}
+            </h3>
+            <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">
+              {umkm.description}
+            </p>
           </div>
 
-          {/* Address */}
-          <div className="flex items-center text-slate-500 text-sm mb-3">
-            <FiMapPin className="h-4 w-4 mr-1 flex-shrink-0" />
+          {/* Rating */}
+          <div className="flex items-center">
+            <RatingStars rating={umkm.rating} />
+            <span className="text-sm text-slate-500 ml-2">
+              {umkm.rating}/5
+            </span>
+          </div>
+
+          {/* Location */}
+          <div className="flex items-center text-slate-500 text-sm">
+            <FiMapPin className="h-4 w-4 mr-2 flex-shrink-0 text-primary-500" />
             <span className="line-clamp-1">{umkm.address}</span>
           </div>
 
           {/* Facilities */}
-          <div className="flex flex-wrap gap-1 mb-3">
-            {umkm.facilities.slice(0, 3).map((facility, index) => (
-              <span
-                key={index}
-                className="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs"
-              >
-                {facility}
-              </span>
-            ))}
-            {umkm.facilities.length > 3 && (
-              <span className="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs">
-                +{umkm.facilities.length - 3}
-              </span>
+          <div className="flex items-center gap-2 mb-3">
+            {umkm.facilities.slice(0, 4).map((facility, index) => {
+              const icon = getFacilityIcon(facility);
+              return icon ? (
+                <div key={index} className="flex items-center">
+                  {icon}
+                </div>
+              ) : null;
+            }).filter(Boolean)}
+            {umkm.facilities.length > 4 && (
+              <div className="flex items-center justify-center h-4 w-4 bg-slate-200 text-slate-600 rounded-full text-xs font-medium">
+                +{umkm.facilities.length - 4}
+              </div>
             )}
           </div>
 
           {/* Price Range */}
           {umkm.products && umkm.products.length > 0 && (
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between pt-4 border-t border-slate-100">
               <div className="text-sm text-slate-500">
                 Mulai dari
               </div>
-              <div className="font-semibold text-emerald-600">
+              <div className="font-semibold text-primary-600 text-lg">
                 Rp {Math.min(...umkm.products.map(p => p.price)).toLocaleString('id-ID')}
               </div>
             </div>

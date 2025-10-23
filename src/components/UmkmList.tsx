@@ -43,7 +43,7 @@ const UmkmList: React.FC<UmkmListProps> = ({ umkmList, title = "Semua UMKM" }) =
     <div className="w-full">
       {/* Title */}
       <div className="mb-8">
-        <h2 className="font-poppins font-bold text-2xl text-slate-900 mb-2">
+        <h2 className="font-bold text-2xl text-slate-900 mb-2">
           {title}
         </h2>
         <p className="text-slate-600">

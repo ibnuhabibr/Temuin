@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/70 backdrop-blur-md shadow-sm">
+    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg shadow-soft border-b border-white/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
             <div className="ml-10 flex items-baseline space-x-8">
               <Link
                 to="/"
-                className="font-medium text-slate-700 hover:text-emerald-500 transition-colors duration-200 px-3 py-2 rounded-md text-sm"
+                className="font-medium text-slate-700 hover:text-primary-600 transition-colors duration-300 px-3 py-2 rounded-lg text-sm"
               >
                 Beranda
               </Link>
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={toggleMobileMenu}
-              className="text-slate-700 hover:text-emerald-500 transition-colors duration-200"
+              className="text-slate-700 hover:text-primary-600 transition-colors duration-300"
               aria-label="Toggle mobile menu"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -99,14 +99,14 @@ const Navbar: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
-              className="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-40 md:hidden"
+              className="fixed top-0 right-0 h-full w-64 bg-white/95 backdrop-blur-lg shadow-soft-lg border-l border-white/20 z-40 md:hidden"
             >
               {/* Close Button */}
               <div className="flex justify-end p-4">
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   onClick={closeMobileMenu}
-                  className="text-slate-700 hover:text-emerald-500 transition-colors duration-200"
+                  className="text-slate-700 hover:text-primary-600 transition-colors duration-300"
                   aria-label="Close mobile menu"
                 >
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -120,7 +120,7 @@ const Navbar: React.FC = () => {
                 <Link
                   to="/"
                   onClick={closeMobileMenu}
-                  className="block font-medium text-slate-700 hover:text-emerald-500 transition-colors duration-200 px-3 py-3 rounded-md text-base border-b border-slate-100"
+                  className="block font-medium text-slate-700 hover:text-primary-600 transition-colors duration-300 px-4 py-3 rounded-lg text-base border-b border-slate-100/50"
                 >
                   Beranda
                 </Link>
@@ -149,7 +149,7 @@ const Navbar: React.FC = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={closeMobileMenu}
-                    className="w-full bg-gradient-to-r from-emerald-500 to-green-500 text-white px-4 py-3 rounded-full text-base font-medium shadow-md hover:shadow-lg transition-shadow duration-200"
+                    className="w-full bg-gradient-primary text-white px-6 py-3 rounded-xl text-base font-medium shadow-soft hover:shadow-soft-lg transition-all duration-300"
                   >
                     Daftar Bisnis
                   </motion.button>

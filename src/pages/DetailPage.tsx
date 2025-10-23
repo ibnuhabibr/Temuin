@@ -16,12 +16,12 @@ const DetailPage: React.FC = () => {
   if (!umkm) {
     return (
       <AnimatedWrapper>
-        <div className="min-h-screen bg-slate-50 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-slate-900 mb-4">UMKM tidak ditemukan</h1>
+        <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
+          <div className="text-center bg-white rounded-2xl shadow-soft p-12 border border-slate-100/50">
+            <h1 className="text-3xl font-bold text-slate-900 mb-6">UMKM tidak ditemukan</h1>
             <Link 
               to="/" 
-              className="text-emerald-600 hover:text-emerald-700 font-medium"
+              className="text-primary-600 hover:text-primary-700 font-medium transition-colors duration-300"
             >
               Kembali ke beranda
             </Link>
@@ -48,12 +48,12 @@ const DetailPage: React.FC = () => {
     <AnimatedWrapper>
       <div className="min-h-screen bg-slate-50">
         {/* Header */}
-        <div className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="bg-white shadow-soft border-b border-slate-100/50">
+          <div className="max-w-7xl mx-auto px-6 py-6">
             <div className="flex items-center justify-between">
               <Link 
                 to="/"
-                className="flex items-center text-slate-600 hover:text-emerald-600 transition-colors duration-200"
+                className="flex items-center text-slate-600 hover:text-primary-600 transition-colors duration-300"
               >
                 <FiArrowLeft className="h-5 w-5 mr-2" />
                 <span className="font-medium">Kembali</span>
@@ -63,7 +63,7 @@ const DetailPage: React.FC = () => {
                 onClick={shareUrl}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-2 text-slate-600 hover:text-emerald-600 transition-colors duration-200"
+                className="flex items-center space-x-2 text-slate-600 hover:text-primary-600 transition-colors duration-300"
               >
                 <FiShare2 className="h-5 w-5" />
                 <span className="font-medium">Bagikan</span>
@@ -73,8 +73,8 @@ const DetailPage: React.FC = () => {
         </div>
 
         {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left Column - Gallery */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -89,13 +89,13 @@ const DetailPage: React.FC = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-6"
+              className="space-y-8"
             >
               {/* Basic Info */}
               <div>
                 {/* Category Badge */}
                 <div className="mb-3">
-                  <span className="bg-emerald-100 text-emerald-800 rounded-full px-3 py-1 text-sm font-medium">
+                  <span className="bg-primary-100 text-primary-800 rounded-full px-4 py-2 text-sm font-medium">
                     {umkm.category}
                   </span>
                   {umkm.isFeatured && (
@@ -106,7 +106,7 @@ const DetailPage: React.FC = () => {
                 </div>
 
                 {/* Name */}
-                <h1 className="font-poppins font-bold text-3xl text-slate-900 mb-4">
+                <h1 className="font-bold text-3xl text-slate-900 mb-6">
                   {umkm.name}
                 </h1>
 
@@ -132,7 +132,7 @@ const DetailPage: React.FC = () => {
 
               {/* Description */}
               <div>
-                <h3 className="font-poppins font-semibold text-lg text-slate-900 mb-3">
+                <h3 className="font-semibold text-xl text-slate-900 mb-4">
                   Tentang
                 </h3>
                 <p className="text-slate-600 leading-relaxed mb-4">
@@ -145,14 +145,14 @@ const DetailPage: React.FC = () => {
 
               {/* Facilities */}
               <div>
-                <h3 className="font-poppins font-semibold text-lg text-slate-900 mb-3">
+                <h3 className="font-semibold text-xl text-slate-900 mb-4">
                   Fasilitas
                 </h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {umkm.facilities.map((facility, index) => (
                     <span
                       key={index}
-                      className="bg-slate-100 text-slate-700 px-3 py-2 rounded-lg text-sm font-medium"
+                      className="bg-slate-100/80 text-slate-700 px-4 py-2 rounded-xl text-sm font-medium border border-slate-200/50"
                     >
                       {facility}
                     </span>
@@ -163,14 +163,14 @@ const DetailPage: React.FC = () => {
               {/* Products/Services */}
               {umkm.products && umkm.products.length > 0 && (
                 <div>
-                  <h3 className="font-poppins font-semibold text-lg text-slate-900 mb-3">
+                  <h3 className="font-semibold text-xl text-slate-900 mb-4">
                     Produk & Layanan
                   </h3>
                   <div className="space-y-3">
                     {umkm.products.map((product, index) => (
-                      <div key={index} className="flex justify-between items-center p-3 bg-white rounded-lg shadow-sm">
+                      <div key={index} className="flex justify-between items-center p-4 bg-white rounded-xl shadow-soft border border-slate-100/50">
                         <span className="font-medium text-slate-900">{product.name}</span>
-                        <span className="font-semibold text-emerald-600">
+                        <span className="font-semibold text-primary-600">
                           Rp {product.price.toLocaleString('id-ID')}
                         </span>
                       </div>
@@ -184,7 +184,7 @@ const DetailPage: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-6 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition-shadow duration-200"
+                  className="flex items-center justify-center space-x-2 bg-gradient-primary text-white px-6 py-4 rounded-xl font-medium shadow-soft hover:shadow-soft-lg transition-all duration-300"
                 >
                   <FiPhone className="h-4 w-4" />
                   <span>Hubungi</span>
@@ -193,7 +193,7 @@ const DetailPage: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center space-x-2 bg-white text-emerald-600 border border-emerald-600 px-6 py-3 rounded-lg font-medium hover:bg-emerald-50 transition-colors duration-200"
+                  className="flex items-center justify-center space-x-2 bg-white text-primary-600 border border-primary-600 px-6 py-4 rounded-xl font-medium hover:bg-primary-50 transition-colors duration-300"
                 >
                   <FiGlobe className="h-4 w-4" />
                   <span>Website</span>
@@ -207,7 +207,7 @@ const DetailPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-12"
+            className="mt-16"
           >
             <MapEmbed 
               embedUrl={umkm.googleMapsEmbedUrl}
@@ -221,12 +221,12 @@ const DetailPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-12"
+            className="mt-16"
           >
-            <h3 className="font-poppins font-semibold text-2xl text-slate-900 mb-6">
+            <h3 className="font-semibold text-2xl text-slate-900 mb-8">
               UMKM Serupa
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {umkmData
                 .filter(item => item.category === umkm.category && item.id !== umkm.id)
                 .slice(0, 3)
@@ -234,14 +234,14 @@ const DetailPage: React.FC = () => {
                   <Link key={relatedUmkm.id} to={`/umkm/${relatedUmkm.id}`}>
                     <motion.div
                       whileHover={{ scale: 1.02, y: -2 }}
-                      className="bg-white rounded-lg shadow-md overflow-hidden"
+                      className="bg-white rounded-xl shadow-soft border border-slate-100/50 overflow-hidden"
                     >
                       <img
                         src={relatedUmkm.gallery[0]}
                         alt={relatedUmkm.name}
                         className="w-full h-32 object-cover"
                       />
-                      <div className="p-4">
+                      <div className="p-5">
                         <h4 className="font-semibold text-slate-900 mb-1">
                           {relatedUmkm.name}
                         </h4>

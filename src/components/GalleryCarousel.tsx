@@ -37,7 +37,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName 
   return (
     <div className="relative w-full">
       {/* Main Image */}
-      <div className="relative h-96 rounded-xl overflow-hidden shadow-lg">
+      <div className="relative h-96 rounded-2xl overflow-hidden shadow-soft-lg border border-slate-100/50">
         <AnimatePresence mode="wait">
           <motion.img
             key={currentIndex}
@@ -58,7 +58,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName 
               onClick={prevImage}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-lg hover:bg-white transition-colors duration-200"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-lg p-3 rounded-full shadow-soft hover:bg-white transition-all duration-300"
             >
               <FiChevronLeft className="h-5 w-5 text-slate-700" />
             </motion.button>
@@ -67,7 +67,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName 
               onClick={nextImage}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-lg hover:bg-white transition-colors duration-200"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-lg p-3 rounded-full shadow-soft hover:bg-white transition-all duration-300"
             >
               <FiChevronRight className="h-5 w-5 text-slate-700" />
             </motion.button>
@@ -91,9 +91,9 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName 
               onClick={() => goToImage(index)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+              className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
                 index === currentIndex
-                  ? 'border-emerald-500 shadow-md'
+                  ? 'border-primary-500 shadow-soft'
                   : 'border-slate-200 hover:border-slate-300'
               }`}
             >

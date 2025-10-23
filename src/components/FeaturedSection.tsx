@@ -37,17 +37,17 @@ const FeaturedSection: React.FC<FeaturedSectionProps> = ({ umkmList }) => {
   };
 
   return (
-    <section className="w-full mb-12">
+    <section className="w-full mb-16">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-8"
+        className="text-center mb-12"
       >
         <div className="flex items-center justify-center mb-4">
           <FiStar className="h-6 w-6 text-amber-400 mr-2" />
-          <h2 className="font-poppins font-bold text-3xl text-slate-900">
+          <h2 className="text-3xl font-bold text-slate-900">
             UMKM Unggulan
           </h2>
           <FiStar className="h-6 w-6 text-amber-400 ml-2" />
@@ -63,7 +63,7 @@ const FeaturedSection: React.FC<FeaturedSectionProps> = ({ umkmList }) => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
       >
         {featuredUmkm.map((umkm) => (
           <motion.div key={umkm.id} variants={itemVariants}>

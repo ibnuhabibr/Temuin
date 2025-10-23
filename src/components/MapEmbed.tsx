@@ -20,8 +20,8 @@ const MapEmbed: React.FC<MapEmbedProps> = ({ embedUrl, address, businessName }) 
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
-          <FiMapPin className="h-5 w-5 text-emerald-600 mr-2" />
-          <h3 className="font-poppins font-semibold text-lg text-slate-900">
+          <FiMapPin className="h-5 w-5 text-primary-600 mr-2" />
+          <h3 className="font-semibold text-xl text-slate-900">
             Lokasi
           </h3>
         </div>
@@ -29,7 +29,7 @@ const MapEmbed: React.FC<MapEmbedProps> = ({ embedUrl, address, businessName }) 
           onClick={openInGoogleMaps}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center space-x-1 text-emerald-600 hover:text-emerald-700 transition-colors duration-200"
+          className="flex items-center space-x-1 text-primary-600 hover:text-primary-700 transition-colors duration-300"
         >
           <span className="text-sm font-medium">Buka di Maps</span>
           <FiExternalLink className="h-4 w-4" />
@@ -40,7 +40,7 @@ const MapEmbed: React.FC<MapEmbedProps> = ({ embedUrl, address, businessName }) 
       <p className="text-slate-600 mb-4">{address}</p>
 
       {/* Map Embed */}
-      <div className="rounded-xl overflow-hidden shadow-lg">
+      <div className="rounded-2xl overflow-hidden shadow-soft-lg border border-slate-100/50">
         {embedUrl ? (
           <iframe
             src={embedUrl}
@@ -62,7 +62,7 @@ const MapEmbed: React.FC<MapEmbedProps> = ({ embedUrl, address, businessName }) 
                 onClick={openInGoogleMaps}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="mt-2 text-emerald-600 hover:text-emerald-700 font-medium"
+                className="mt-2 text-primary-600 hover:text-primary-700 font-medium transition-colors duration-300"
               >
                 Lihat di Google Maps
               </motion.button>
@@ -72,7 +72,7 @@ const MapEmbed: React.FC<MapEmbedProps> = ({ embedUrl, address, businessName }) 
       </div>
 
       {/* Additional Info */}
-      <div className="mt-4 p-4 bg-slate-50 rounded-lg">
+      <div className="mt-6 p-5 bg-slate-50/80 rounded-xl border border-slate-100/50">
         <p className="text-sm text-slate-600">
           <strong>Tips:</strong> Klik "Buka di Maps" untuk mendapatkan petunjuk arah 
           dan informasi lalu lintas terkini.

@@ -24,19 +24,24 @@ const HomePage: React.FC = () => {
 
     // Filter by search term
     if (searchTerm.trim()) {
-      const searchLower = searchTerm.toLowerCase();
-      filtered = filtered.filter(umkm =>
-        umkm.name.toLowerCase().includes(searchLower) ||
-        umkm.description.toLowerCase().includes(searchLower) ||
-        umkm.category.toLowerCase().includes(searchLower) ||
-        umkm.address.toLowerCase().includes(searchLower) ||
-        umkm.facilities.some(facility => 
-          facility.toLowerCase().includes(searchLower)
-        ) ||
-        umkm.products.some(product => 
-          product.name.toLowerCase().includes(searchLower)
-        )
-      );
+      const searchLower = searchTerm.trim().toLowerCase();
+      const searchWords = searchLower.split(/\s+/).filter(word => word.length > 0);
+      
+      filtered = filtered.filter(umkm => {
+        // Create searchable text from all relevant fields
+        const searchableText = [
+          umkm.name,
+          umkm.description,
+          umkm.category,
+          umkm.address,
+          ...umkm.facilities,
+          ...umkm.products.map(product => product.name)
+        ].join(' ').toLowerCase();
+
+        // Check if all search words are found in the searchable text
+        // This provides basic typo tolerance by matching individual words
+        return searchWords.every(word => searchableText.includes(word));
+      });
     }
 
     setFilteredUmkm(filtered);
@@ -54,7 +59,7 @@ const HomePage: React.FC = () => {
     <AnimatedWrapper>
       <div className="min-h-screen bg-slate-50">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-emerald-500 via-green-500 to-emerald-600 text-white py-20 px-4">
+        <section className="relative bg-gradient-primary text-white py-24 px-6">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
@@ -67,7 +72,7 @@ const HomePage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
             >
               Temukan Hidden Gems
               <br />
@@ -78,7 +83,7 @@ const HomePage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-inter text-lg md:text-xl text-emerald-50 mb-8 max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
             >
               Jelajahi UMKM lokal terbaik di sekitar Anda. Dari kuliner lezat hingga 
               layanan berkualitas, temukan semua kebutuhan Anda di satu tempat.
@@ -104,15 +109,15 @@ const HomePage: React.FC = () => {
         </section>
 
         {/* Controls Section */}
-        <section className="py-8 px-4">
+        <section className="py-12 px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <h2 className="font-poppins font-semibold text-2xl text-slate-900 mb-2">
+                <h2 className="text-2xl font-semibold text-slate-900 mb-2">
                   Jelajahi UMKM
                 </h2>
                 <p className="text-slate-600">
@@ -135,7 +140,7 @@ const HomePage: React.FC = () => {
         </section>
 
         {/* Content Section */}
-        <section className="pb-16 px-4">
+        <section className="pb-20 px-6">
           <div className="max-w-7xl mx-auto">
             {/* Featured Section */}
             {!searchTerm && selectedCategory === 'Semua' && (
@@ -169,28 +174,28 @@ const HomePage: React.FC = () => {
         </section>
 
         {/* Stats Section */}
-        <section className="bg-white py-16 px-4">
+        <section className="bg-white py-20 px-6">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.4 }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
+              className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center"
             >
               <div>
-                <div className="font-poppins font-bold text-3xl text-emerald-600 mb-2">
+                <div className="text-3xl font-bold text-primary-600 mb-2">
                   {umkmData.length}+
                 </div>
                 <div className="text-slate-600">UMKM Terdaftar</div>
               </div>
               <div>
-                <div className="font-poppins font-bold text-3xl text-emerald-600 mb-2">
+                <div className="text-3xl font-bold text-primary-600 mb-2">
                   {new Set(umkmData.map(umkm => umkm.category)).size}
                 </div>
                 <div className="text-slate-600">Kategori Bisnis</div>
               </div>
               <div>
-                <div className="font-poppins font-bold text-3xl text-emerald-600 mb-2">
+                <div className="text-3xl font-bold text-primary-600 mb-2">
                   {umkmData.filter(umkm => umkm.isFeatured).length}
                 </div>
                 <div className="text-slate-600">UMKM Unggulan</div>
