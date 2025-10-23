@@ -6,7 +6,6 @@ import HomePage from './pages/HomePage';
 import DetailPage from './pages/DetailPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
-import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -27,9 +26,6 @@ function App() {
           <Route path="/kontak" element={<ContactPage />} />
         </Routes>
       </AnimatePresence>
-      
-      {/* Footer appears on all pages */}
-      <Footer />
     </div>
   );
 }

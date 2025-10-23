@@ -23,6 +23,7 @@ export interface Umkm {
   isWeeklyWow?: boolean;
   facilities: string[];
   products: Product[];
+  operationalHours?: Array<{ day: string; hours: string; isOpen?: boolean }>;
 }
 
 // Additional utility types

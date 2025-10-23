@@ -12,26 +12,6 @@ interface UmkmCardProps {
 }
 
 const UmkmCard: React.FC<UmkmCardProps> = ({ umkm }) => {
-  // Function to map facility names to icons
-  const getFacilityIcon = (facilityName: string): React.JSX.Element | null => {
-    const lowerCaseName = facilityName.toLowerCase();
-    
-    if (lowerCaseName.includes('wifi')) return <div className="h-3 w-3 rounded-full bg-blue-500"></div>;
-    if (lowerCaseName.includes('parkir')) return <div className="h-3 w-3 rounded-full bg-green-500"></div>;
-    if (lowerCaseName.includes('ac')) return <div className="h-3 w-3 rounded-full bg-cyan-500"></div>;
-    if (lowerCaseName.includes('merokok')) return <div className="h-3 w-3 rounded-full bg-orange-500"></div>;
-    if (lowerCaseName.includes('tempat duduk')) return <div className="h-3 w-3 rounded-full bg-purple-500"></div>;
-    if (lowerCaseName.includes('takeaway')) return <div className="h-3 w-3 rounded-full bg-red-500"></div>;
-    if (lowerCaseName.includes('delivery')) return <div className="h-3 w-3 rounded-full bg-yellow-500"></div>;
-    if (lowerCaseName.includes('pickup')) return <div className="h-3 w-3 rounded-full bg-yellow-600"></div>;
-    if (lowerCaseName.includes('24 jam')) return <div className="h-3 w-3 rounded-full bg-indigo-500"></div>;
-    if (lowerCaseName.includes('express')) return <div className="h-3 w-3 rounded-full bg-pink-500"></div>;
-    if (lowerCaseName.includes('spare part')) return <div className="h-3 w-3 rounded-full bg-gray-500"></div>;
-    if (lowerCaseName.includes('ruang tunggu')) return <div className="h-3 w-3 rounded-full bg-teal-500"></div>;
-    if (lowerCaseName.includes('custom')) return <div className="h-3 w-3 rounded-full bg-slate-500"></div>;
-    
-    return null; // Return null for unmapped facilities
-  };
 
   return (
     <Link to={`/umkm/${umkm.id}`} className="group block h-full">
@@ -96,23 +76,6 @@ const UmkmCard: React.FC<UmkmCardProps> = ({ umkm }) => {
           <div className="flex items-center text-slate-500 text-sm mb-4">
             <FiMapPin className="h-4 w-4 mr-2 flex-shrink-0 text-primary-500" />
             <span className="line-clamp-1">{umkm.address}</span>
-          </div>
-
-          {/* Facilities */}
-          <div className="flex items-center gap-2 mb-4 min-h-[1.5rem]">
-            {umkm.facilities.slice(0, 4).map((facility, index) => {
-              const icon = getFacilityIcon(facility);
-              return icon ? (
-                <div key={index} className="flex items-center" title={facility}>
-                  {icon}
-                </div>
-              ) : null;
-            }).filter(Boolean)}
-            {umkm.facilities.length > 4 && (
-              <div className="flex items-center justify-center h-4 w-4 bg-slate-200 text-slate-600 rounded-full text-xs font-medium" title={`+${umkm.facilities.length - 4} fasilitas lainnya`}>
-                +{umkm.facilities.length - 4}
-              </div>
-            )}
           </div>
 
           {/* Price Range - Always at bottom */}

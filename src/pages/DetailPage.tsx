@@ -49,8 +49,8 @@ const DetailPage: React.FC = () => {
       <div className="min-h-screen bg-slate-50">
         {/* Header */}
         <div className="bg-white shadow-soft border-b border-slate-100/50">
-          <div className="max-w-7xl mx-auto px-6 py-6">
-            <div className="flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-6 py-4">
+            <div className="flex items-center">
               <Link 
                 to="/"
                 aria-label="Kembali ke halaman utama"
@@ -59,17 +59,6 @@ const DetailPage: React.FC = () => {
                 <FiArrowLeft className="h-5 w-5 mr-2" />
                 <span className="font-medium">Kembali</span>
               </Link>
-              
-              <motion.button
-                onClick={shareUrl}
-                aria-label="Bagikan halaman ini"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-2 text-slate-600 hover:text-primary-600 transition-colors duration-300"
-              >
-                <FiShare2 className="h-5 w-5" />
-                <span className="font-medium">Bagikan</span>
-              </motion.button>
             </div>
           </div>
         </div>
@@ -257,12 +246,36 @@ const DetailPage: React.FC = () => {
                 </div>
               </motion.div>
 
+              {/* Operational Hours Section */}
+              {umkm.operationalHours && umkm.operationalHours.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.45 }}
+                  className="bg-white rounded-2xl shadow-soft border border-slate-100/50 p-6"
+                >
+                  <h3 className="font-poppins font-semibold text-lg text-slate-900 mb-3">
+                    Jam Operasional
+                  </h3>
+                  <div className="space-y-2">
+                    {umkm.operationalHours.map((opHour, index) => (
+                      <div key={index} className="flex justify-between text-sm mb-1">
+                        <span className="text-slate-600">{opHour.day}</span>
+                        <span className={`font-medium ${opHour.isOpen === false ? 'text-red-500' : 'text-slate-800'}`}>
+                          {opHour.hours}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+
               {/* Products/Services Section */}
               {umkm.products && umkm.products.length > 0 && (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.5 }}
+                  transition={{ duration: 0.4, delay: 0.55 }}
                   className="bg-white rounded-2xl shadow-soft border border-slate-100/50 p-6"
                 >
                   <h3 className="font-semibold text-lg text-slate-900 mb-4">

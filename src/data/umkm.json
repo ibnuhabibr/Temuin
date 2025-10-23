@@ -27,6 +27,15 @@
       { "name": "Kopi Susu Gula Aren", "price": 18000 },
       { "name": "Espresso", "price": 15000 },
       { "name": "Cappuccino", "price": 20000 }
+    ],
+    "operationalHours": [
+      { "day": "Senin", "hours": "07:00 - 22:00", "isOpen": true },
+      { "day": "Selasa", "hours": "07:00 - 22:00", "isOpen": true },
+      { "day": "Rabu", "hours": "07:00 - 22:00", "isOpen": true },
+      { "day": "Kamis", "hours": "07:00 - 22:00", "isOpen": true },
+      { "day": "Jumat", "hours": "07:00 - 23:00", "isOpen": true },
+      { "day": "Sabtu", "hours": "08:00 - 23:00", "isOpen": true },
+      { "day": "Minggu", "hours": "08:00 - 21:00", "isOpen": true }
     ]
   },
   {
@@ -55,6 +64,15 @@
       { "name": "Bakso Urat", "price": 25000 },
       { "name": "Bakso Biasa", "price": 20000 },
       { "name": "Mie Ayam Bakso", "price": 22000 }
+    ],
+    "operationalHours": [
+      { "day": "Senin", "hours": "10:00 - 21:00", "isOpen": true },
+      { "day": "Selasa", "hours": "10:00 - 21:00", "isOpen": true },
+      { "day": "Rabu", "hours": "10:00 - 21:00", "isOpen": true },
+      { "day": "Kamis", "hours": "10:00 - 21:00", "isOpen": true },
+      { "day": "Jumat", "hours": "10:00 - 22:00", "isOpen": true },
+      { "day": "Sabtu", "hours": "09:00 - 22:00", "isOpen": true },
+      { "day": "Minggu", "hours": "09:00 - 21:00", "isOpen": true }
     ]
   },
   {
@@ -81,6 +99,15 @@
       { "name": "Potong Rambut", "price": 35000 },
       { "name": "Creambath", "price": 50000 },
       { "name": "Facial", "price": 75000 }
+    ],
+    "operationalHours": [
+      { "day": "Senin", "hours": "09:00 - 18:00", "isOpen": true },
+      { "day": "Selasa", "hours": "09:00 - 18:00", "isOpen": true },
+      { "day": "Rabu", "hours": "09:00 - 18:00", "isOpen": true },
+      { "day": "Kamis", "hours": "09:00 - 18:00", "isOpen": true },
+      { "day": "Jumat", "hours": "09:00 - 19:00", "isOpen": true },
+      { "day": "Sabtu", "hours": "08:00 - 19:00", "isOpen": true },
+      { "day": "Minggu", "hours": "Tutup", "isOpen": false }
     ]
   },
   {
@@ -110,6 +137,15 @@
       { "name": "Buket Mawar", "price": 150000 },
       { "name": "Bunga Papan", "price": 300000 },
       { "name": "Hand Bouquet", "price": 100000 }
+    ],
+    "operationalHours": [
+      { "day": "Senin", "hours": "08:00 - 20:00", "isOpen": true },
+      { "day": "Selasa", "hours": "08:00 - 20:00", "isOpen": true },
+      { "day": "Rabu", "hours": "08:00 - 20:00", "isOpen": true },
+      { "day": "Kamis", "hours": "08:00 - 20:00", "isOpen": true },
+      { "day": "Jumat", "hours": "08:00 - 20:00", "isOpen": true },
+      { "day": "Sabtu", "hours": "08:00 - 21:00", "isOpen": true },
+      { "day": "Minggu", "hours": "09:00 - 18:00", "isOpen": true }
     ]
   },
   {
@@ -129,7 +165,7 @@
       "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=800&h=600&fit=crop",
       "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800&h=600&fit=crop"
     ],
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
     "rating": 4.3,
     "isOpen": true,
     "isFeatured": true,
@@ -138,6 +174,15 @@
       { "name": "Es Teh Manis", "price": 5000 },
       { "name": "Es Jeruk", "price": 8000 },
       { "name": "Es Campur", "price": 12000 }
+    ],
+    "operationalHours": [
+      { "day": "Senin", "hours": "06:00 - 20:00", "isOpen": true },
+      { "day": "Selasa", "hours": "06:00 - 20:00", "isOpen": true },
+      { "day": "Rabu", "hours": "06:00 - 20:00", "isOpen": true },
+      { "day": "Kamis", "hours": "06:00 - 20:00", "isOpen": true },
+      { "day": "Jumat", "hours": "06:00 - 21:00", "isOpen": true },
+      { "day": "Sabtu", "hours": "06:00 - 21:00", "isOpen": true },
+      { "day": "Minggu", "hours": "07:00 - 19:00", "isOpen": true }
     ]
   },
   {
@@ -167,6 +212,15 @@
       { "name": "Gudeg Komplit", "price": 25000 },
       { "name": "Gudeg Ayam", "price": 30000 },
       { "name": "Gudeg Telur", "price": 20000 }
+    ],
+    "operationalHours": [
+      { "day": "Senin", "hours": "11:00 - 21:00", "isOpen": true },
+      { "day": "Selasa", "hours": "11:00 - 21:00", "isOpen": true },
+      { "day": "Rabu", "hours": "11:00 - 21:00", "isOpen": true },
+      { "day": "Kamis", "hours": "11:00 - 21:00", "isOpen": true },
+      { "day": "Jumat", "hours": "11:00 - 22:00", "isOpen": true },
+      { "day": "Sabtu", "hours": "10:00 - 22:00", "isOpen": true },
+      { "day": "Minggu", "hours": "10:00 - 21:00", "isOpen": true }
     ]
   },
   {
@@ -193,6 +247,15 @@
       { "name": "Service Rutin", "price": 50000 },
       { "name": "Ganti Oli", "price": 35000 },
       { "name": "Tune Up", "price": 75000 }
+    ],
+    "operationalHours": [
+      { "day": "Senin", "hours": "08:00 - 17:00", "isOpen": true },
+      { "day": "Selasa", "hours": "08:00 - 17:00", "isOpen": true },
+      { "day": "Rabu", "hours": "08:00 - 17:00", "isOpen": true },
+      { "day": "Kamis", "hours": "08:00 - 17:00", "isOpen": true },
+      { "day": "Jumat", "hours": "08:00 - 17:00", "isOpen": true },
+      { "day": "Sabtu", "hours": "08:00 - 15:00", "isOpen": true },
+      { "day": "Minggu", "hours": "Tutup", "isOpen": false }
     ]
   },
   {
@@ -222,6 +285,15 @@
       { "name": "Jus Alpukat", "price": 15000 },
       { "name": "Smoothie Mangga", "price": 18000 },
       { "name": "Green Juice", "price": 22000 }
+    ],
+    "operationalHours": [
+      { "day": "Senin", "hours": "09:00 - 21:00", "isOpen": true },
+      { "day": "Selasa", "hours": "09:00 - 21:00", "isOpen": true },
+      { "day": "Rabu", "hours": "09:00 - 21:00", "isOpen": true },
+      { "day": "Kamis", "hours": "09:00 - 21:00", "isOpen": true },
+      { "day": "Jumat", "hours": "09:00 - 22:00", "isOpen": true },
+      { "day": "Sabtu", "hours": "08:00 - 22:00", "isOpen": true },
+      { "day": "Minggu", "hours": "08:00 - 20:00", "isOpen": true }
     ]
   },
   {
@@ -250,6 +322,15 @@
       { "name": "Pecel Lele", "price": 18000 },
       { "name": "Ayam Penyet", "price": 20000 },
       { "name": "Tahu Tempe Penyet", "price": 12000 }
+    ],
+    "operationalHours": [
+      { "day": "Senin", "hours": "16:00 - 23:00", "isOpen": true },
+      { "day": "Selasa", "hours": "16:00 - 23:00", "isOpen": true },
+      { "day": "Rabu", "hours": "16:00 - 23:00", "isOpen": true },
+      { "day": "Kamis", "hours": "16:00 - 23:00", "isOpen": true },
+      { "day": "Jumat", "hours": "16:00 - 24:00", "isOpen": true },
+      { "day": "Sabtu", "hours": "15:00 - 24:00", "isOpen": true },
+      { "day": "Minggu", "hours": "15:00 - 23:00", "isOpen": true }
     ]
   },
   {
@@ -276,6 +357,15 @@
       { "name": "Cuci Kering", "price": 8000 },
       { "name": "Cuci Setrika", "price": 12000 },
       { "name": "Dry Clean", "price": 25000 }
+    ],
+    "operationalHours": [
+      { "day": "Senin", "hours": "24 Jam", "isOpen": true },
+      { "day": "Selasa", "hours": "24 Jam", "isOpen": true },
+      { "day": "Rabu", "hours": "24 Jam", "isOpen": true },
+      { "day": "Kamis", "hours": "24 Jam", "isOpen": true },
+      { "day": "Jumat", "hours": "24 Jam", "isOpen": true },
+      { "day": "Sabtu", "hours": "24 Jam", "isOpen": true },
+      { "day": "Minggu", "hours": "24 Jam", "isOpen": true }
     ]
   }
 ]
