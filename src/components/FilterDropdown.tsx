@@ -1,18 +1,29 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown, FiFilter } from 'react-icons/fi';
+import { FilterHandler, UmkmCategory } from '../types/umkm';
 
-const FilterDropdown = ({ onFilter, selectedCategory = "Semua" }) => {
-  const [isOpen, setIsOpen] = useState(false);
+interface Category {
+  value: UmkmCategory;
+  label: string;
+}
+
+interface FilterDropdownProps {
+  onFilter: FilterHandler;
+  selectedCategory?: UmkmCategory;
+}
+
+const FilterDropdown: React.FC<FilterDropdownProps> = ({ onFilter, selectedCategory = "Semua" }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   
-  const categories = [
+  const categories: Category[] = [
     { value: "Semua", label: "Semua Kategori" },
     { value: "Makanan", label: "Makanan" },
     { value: "Minuman", label: "Minuman" },
     { value: "Jasa", label: "Jasa" }
   ];
 
-  const handleCategorySelect = (category) => {
+  const handleCategorySelect = (category: Category) => {
     onFilter(category.value);
     setIsOpen(false);
   };

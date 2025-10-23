@@ -1,9 +1,15 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiMapPin } from 'react-icons/fi';
 import RatingStars from './RatingStars';
+import { Umkm } from '../types/umkm';
 
-const UmkmCard = ({ umkm }) => {
+interface UmkmCardProps {
+  umkm: Umkm;
+}
+
+const UmkmCard: React.FC<UmkmCardProps> = ({ umkm }) => {
   return (
     <Link to={`/umkm/${umkm.id}`}>
       <motion.div

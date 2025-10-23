@@ -1,8 +1,9 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import logoSrc from '../assets/logo-temuin.svg';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   return (
     <nav className="sticky top-0 z-50 bg-white/70 backdrop-blur-md shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

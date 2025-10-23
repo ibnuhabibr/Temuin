@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-const GalleryCarousel = ({ images, businessName }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+interface GalleryCarouselProps {
+  images: string[];
+  businessName: string;
+}
+
+const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName }) => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const nextImage = () => {
     setCurrentIndex((prevIndex) => 
@@ -17,7 +22,7 @@ const GalleryCarousel = ({ images, businessName }) => {
     );
   };
 
-  const goToImage = (index) => {
+  const goToImage = (index: number) => {
     setCurrentIndex(index);
   };
 

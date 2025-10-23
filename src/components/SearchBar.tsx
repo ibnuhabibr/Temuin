@@ -1,16 +1,22 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiSearch } from 'react-icons/fi';
+import { SearchHandler } from '../types/umkm';
 
-const SearchBar = ({ onSearch, placeholder = "Cari UMKM, makanan, atau layanan..." }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+interface SearchBarProps {
+  onSearch: SearchHandler;
+  placeholder?: string;
+}
 
-  const handleSubmit = (e) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch, placeholder = "Cari UMKM, makanan, atau layanan..." }) => {
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSearch(searchTerm);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
     onSearch(e.target.value);
   };

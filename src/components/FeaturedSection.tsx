@@ -1,8 +1,14 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import UmkmCard from './UmkmCard';
 import { FiStar } from 'react-icons/fi';
+import { Umkm } from '../types/umkm';
 
-const FeaturedSection = ({ umkmList }) => {
+interface FeaturedSectionProps {
+  umkmList: Umkm[];
+}
+
+const FeaturedSection: React.FC<FeaturedSectionProps> = ({ umkmList }) => {
   const featuredUmkm = umkmList.filter(umkm => umkm.isFeatured);
 
   if (featuredUmkm.length === 0) {

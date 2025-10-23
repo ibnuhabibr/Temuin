@@ -1,7 +1,14 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import UmkmCard from './UmkmCard';
+import { Umkm } from '../types/umkm';
 
-const UmkmList = ({ umkmList, title = "Semua UMKM" }) => {
+interface UmkmListProps {
+  umkmList: Umkm[];
+  title?: string;
+}
+
+const UmkmList: React.FC<UmkmListProps> = ({ umkmList, title = "Semua UMKM" }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

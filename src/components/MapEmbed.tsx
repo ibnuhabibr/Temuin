@@ -1,7 +1,14 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { FiMapPin, FiExternalLink } from 'react-icons/fi';
 
-const MapEmbed = ({ embedUrl, address, businessName }) => {
+interface MapEmbedProps {
+  embedUrl: string;
+  address: string;
+  businessName: string;
+}
+
+const MapEmbed: React.FC<MapEmbedProps> = ({ embedUrl, address, businessName }) => {
   const openInGoogleMaps = () => {
     const searchQuery = encodeURIComponent(`${businessName} ${address}`);
     const googleMapsUrl = `https://www.google.com/maps/search/${searchQuery}`;
@@ -40,7 +47,7 @@ const MapEmbed = ({ embedUrl, address, businessName }) => {
             width="100%"
             height="300"
             style={{ border: 0 }}
-            allowFullScreen=""
+            allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title={`Lokasi ${businessName}`}

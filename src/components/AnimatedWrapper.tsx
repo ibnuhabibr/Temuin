@@ -1,6 +1,12 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 
-const AnimatedWrapper = ({ children, className = "" }) => {
+interface AnimatedWrapperProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const AnimatedWrapper: React.FC<AnimatedWrapperProps> = ({ children, className = "" }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

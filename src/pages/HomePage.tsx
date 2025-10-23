@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import AnimatedWrapper from '../components/AnimatedWrapper';
 import SearchBar from '../components/SearchBar';
 import FilterDropdown from '../components/FilterDropdown';
 import FeaturedSection from '../components/FeaturedSection';
 import UmkmList from '../components/UmkmList';
+import { Umkm, UmkmCategory } from '../types/umkm';
 import umkmData from '../data/umkm.json';
 
-const HomePage = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Semua');
-  const [filteredUmkm, setFilteredUmkm] = useState(umkmData);
+const HomePage: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<UmkmCategory>('Semua');
+  const [filteredUmkm, setFilteredUmkm] = useState<Umkm[]>(umkmData as Umkm[]);
 
   // Filter UMKM based on search term and category
   useEffect(() => {
@@ -41,11 +42,11 @@ const HomePage = () => {
     setFilteredUmkm(filtered);
   }, [searchTerm, selectedCategory]);
 
-  const handleSearch = (term) => {
+  const handleSearch = (term: string) => {
     setSearchTerm(term);
   };
 
-  const handleFilter = (category) => {
+  const handleFilter = (category: UmkmCategory) => {
     setSelectedCategory(category);
   };
 

@@ -1,7 +1,15 @@
+import React from 'react';
 import { FiStar } from 'react-icons/fi';
 import { FaStar } from 'react-icons/fa';
+import { RatingSize } from '../types/umkm';
 
-const RatingStars = ({ rating, size = "sm", showRating = true }) => {
+interface RatingStarsProps {
+  rating: number;
+  size?: RatingSize;
+  showRating?: boolean;
+}
+
+const RatingStars: React.FC<RatingStarsProps> = ({ rating, size = "sm", showRating = true }) => {
   const stars = [];
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowLeft, FiMapPin, FiClock, FiPhone, FiGlobe, FiShare2 } from 'react-icons/fi';
@@ -5,11 +6,12 @@ import AnimatedWrapper from '../components/AnimatedWrapper';
 import GalleryCarousel from '../components/GalleryCarousel';
 import MapEmbed from '../components/MapEmbed';
 import RatingStars from '../components/RatingStars';
+import { Umkm } from '../types/umkm';
 import umkmData from '../data/umkm.json';
 
-const DetailPage = () => {
-  const { id } = useParams();
-  const umkm = umkmData.find(item => item.id === parseInt(id));
+const DetailPage: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const umkm = (umkmData as Umkm[]).find(item => item.id === parseInt(id || '0'));
 
   if (!umkm) {
     return (
