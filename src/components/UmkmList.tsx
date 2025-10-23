@@ -10,23 +10,22 @@ interface UmkmListProps {
 
 const UmkmList: React.FC<UmkmListProps> = ({ umkmList, title = "Semua UMKM" }) => {
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 }, // Keep opacity 1 for smooth container appearance
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        delayChildren: 0.2, // Small delay before first item starts
+        staggerChildren: 0.07 // Time between each item animation
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
-      opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.3
-      }
+      opacity: 1,
+      transition: { duration: 0.4 }
     }
   };
 
