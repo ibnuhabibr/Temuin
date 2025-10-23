@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiArrowLeft, FiMapPin, FiClock, FiPhone, FiGlobe, FiShare2 } from 'react-icons/fi';
+import { FiArrowLeft, FiMapPin, FiClock, FiPhone, FiShare2 } from 'react-icons/fi';
 import AnimatedWrapper from '../components/AnimatedWrapper';
 import GalleryCarousel from '../components/GalleryCarousel';
 import MapEmbed from '../components/MapEmbed';
@@ -53,6 +53,7 @@ const DetailPage: React.FC = () => {
             <div className="flex items-center justify-between">
               <Link 
                 to="/"
+                aria-label="Kembali ke halaman utama"
                 className="flex items-center text-slate-600 hover:text-primary-600 transition-colors duration-300"
               >
                 <FiArrowLeft className="h-5 w-5 mr-2" />
@@ -61,6 +62,7 @@ const DetailPage: React.FC = () => {
               
               <motion.button
                 onClick={shareUrl}
+                aria-label="Bagikan halaman ini"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center space-x-2 text-slate-600 hover:text-primary-600 transition-colors duration-300"
@@ -171,23 +173,16 @@ const DetailPage: React.FC = () => {
               )}
 
               {/* Contact Actions */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="w-full">
                 <motion.button
+                  onClick={() => alert('Fitur "Hubungi" segera hadir!')}
+                  aria-label="Hubungi UMKM ini"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center space-x-2 bg-gradient-primary text-white px-6 py-4 rounded-xl font-medium shadow-soft hover:shadow-soft-lg transition-all duration-300"
+                  className="w-full flex items-center justify-center space-x-2 bg-gradient-primary text-white px-6 py-4 rounded-xl font-medium shadow-soft hover:shadow-soft-lg transition-all duration-300"
                 >
                   <FiPhone className="h-4 w-4" />
                   <span>Hubungi</span>
-                </motion.button>
-                
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center space-x-2 bg-white text-primary-600 border border-primary-600 px-6 py-4 rounded-xl font-medium hover:bg-primary-50 transition-colors duration-300"
-                >
-                  <FiGlobe className="h-4 w-4" />
-                  <span>Website</span>
                 </motion.button>
               </div>
             </motion.div>
@@ -246,7 +241,7 @@ const DetailPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-16"
+            className="mt-12"
           >
             <h3 className="font-semibold text-2xl text-slate-900 mb-8">
               UMKM Serupa
@@ -258,22 +253,54 @@ const DetailPage: React.FC = () => {
                 .map((relatedUmkm) => (
                   <Link key={relatedUmkm.id} to={`/umkm/${relatedUmkm.id}`}>
                     <motion.div
-                      whileHover={{ scale: 1.02, y: -2 }}
-                      className="bg-white rounded-xl shadow-soft border border-slate-100/50 overflow-hidden"
+                      whileHover={{ y: -4, scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                      className="card overflow-hidden"
                     >
-                      <img
-                        src={relatedUmkm.placeGallery[0] || '/placeholder-image.jpg'}
-                        alt={relatedUmkm.name}
-                        className="w-full h-32 object-cover"
-                      />
-                      <div className="p-5">
-                        <h4 className="font-semibold text-slate-900 mb-1">
-                          {relatedUmkm.name}
-                        </h4>
-                        <p className="text-sm text-slate-600 mb-2">
-                          {relatedUmkm.description.substring(0, 80)}...
-                        </p>
-                        <RatingStars rating={relatedUmkm.rating} size="sm" />
+                      {/* Image */}
+                      <div className="relative h-48 overflow-hidden">
+                        <img
+                          src={relatedUmkm.placeGallery[0] || '/placeholder-image.jpg'}
+                          alt={relatedUmkm.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                        />
+                        <div className="absolute top-3 right-3">
+                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                            relatedUmkm.isOpen 
+                              ? 'bg-green-100 text-green-800' 
+                              : 'bg-red-100 text-red-800'
+                          }`}>
+                            {relatedUmkm.isOpen ? 'Buka' : 'Tutup'}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-6 space-y-4">
+                        {/* Category Badge */}
+                        <div className="mb-3">
+                          <span className="bg-primary-100 text-primary-800 rounded-full px-3 py-1 text-xs font-medium">
+                            {relatedUmkm.category}
+                          </span>
+                        </div>
+
+                        {/* Title and Description */}
+                        <div>
+                          <h4 className="text-lg font-semibold text-slate-900 mb-2 hover:text-primary-600 transition-colors">
+                            {relatedUmkm.name}
+                          </h4>
+                          <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">
+                            {relatedUmkm.description}
+                          </p>
+                        </div>
+
+                        {/* Rating */}
+                        <div className="flex items-center">
+                          <RatingStars rating={relatedUmkm.rating} />
+                          <span className="text-sm text-slate-500 ml-2">
+                            {relatedUmkm.rating}/5
+                          </span>
+                        </div>
                       </div>
                     </motion.div>
                   </Link>

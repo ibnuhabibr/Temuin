@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-interface GalleryCarouselProps {
-  images: string[];
-  businessName: string;
-}
-
-const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName }) => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
+const GalleryCarousel = ({ images, businessName }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
     setCurrentIndex((prevIndex) => 
@@ -22,27 +17,9 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName 
     );
   };
 
-  const goToImage = (index: number) => {
+  const goToImage = (index) => {
     setCurrentIndex(index);
   };
-
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (images.length <= 1) return;
-      
-      if (event.key === 'ArrowLeft') {
-        prevImage();
-      } else if (event.key === 'ArrowRight') {
-        nextImage();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [images.length]);
 
   if (!images || images.length === 0) {
     return (
@@ -55,7 +32,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName 
   return (
     <div className="relative w-full">
       {/* Main Image */}
-      <div className="relative h-96 rounded-2xl overflow-hidden shadow-soft-lg border border-slate-100/50">
+      <div className="relative h-96 rounded-xl overflow-hidden shadow-lg">
         <AnimatePresence mode="wait">
           <motion.img
             key={currentIndex}
@@ -65,7 +42,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName 
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.3 }}
           />
         </AnimatePresence>
 
@@ -76,8 +53,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName 
               onClick={prevImage}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              aria-label="Gambar sebelumnya"
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-lg p-3 rounded-full shadow-soft hover:bg-white transition-all duration-300"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-lg hover:bg-white transition-colors duration-200"
             >
               <FiChevronLeft className="h-5 w-5 text-slate-700" />
             </motion.button>
@@ -86,8 +62,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName 
               onClick={nextImage}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              aria-label="Gambar selanjutnya"
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-lg p-3 rounded-full shadow-soft hover:bg-white transition-all duration-300"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-lg hover:bg-white transition-colors duration-200"
             >
               <FiChevronRight className="h-5 w-5 text-slate-700" />
             </motion.button>
@@ -111,10 +86,9 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ images, businessName 
               onClick={() => goToImage(index)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              aria-label={`Lihat gambar ${index + 1}`}
-              className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+              className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
                 index === currentIndex
-                  ? 'border-primary-500 shadow-soft'
+                  ? 'border-emerald-500 shadow-md'
                   : 'border-slate-200 hover:border-slate-300'
               }`}
             >
