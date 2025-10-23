@@ -39,19 +39,17 @@ const Navbar: React.FC = () => {
               >
                 Beranda
               </Link>
-              {/* Temporarily disabled dead links */}
-              {/* 
-              <Link
-                to="/kategori"
-                className="font-medium text-slate-700 hover:text-emerald-500 transition-colors duration-200 px-3 py-2 rounded-md text-sm"
-              >
-                Kategori
-              </Link>
               <Link
                 to="/tentang"
                 className="font-medium text-slate-700 hover:text-emerald-500 transition-colors duration-200 px-3 py-2 rounded-md text-sm"
               >
                 Tentang
+              </Link>
+              <Link
+                to="/kontak"
+                className="font-medium text-slate-700 hover:text-emerald-500 transition-colors duration-200 px-3 py-2 rounded-md text-sm"
+              >
+                Kontak
               </Link>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -60,7 +58,6 @@ const Navbar: React.FC = () => {
               >
                 Daftar Bisnis
               </motion.button>
-              */}
             </div>
           </div>
 
@@ -126,7 +123,7 @@ const Navbar: React.FC = () => {
                 damping: 30,
                 opacity: { duration: 0.2 }
               }}
-              className="fixed top-0 right-0 h-full w-72 bg-white/95 backdrop-blur-lg shadow-soft-lg border-l border-white/20 z-40 md:hidden"
+              className="fixed top-0 right-0 h-full w-72 bg-white shadow-soft-lg border-l border-slate-200 z-40 md:hidden"
             >
               {/* Close Button */}
               <div className="flex justify-end p-6">
@@ -156,13 +153,13 @@ const Navbar: React.FC = () => {
                     Beranda
                   </Link>
                 </motion.div>
-                {/* <motion.div
+                <motion.div
                   initial={{ x: 50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.3 }}
                 >
                   <Link
-                    to="/about"
+                    to="/tentang"
                     onClick={closeMobileMenu}
                     className="block text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 py-3 px-4 rounded-lg font-medium"
                   >
@@ -175,13 +172,13 @@ const Navbar: React.FC = () => {
                   transition={{ delay: 0.3, duration: 0.3 }}
                 >
                   <Link
-                    to="/contact"
+                    to="/kontak"
                     onClick={closeMobileMenu}
                     className="block text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 py-3 px-4 rounded-lg font-medium"
                   >
                     Kontak
                   </Link>
-                </motion.div> */}
+                </motion.div>
               </div>
 
               {/* Mobile CTA Button */}
@@ -189,15 +186,14 @@ const Navbar: React.FC = () => {
                 <motion.div
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.3 }}
+                  transition={{ delay: 0.4, duration: 0.3 }}
                 >
-                  <Link
-                    to="/daftar-umkm"
+                  <button
                     onClick={closeMobileMenu}
-                    className="block w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white text-center py-3 px-6 rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="block w-full bg-gradient-to-r from-emerald-500 to-green-500 text-white text-center py-3 px-6 rounded-lg hover:from-emerald-600 hover:to-green-600 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
-                    Daftar UMKM
-                  </Link>
+                    Daftar Bisnis
+                  </button>
                 </motion.div>
               </div>
             </motion.div>

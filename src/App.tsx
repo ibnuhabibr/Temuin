@@ -4,6 +4,9 @@ import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import DetailPage from './pages/DetailPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -20,8 +23,13 @@ function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<HomePage />} />
           <Route path="/umkm/:id" element={<DetailPage />} />
+          <Route path="/tentang" element={<AboutPage />} />
+          <Route path="/kontak" element={<ContactPage />} />
         </Routes>
       </AnimatePresence>
+      
+      {/* Footer appears on all pages */}
+      <Footer />
     </div>
   );
 }
