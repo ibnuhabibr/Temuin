@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import DetailPage from './pages/DetailPage';
 
 function App() {
+  const location = useLocation();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Navbar outside AnimatePresence for persistent navigation */}
+      <Navbar />
+      
+      {/* Main content with page transitions */}
+      <AnimatePresence mode="wait" initial={false}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/umkm/:id" element={<DetailPage />} />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }

@@ -1,0 +1,223 @@
+[
+  {
+    "id": 1,
+    "name": "Warung Kopi 'Senja'",
+    "category": "Minuman",
+    "description": "Kedai kopi legendaris menyajikan biji kopi lokal terbaik.",
+    "story": "Didirikan sejak 1995, Warung Kopi 'Senja' adalah bisnis keluarga yang telah melayani pecinta kopi selama lebih dari 25 tahun. Kami bangga menyajikan kopi berkualitas tinggi dari petani lokal.",
+    "address": "Jl. Kenangan No. 10, Jakarta Selatan",
+    "gallery": [
+      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&h=600&fit=crop"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "rating": 4.8,
+    "isOpen": true,
+    "isFeatured": true,
+    "facilities": ["WiFi", "Area Merokok", "Parkir"],
+    "products": [
+      { "name": "Kopi Susu Gula Aren", "price": 18000 },
+      { "name": "Espresso", "price": 15000 },
+      { "name": "Cappuccino", "price": 20000 }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Bakso Pak Kumis",
+    "category": "Makanan",
+    "description": "Bakso legendaris dengan kuah kaldu sapi yang gurih dan daging yang kenyal.",
+    "story": "Pak Kumis telah menjual bakso selama 30 tahun dengan resep turun temurun dari keluarga. Setiap hari, beliau membuat bakso segar dengan daging sapi pilihan.",
+    "address": "Jl. Merdeka No. 45, Jakarta Pusat",
+    "gallery": [
+      "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "rating": 4.6,
+    "isOpen": true,
+    "isFeatured": false,
+    "facilities": ["Tempat Duduk", "Takeaway"],
+    "products": [
+      { "name": "Bakso Urat", "price": 25000 },
+      { "name": "Bakso Biasa", "price": 20000 },
+      { "name": "Mie Ayam Bakso", "price": 22000 }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Salon Cantik Indah",
+    "category": "Jasa",
+    "description": "Salon kecantikan dengan layanan lengkap untuk perawatan rambut dan wajah.",
+    "story": "Salon Cantik Indah telah berdiri sejak 2010 dan menjadi pilihan utama wanita di sekitar area untuk perawatan kecantikan dengan harga terjangkau.",
+    "address": "Jl. Mawar No. 12, Jakarta Barat",
+    "gallery": [
+      "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&h=600&fit=crop"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "rating": 4.4,
+    "isOpen": false,
+    "isFeatured": true,
+    "facilities": ["AC", "WiFi", "Parkir"],
+    "products": [
+      { "name": "Potong Rambut", "price": 35000 },
+      { "name": "Creambath", "price": 50000 },
+      { "name": "Facial", "price": 75000 }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Toko Bunga Mawar",
+    "category": "Jasa",
+    "description": "Toko bunga dengan berbagai macam bunga segar untuk berbagai acara.",
+    "story": "Toko Bunga Mawar adalah bisnis keluarga yang telah melayani kebutuhan bunga untuk acara pernikahan, ulang tahun, dan berbagai perayaan lainnya sejak 2005.",
+    "address": "Jl. Melati No. 8, Jakarta Timur",
+    "gallery": [
+      "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "rating": 4.7,
+    "isOpen": true,
+    "isFeatured": false,
+    "facilities": ["Delivery", "Custom Arrangement"],
+    "products": [
+      { "name": "Buket Mawar", "price": 150000 },
+      { "name": "Bunga Papan", "price": 300000 },
+      { "name": "Hand Bouquet", "price": 100000 }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Es Teh Manis Pak Budi",
+    "category": "Minuman",
+    "description": "Warung es teh legendaris dengan rasa manis yang pas dan harga terjangkau.",
+    "story": "Pak Budi telah menjual es teh manis di pojok jalan selama 20 tahun. Resep es tehnya yang khas membuat pelanggan selalu kembali lagi.",
+    "address": "Jl. Raya Kemang No. 25, Jakarta Selatan",
+    "gallery": [
+      "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=800&h=600&fit=crop"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "rating": 4.3,
+    "isOpen": true,
+    "isFeatured": true,
+    "facilities": ["Tempat Duduk", "Takeaway"],
+    "products": [
+      { "name": "Es Teh Manis", "price": 5000 },
+      { "name": "Es Jeruk", "price": 8000 },
+      { "name": "Es Campur", "price": 12000 }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Nasi Gudeg Bu Sari",
+    "category": "Makanan",
+    "description": "Gudeg Yogya asli dengan cita rasa manis dan gurih yang autentik.",
+    "story": "Bu Sari membawa resep gudeg turun temurun dari Yogyakarta. Setiap hari, beliau memasak gudeg dengan bumbu tradisional yang khas.",
+    "address": "Jl. Sudirman No. 67, Jakarta Pusat",
+    "gallery": [
+      "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&h=600&fit=crop"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "rating": 4.9,
+    "isOpen": true,
+    "isFeatured": true,
+    "facilities": ["AC", "Tempat Duduk", "Takeaway"],
+    "products": [
+      { "name": "Gudeg Komplit", "price": 25000 },
+      { "name": "Gudeg Ayam", "price": 30000 },
+      { "name": "Gudeg Telur", "price": 20000 }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Bengkel Motor Jaya",
+    "category": "Jasa",
+    "description": "Bengkel motor terpercaya dengan mekanik berpengalaman dan spare part lengkap.",
+    "story": "Bengkel Motor Jaya telah melayani perbaikan motor sejak 1998. Dengan mekanik yang berpengalaman, kami memberikan layanan terbaik untuk semua jenis motor.",
+    "address": "Jl. Gatot Subroto No. 89, Jakarta Selatan",
+    "gallery": [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "rating": 4.5,
+    "isOpen": false,
+    "isFeatured": false,
+    "facilities": ["Parkir", "Ruang Tunggu", "Spare Part"],
+    "products": [
+      { "name": "Service Rutin", "price": 50000 },
+      { "name": "Ganti Oli", "price": 35000 },
+      { "name": "Tune Up", "price": 75000 }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Juice Bar Sehat",
+    "category": "Minuman",
+    "description": "Juice bar dengan berbagai macam jus buah segar dan smoothies sehat.",
+    "story": "Juice Bar Sehat didirikan dengan misi menyediakan minuman sehat dan bergizi. Semua buah yang digunakan adalah buah segar pilihan terbaik.",
+    "address": "Jl. Thamrin No. 34, Jakarta Pusat",
+    "gallery": [
+      "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=800&h=600&fit=crop"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "rating": 4.6,
+    "isOpen": true,
+    "isFeatured": false,
+    "facilities": ["WiFi", "AC", "Tempat Duduk"],
+    "products": [
+      { "name": "Jus Alpukat", "price": 15000 },
+      { "name": "Smoothie Mangga", "price": 18000 },
+      { "name": "Green Juice", "price": 22000 }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Warung Pecel Lele Mas Agus",
+    "category": "Makanan",
+    "description": "Pecel lele dengan sambal yang pedas dan gurih, disajikan dengan lalapan segar.",
+    "story": "Mas Agus telah menjual pecel lele selama 15 tahun. Sambal pecelnya yang pedas dan lele yang selalu segar membuat warung ini selalu ramai pengunjung.",
+    "address": "Jl. Kebon Jeruk No. 56, Jakarta Barat",
+    "gallery": [
+      "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "rating": 4.4,
+    "isOpen": true,
+    "isFeatured": false,
+    "facilities": ["Tempat Duduk", "Takeaway", "Parkir"],
+    "products": [
+      { "name": "Pecel Lele", "price": 18000 },
+      { "name": "Ayam Penyet", "price": 20000 },
+      { "name": "Tahu Tempe Penyet", "price": 12000 }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Laundry Express 24 Jam",
+    "category": "Jasa",
+    "description": "Layanan laundry 24 jam dengan kualitas terbaik dan harga terjangkau.",
+    "story": "Laundry Express hadir untuk memenuhi kebutuhan masyarakat yang sibuk. Dengan layanan 24 jam, kami memastikan pakaian Anda bersih dan wangi.",
+    "address": "Jl. Cempaka No. 78, Jakarta Utara",
+    "gallery": [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=600&fit=crop"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "rating": 4.2,
+    "isOpen": true,
+    "isFeatured": true,
+    "facilities": ["24 Jam", "Pickup & Delivery", "Express Service"],
+    "products": [
+      { "name": "Cuci Kering", "price": 8000 },
+      { "name": "Cuci Setrika", "price": 12000 },
+      { "name": "Dry Clean", "price": 25000 }
+    ]
+  }
+]
