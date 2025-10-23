@@ -12,7 +12,10 @@ export interface Umkm {
   description: string;
   story: string;
   address: string;
-  gallery: string[];
+  latitude: number;
+  longitude: number;
+  placeGallery: string[];
+  menuGallery: string[];
   googleMapsEmbedUrl: string;
   rating: number;
   isOpen: boolean;

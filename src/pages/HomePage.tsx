@@ -1,19 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiFilter, FiMenu, FiMapPin } from 'react-icons/fi';
 import AnimatedWrapper from '../components/AnimatedWrapper';
 import SearchBar from '../components/SearchBar';
 import FilterDropdown from '../components/FilterDropdown';
+import AdvancedFiltersModal from '../components/AdvancedFiltersModal';
 import FeaturedSection from '../components/FeaturedSection';
 import UmkmList from '../components/UmkmList';
+import MapView from '../components/MapView';
 import { Umkm, UmkmCategory } from '../types/umkm';
 import umkmData from '../data/umkm.json';
+
+interface AdvancedFilters {
+  isOpenNow: boolean;
+  facilities: string[];
+}
 
 const HomePage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<UmkmCategory>('Semua');
   const [filteredUmkm, setFilteredUmkm] = useState<Umkm[]>(umkmData as Umkm[]);
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState<boolean>(false);
+  const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
+  const [advancedFilters, setAdvancedFilters] = useState<AdvancedFilters>({
+    isOpenNow: false,
+    facilities: []
+  });
 
-  // Filter UMKM based on search term and category
+  // Get unique facilities from all UMKM data
+  const availableFacilities = useMemo(() => {
+    const allFacilities = umkmData.flatMap(umkm => umkm.facilities);
+    return Array.from(new Set(allFacilities)).sort();
+  }, []);
+
+  // Filter UMKM based on search term, category, and advanced filters
   useEffect(() => {
     let filtered = umkmData;
 
@@ -44,8 +64,21 @@ const HomePage: React.FC = () => {
       });
     }
 
+    // Filter by advanced filters
+    if (advancedFilters.isOpenNow) {
+      filtered = filtered.filter(umkm => umkm.isOpen);
+    }
+
+    if (advancedFilters.facilities.length > 0) {
+      filtered = filtered.filter(umkm => 
+        advancedFilters.facilities.every(facility => 
+          umkm.facilities.includes(facility)
+        )
+      );
+    }
+
     setFilteredUmkm(filtered);
-  }, [searchTerm, selectedCategory]);
+  }, [searchTerm, selectedCategory, advancedFilters]);
 
   const handleSearch = (term: string) => {
     setSearchTerm(term);
@@ -53,6 +86,19 @@ const HomePage: React.FC = () => {
 
   const handleFilter = (category: UmkmCategory) => {
     setSelectedCategory(category);
+  };
+
+  const handleApplyAdvancedFilters = (filters: AdvancedFilters) => {
+    setAdvancedFilters(filters);
+    setIsFilterModalOpen(false);
+  };
+
+  const handleOpenFilterModal = () => {
+    setIsFilterModalOpen(true);
+  };
+
+  const handleCloseFilterModal = () => {
+    setIsFilterModalOpen(false);
   };
 
   return (
@@ -99,13 +145,6 @@ const HomePage: React.FC = () => {
               <SearchBar onSearch={handleSearch} />
             </motion.div>
           </div>
-
-          {/* Decorative Elements */}
-          <div className="absolute bottom-0 left-0 right-0">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 fill-slate-50">
-              <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path>
-            </svg>
-          </div>
         </section>
 
         {/* Controls Section */}
@@ -129,11 +168,45 @@ const HomePage: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
+                className="flex items-center gap-4"
               >
+                {/* View Mode Toggle */}
+                <div className="flex items-center bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden">
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className={`flex items-center gap-2 px-4 py-2 transition-all duration-200 font-medium ${
+                      viewMode === 'grid'
+                        ? 'bg-primary-500 text-white'
+                        : 'text-slate-700 hover:bg-slate-50'
+                    }`}
+                  >
+                    <FiMenu className="w-4 h-4" />
+                    Grid
+                  </button>
+                  <button
+                    onClick={() => setViewMode('map')}
+                    className={`flex items-center gap-2 px-4 py-2 transition-all duration-200 font-medium ${
+                      viewMode === 'map'
+                        ? 'bg-primary-500 text-white'
+                        : 'text-slate-700 hover:bg-slate-50'
+                    }`}
+                  >
+                    <FiMapPin className="w-4 h-4" />
+                    Peta
+                  </button>
+                </div>
+
                 <FilterDropdown 
                   onFilter={handleFilter} 
                   selectedCategory={selectedCategory}
                 />
+                <button
+                  onClick={handleOpenFilterModal}
+                  className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 text-slate-700 font-medium shadow-sm"
+                >
+                  <FiFilter className="w-4 h-4" />
+                  Filter Lainnya
+                </button>
               </motion.div>
             </div>
           </div>
@@ -153,22 +226,44 @@ const HomePage: React.FC = () => {
               </motion.div>
             )}
 
-            {/* All UMKM List */}
+            {/* UMKM List or Map View */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.2 }}
             >
-              <UmkmList 
-                umkmList={filteredUmkm}
-                title={
-                  searchTerm 
-                    ? `Hasil pencarian "${searchTerm}"` 
-                    : selectedCategory === 'Semua' 
-                      ? 'Semua UMKM' 
-                      : `UMKM ${selectedCategory}`
-                }
-              />
+              <AnimatePresence mode="wait">
+                {viewMode === 'grid' ? (
+                  <motion.div
+                    key="grid-view"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <UmkmList 
+                      umkmList={filteredUmkm}
+                      title={
+                        searchTerm 
+                          ? `Hasil pencarian "${searchTerm}"` 
+                          : selectedCategory === 'Semua' 
+                            ? 'Semua UMKM' 
+                            : `UMKM ${selectedCategory}`
+                      }
+                    />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="map-view"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <MapView umkmList={filteredUmkm} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           </div>
         </section>
@@ -204,6 +299,15 @@ const HomePage: React.FC = () => {
           </div>
         </section>
       </div>
+
+      {/* Advanced Filters Modal */}
+      <AdvancedFiltersModal
+        isOpen={isFilterModalOpen}
+        onClose={handleCloseFilterModal}
+        availableFacilities={availableFacilities}
+        currentFilters={advancedFilters}
+        onApplyFilters={handleApplyAdvancedFilters}
+      />
     </AnimatedWrapper>
   );
 };

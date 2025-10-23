@@ -74,22 +74,13 @@ const DetailPage: React.FC = () => {
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left Column - Gallery */}
+          <div className="max-w-4xl mx-auto">
+            {/* Main Info Section */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-            >
-              <GalleryCarousel images={umkm.gallery} businessName={umkm.name} />
-            </motion.div>
-
-            {/* Right Column - Details */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-8"
+              className="space-y-8 mb-12"
             >
               {/* Basic Info */}
               <div>
@@ -200,6 +191,40 @@ const DetailPage: React.FC = () => {
                 </motion.button>
               </div>
             </motion.div>
+
+            {/* Galeri Tempat Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mb-12"
+            >
+              <h3 className="font-poppins font-semibold text-lg text-slate-900 mb-3">
+                Galeri Tempat
+              </h3>
+              {umkm.placeGallery && umkm.placeGallery.length > 0 ? (
+                <GalleryCarousel images={umkm.placeGallery} businessName={umkm.name} />
+              ) : (
+                <div className="bg-slate-100 rounded-xl p-8 text-center">
+                  <p className="text-slate-600">Tidak ada foto tempat tersedia</p>
+                </div>
+              )}
+            </motion.div>
+
+            {/* Galeri Menu Section */}
+            {umkm.menuGallery && umkm.menuGallery.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="mb-12"
+              >
+                <h3 className="font-poppins font-semibold text-lg text-slate-900 mb-3">
+                  Galeri Menu
+                </h3>
+                <GalleryCarousel images={umkm.menuGallery} businessName={umkm.name} />
+              </motion.div>
+            )}
           </div>
 
           {/* Map Section */}
@@ -237,7 +262,7 @@ const DetailPage: React.FC = () => {
                       className="bg-white rounded-xl shadow-soft border border-slate-100/50 overflow-hidden"
                     >
                       <img
-                        src={relatedUmkm.gallery[0]}
+                        src={relatedUmkm.placeGallery[0] || '/placeholder-image.jpg'}
                         alt={relatedUmkm.name}
                         className="w-full h-32 object-cover"
                       />

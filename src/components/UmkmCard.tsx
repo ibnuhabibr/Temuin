@@ -43,7 +43,7 @@ const UmkmCard: React.FC<UmkmCardProps> = ({ umkm }) => {
         {/* Image */}
         <div className="relative h-48 overflow-hidden">
           <img
-            src={umkm.gallery[0]}
+            src={umkm.placeGallery[0] || '/placeholder-image.jpg'}
             alt={umkm.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
           />
