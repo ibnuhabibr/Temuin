@@ -20,6 +20,7 @@ export interface Umkm {
   rating: number;
   isOpen: boolean;
   isFeatured: boolean;
+  isWeeklyWow?: boolean;
   facilities: string[];
   products: Product[];
 }

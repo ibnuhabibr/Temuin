@@ -5,7 +5,7 @@ import AnimatedWrapper from '../components/AnimatedWrapper';
 import SearchBar from '../components/SearchBar';
 import FilterDropdown from '../components/FilterDropdown';
 import AdvancedFiltersModal from '../components/AdvancedFiltersModal';
-import FeaturedSection from '../components/FeaturedSection';
+import UmkmCard from '../components/UmkmCard';
 import UmkmList from '../components/UmkmList';
 import MapView from '../components/MapView';
 import { Umkm, UmkmCategory } from '../types/umkm';
@@ -84,17 +84,9 @@ const HomePage: React.FC = () => {
     setSearchTerm(term);
   };
 
-  const handleFilter = (category: UmkmCategory) => {
-    setSelectedCategory(category);
-  };
-
   const handleApplyAdvancedFilters = (filters: AdvancedFilters) => {
     setAdvancedFilters(filters);
     setIsFilterModalOpen(false);
-  };
-
-  const handleOpenFilterModal = () => {
-    setIsFilterModalOpen(true);
   };
 
   const handleCloseFilterModal = () => {
@@ -105,166 +97,268 @@ const HomePage: React.FC = () => {
     <AnimatedWrapper>
       <div className="min-h-screen bg-slate-50">
         {/* Hero Section */}
-        <section className="relative bg-gradient-primary text-white py-24 px-6">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
+        <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white py-32 px-6 overflow-hidden">
+          {/* Enhanced Background Pattern */}
+          <div className="absolute inset-0 opacity-5">
             <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M60 60c16.569 0 30-13.431 30-30S76.569 0 60 0 30 13.431 30 30s13.431 30 30 30zm0-2c15.464 0 28-12.536 28-28S75.464 2 60 2 32 14.536 32 30s12.536 28 28 28z'/%3E%3Ccircle cx='60' cy='60' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }} />
           </div>
+          
+          {/* Floating Elements */}
+          <div className="absolute top-20 left-10 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
+          <div className="absolute bottom-20 right-10 w-32 h-32 bg-amber-300/10 rounded-full blur-2xl"></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/3 rounded-full blur-lg"></div>
 
           <div className="relative max-w-7xl mx-auto text-center">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white"
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight"
             >
               Temukan Hidden Gems
               <br />
-              <span className="text-amber-300">di Sekitarmu</span>
+              <span className="bg-gradient-to-r from-amber-300 to-amber-400 bg-clip-text text-transparent">
+                di Sekitarmu
+              </span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="text-lg md:text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
               Jelajahi UMKM lokal terbaik di sekitar Anda. Dari kuliner lezat hingga 
               layanan berkualitas, temukan semua kebutuhan Anda di satu tempat.
             </motion.p>
 
-            {/* Search Section */}
+            {/* Enhanced Search Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              className="max-w-4xl mx-auto"
+            >
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-2 border border-white/20 shadow-2xl">
+                <SearchBar onSearch={handleSearch} />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* UMKM Wow Minggu Ini Section */}
+        <section className="bg-white py-16 px-6">
+          <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="max-w-4xl mx-auto"
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-center mb-12"
             >
-              <SearchBar onSearch={handleSearch} />
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+                UMKM Paling Wow Minggu Ini ✨
+              </h2>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Pilihan terbaik yang sedang trending dan mendapat rating tertinggi dari komunitas
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {umkmData
+                .filter((umkm: Umkm) => umkm.isWeeklyWow)
+                .map((umkm: Umkm, index: number) => (
+                  <motion.div
+                    key={umkm.id}
+                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: 0.6 + (index * 0.1),
+                      ease: "easeOut"
+                    }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    className="transform transition-all duration-300"
+                  >
+                    <div className="relative">
+                      <div className="absolute -top-3 -right-3 bg-gradient-to-r from-amber-400 to-amber-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg z-10">
+                        ⭐ Wow!
+                      </div>
+                      <UmkmCard umkm={umkm} />
+                    </div>
+                  </motion.div>
+                ))}
             </motion.div>
           </div>
         </section>
 
-        {/* Controls Section */}
-        <section className="py-12 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-12">
+        {/* Thematic Sections */}
+        <section className="bg-slate-50 py-16 px-6">
+          <div className="max-w-7xl mx-auto space-y-16">
+            {/* Kopi Pilihan Section */}
+            {filteredUmkm.filter((umkm: Umkm) => umkm.category === 'Minuman').length > 0 && (
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <h2 className="text-2xl font-semibold text-slate-900 mb-2">
-                  Jelajahi UMKM
-                </h2>
-                <p className="text-slate-600">
-                  Gunakan filter untuk menemukan UMKM sesuai kebutuhan Anda
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="flex items-center gap-4"
-              >
-                {/* View Mode Toggle */}
-                <div className="flex items-center bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden">
-                  <button
-                    onClick={() => setViewMode('grid')}
-                    className={`flex items-center gap-2 px-4 py-2 transition-all duration-200 font-medium ${
-                      viewMode === 'grid'
-                        ? 'bg-primary-500 text-white'
-                        : 'text-slate-700 hover:bg-slate-50'
-                    }`}
-                  >
-                    <FiMenu className="w-4 h-4" />
-                    Grid
-                  </button>
-                  <button
-                    onClick={() => setViewMode('map')}
-                    className={`flex items-center gap-2 px-4 py-2 transition-all duration-200 font-medium ${
-                      viewMode === 'map'
-                        ? 'bg-primary-500 text-white'
-                        : 'text-slate-700 hover:bg-slate-50'
-                    }`}
-                  >
-                    <FiMapPin className="w-4 h-4" />
-                    Peta
-                  </button>
-                </div>
-
-                <FilterDropdown 
-                  onFilter={handleFilter} 
-                  selectedCategory={selectedCategory}
-                />
-                <button
-                  onClick={handleOpenFilterModal}
-                  className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 text-slate-700 font-medium shadow-sm"
-                >
-                  <FiFilter className="w-4 h-4" />
-                  Filter Lainnya
-                </button>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Content Section */}
-        <section className="pb-20 px-6">
-          <div className="max-w-7xl mx-auto">
-            {/* Featured Section */}
-            {!searchTerm && selectedCategory === 'Semua' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <FeaturedSection umkmList={umkmData} />
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-800">
+                    Kopi Pilihan ☕
+                  </h3>
+                  <div className="text-sm text-slate-600">
+                    Swipe untuk melihat lebih banyak →
+                  </div>
+                </div>
+                <div className="overflow-x-auto">
+                  <div className="flex space-x-6 pb-4">
+                    {filteredUmkm
+                      .filter((umkm: Umkm) => umkm.category === 'Minuman')
+                      .slice(0, 6)
+                      .map((umkm: Umkm, index: number) => (
+                        <motion.div
+                          key={umkm.id}
+                          initial={{ opacity: 0, x: 50 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.6, delay: index * 0.1 }}
+                          className="flex-shrink-0 w-80"
+                        >
+                          <UmkmCard umkm={umkm} />
+                        </motion.div>
+                      ))}
+                  </div>
+                </div>
               </motion.div>
             )}
 
-            {/* UMKM List or Map View */}
+            {/* Jajanan Populer Section */}
+            {filteredUmkm.filter((umkm: Umkm) => umkm.category === 'Makanan').length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-800">
+                    Jajanan Populer 🍜
+                  </h3>
+                  <div className="text-sm text-slate-600">
+                    Swipe untuk melihat lebih banyak →
+                  </div>
+                </div>
+                <div className="overflow-x-auto">
+                  <div className="flex space-x-6 pb-4">
+                    {filteredUmkm
+                      .filter((umkm: Umkm) => umkm.category === 'Makanan')
+                      .slice(0, 6)
+                      .map((umkm: Umkm, index: number) => (
+                        <motion.div
+                          key={umkm.id}
+                          initial={{ opacity: 0, x: 50 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.6, delay: index * 0.1 }}
+                          className="flex-shrink-0 w-80"
+                        >
+                          <UmkmCard umkm={umkm} />
+                        </motion.div>
+                      ))}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </div>
+        </section>
+
+        {/* Main Content Area with Controls */}
+        <section className="bg-white py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            {/* Controls Bar */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.2 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-12 p-6 bg-slate-50 rounded-2xl border border-slate-200"
             >
-              <AnimatePresence mode="wait">
-                {viewMode === 'grid' ? (
-                  <motion.div
-                    key="grid-view"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
+              {/* Title and View Toggle */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <h2 className="text-2xl font-bold text-slate-800">
+                  Semua UMKM
+                </h2>
+                
+                {/* View Mode Toggle */}
+                <div className="flex bg-white rounded-xl p-1 shadow-sm border border-slate-200">
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
+                      viewMode === 'grid'
+                        ? 'bg-primary-600 text-white shadow-sm'
+                        : 'text-slate-600 hover:text-slate-800 hover:bg-slate-50'
+                    }`}
                   >
-                    <UmkmList 
-                      umkmList={filteredUmkm}
-                      title={
-                        searchTerm 
-                          ? `Hasil pencarian "${searchTerm}"` 
-                          : selectedCategory === 'Semua' 
-                            ? 'Semua UMKM' 
-                            : `UMKM ${selectedCategory}`
-                      }
-                    />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="map-view"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
+                    <FiMenu className="h-[18px] w-[18px]" />
+                    <span className="font-medium">Grid</span>
+                  </button>
+                  <button
+                    onClick={() => setViewMode('map')}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
+                      viewMode === 'map'
+                        ? 'bg-primary-600 text-white shadow-sm'
+                        : 'text-slate-600 hover:text-slate-800 hover:bg-slate-50'
+                    }`}
                   >
-                    <MapView umkmList={filteredUmkm} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    <FiMapPin className="h-[18px] w-[18px]" />
+                    <span className="font-medium">Map</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Filters */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <FilterDropdown
+                  selectedCategory={selectedCategory}
+                  onFilter={setSelectedCategory}
+                />
+                <button
+                   onClick={() => setIsFilterModalOpen(true)}
+                   className="flex items-center gap-2 px-4 py-2 bg-white hover:bg-slate-50 text-slate-700 rounded-lg transition-colors duration-200 border border-slate-200 shadow-sm"
+                 >
+                  <FiFilter className="h-[18px] w-[18px]" />
+                  <span className="font-medium">Filter Lainnya</span>
+                </button>
+              </div>
             </motion.div>
+
+            {/* Main Content with Fixed Toggle */}
+            <AnimatePresence mode="wait">
+              {viewMode === 'grid' ? (
+                <motion.div
+                  key="grid"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                >
+                  <UmkmList umkmList={filteredUmkm} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="map"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="h-[600px] rounded-2xl overflow-hidden shadow-lg border border-slate-200"
+                >
+                  <MapView umkmList={filteredUmkm} />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </section>
 

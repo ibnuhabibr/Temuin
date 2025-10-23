@@ -4,12 +4,14 @@ import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import DetailPage from './pages/DetailPage';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const location = useLocation();
 
   return (
     <div className="App">
+      <ScrollToTop />
       {/* Navbar outside AnimatePresence for persistent navigation */}
       <Navbar />
       

@@ -34,14 +34,14 @@ const UmkmCard: React.FC<UmkmCardProps> = ({ umkm }) => {
   };
 
   return (
-    <Link to={`/umkm/${umkm.id}`}>
+    <Link to={`/umkm/${umkm.id}`} className="group block h-full">
       <motion.div
         whileHover={{ y: -4, scale: 1.02 }}
         transition={{ duration: 0.2 }}
-        className="card overflow-hidden"
+        className="card overflow-hidden h-full flex flex-col"
       >
         {/* Image */}
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-48 overflow-hidden flex-shrink-0">
           <img
             src={umkm.placeGallery[0] || '/placeholder-image.jpg'}
             alt={umkm.name}
@@ -66,26 +66,26 @@ const UmkmCard: React.FC<UmkmCardProps> = ({ umkm }) => {
         </div>
 
         {/* Content */}
-        <div className="p-8 space-y-6">
+        <div className="p-6 flex flex-col flex-grow">
           {/* Category Badge */}
-          <div className="mb-3">
-            <span className="bg-primary-100 text-primary-800 rounded-full px-4 py-2 text-sm font-medium">
+          <div className="mb-4">
+            <span className="bg-primary-100 text-primary-800 rounded-full px-3 py-1 text-sm font-medium">
               {umkm.category}
             </span>
           </div>
 
-          {/* Title and Description */}
-          <div>
-            <h3 className="text-xl font-semibold text-slate-900 mb-3 hover:text-primary-600 transition-colors">
+          {/* Title and Description - Fixed height area */}
+          <div className="mb-4 flex-grow">
+            <h3 className="text-lg font-semibold text-slate-900 mb-2 hover:text-primary-600 transition-colors line-clamp-2 min-h-[3.5rem]">
               {umkm.name}
             </h3>
-            <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">
+            <p className="text-slate-600 text-sm leading-relaxed line-clamp-3 min-h-[4rem]">
               {umkm.description}
             </p>
           </div>
 
           {/* Rating */}
-          <div className="flex items-center">
+          <div className="flex items-center mb-3">
             <RatingStars rating={umkm.rating} />
             <span className="text-sm text-slate-500 ml-2">
               {umkm.rating}/5
@@ -93,39 +93,41 @@ const UmkmCard: React.FC<UmkmCardProps> = ({ umkm }) => {
           </div>
 
           {/* Location */}
-          <div className="flex items-center text-slate-500 text-sm">
+          <div className="flex items-center text-slate-500 text-sm mb-4">
             <FiMapPin className="h-4 w-4 mr-2 flex-shrink-0 text-primary-500" />
             <span className="line-clamp-1">{umkm.address}</span>
           </div>
 
           {/* Facilities */}
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-4 min-h-[1.5rem]">
             {umkm.facilities.slice(0, 4).map((facility, index) => {
               const icon = getFacilityIcon(facility);
               return icon ? (
-                <div key={index} className="flex items-center">
+                <div key={index} className="flex items-center" title={facility}>
                   {icon}
                 </div>
               ) : null;
             }).filter(Boolean)}
             {umkm.facilities.length > 4 && (
-              <div className="flex items-center justify-center h-4 w-4 bg-slate-200 text-slate-600 rounded-full text-xs font-medium">
+              <div className="flex items-center justify-center h-4 w-4 bg-slate-200 text-slate-600 rounded-full text-xs font-medium" title={`+${umkm.facilities.length - 4} fasilitas lainnya`}>
                 +{umkm.facilities.length - 4}
               </div>
             )}
           </div>
 
-          {/* Price Range */}
-          {umkm.products && umkm.products.length > 0 && (
-            <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-              <div className="text-sm text-slate-500">
-                Mulai dari
+          {/* Price Range - Always at bottom */}
+          <div className="mt-auto">
+            {umkm.products && umkm.products.length > 0 && (
+              <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                <div className="text-sm text-slate-500">
+                  Mulai dari
+                </div>
+                <div className="font-semibold text-primary-600 text-lg">
+                  Rp {Math.min(...umkm.products.map(p => p.price)).toLocaleString('id-ID')}
+                </div>
               </div>
-              <div className="font-semibold text-primary-600 text-lg">
-                Rp {Math.min(...umkm.products.map(p => p.price)).toLocaleString('id-ID')}
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </motion.div>
     </Link>
