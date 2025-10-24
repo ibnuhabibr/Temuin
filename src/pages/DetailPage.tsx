@@ -46,7 +46,7 @@ const DetailPage: React.FC = () => {
 
   return (
     <AnimatedWrapper>
-      <div className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100/50">
         {/* Header */}
         <div className="bg-white shadow-soft border-b border-slate-100/50">
           <div className="max-w-7xl mx-auto px-6 py-4">
@@ -78,14 +78,20 @@ const DetailPage: React.FC = () => {
                 transition={{ duration: 0.4, delay: 0.1 }}
                 className="bg-white rounded-2xl shadow-soft border border-slate-100/50 p-6 lg:p-8"
               >
-                <h3 className="font-semibold text-xl lg:text-2xl text-slate-900 mb-6">
+                <h3 className="font-bold text-xl lg:text-3xl text-slate-900 mb-8">
                   Galeri Tempat
                 </h3>
                 {umkm.placeGallery && umkm.placeGallery.length > 0 ? (
                   <GalleryCarousel images={umkm.placeGallery} businessName={umkm.name} />
                 ) : (
-                  <div className="bg-slate-100 rounded-xl p-8 text-center">
-                    <p className="text-slate-600">Tidak ada foto tempat tersedia</p>
+                  <div className="bg-slate-50 rounded-xl p-12 text-center border border-slate-100/50">
+                    <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <p className="text-slate-600 font-medium">Tidak ada foto tempat tersedia</p>
+                    <p className="text-slate-500 text-sm mt-2">Foto akan ditambahkan segera</p>
                   </div>
                 )}
               </motion.div>
@@ -98,7 +104,7 @@ const DetailPage: React.FC = () => {
                   transition={{ duration: 0.4, delay: 0.2 }}
                   className="bg-white rounded-2xl shadow-soft border border-slate-100/50 p-6 lg:p-8"
                 >
-                  <h3 className="font-semibold text-xl lg:text-2xl text-slate-900 mb-6">
+                  <h3 className="font-bold text-xl lg:text-3xl text-slate-900 mb-8">
                     Galeri Menu
                   </h3>
                   <GalleryCarousel images={umkm.menuGallery} businessName={umkm.name} />
@@ -148,9 +154,9 @@ const DetailPage: React.FC = () => {
                 </div>
 
                 {/* Name */}
-                <h1 className="font-bold text-2xl lg:text-3xl text-slate-900 mb-4">
-                  {umkm.name}
-                </h1>
+                <h1 className="font-bold text-3xl lg:text-4xl xl:text-5xl text-slate-900 mb-6 leading-tight">
+                {umkm.name}
+              </h1>
 
                 {/* Rating */}
                 <div className="mb-4">
@@ -186,23 +192,69 @@ const DetailPage: React.FC = () => {
                 <motion.button
                   onClick={() => alert('Fitur "Hubungi" segera hadir!')}
                   aria-label="Hubungi UMKM ini"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full flex items-center justify-center space-x-2 bg-gradient-primary text-white px-6 py-3 rounded-xl font-medium shadow-soft hover:shadow-soft-lg transition-all duration-300"
+                  whileHover={{ 
+                    scale: 1.03,
+                    boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.4)"
+                  }}
+                  whileTap={{ 
+                    scale: 0.97,
+                    boxShadow: "0 4px 15px -3px rgba(16, 185, 129, 0.3)"
+                  }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 300, 
+                    damping: 20,
+                    boxShadow: { duration: 0.2 }
+                  }}
+                  className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-3.5 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
                 >
-                  <FiPhone className="h-4 w-4" />
-                  <span>Hubungi</span>
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <FiPhone className="h-4 w-4" />
+                  </motion.div>
+                  <span className="relative z-10">Hubungi</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 0.2 }}
+                    transition={{ duration: 0.3 }}
+                  />
                 </motion.button>
                 
                 <motion.button
                   onClick={shareUrl}
                   aria-label="Bagikan halaman ini"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full flex items-center justify-center space-x-2 bg-white text-slate-700 px-6 py-3 rounded-xl font-medium border border-slate-200 hover:bg-slate-50 transition-all duration-300"
+                  whileHover={{ 
+                    scale: 1.02,
+                    boxShadow: "0 8px 20px -5px rgba(0, 0, 0, 0.1)"
+                  }}
+                  whileTap={{ 
+                    scale: 0.98,
+                    boxShadow: "0 2px 10px -3px rgba(0, 0, 0, 0.1)"
+                  }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 300, 
+                    damping: 20,
+                    boxShadow: { duration: 0.2 }
+                  }}
+                  className="w-full flex items-center justify-center space-x-2 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-800 px-6 py-3.5 rounded-xl font-medium border border-slate-200 hover:border-slate-300 transition-all duration-300 relative overflow-hidden group"
                 >
-                  <FiShare2 className="h-4 w-4" />
-                  <span>Bagikan</span>
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <FiShare2 className="h-4 w-4" />
+                  </motion.div>
+                  <span className="relative z-10">Bagikan</span>
+                  <motion.div
+                    className="absolute inset-0 bg-slate-50"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
                 </motion.button>
               </motion.div>
 

@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
+import ExplorePage from './pages/ExplorePage';
 import DetailPage from './pages/DetailPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
@@ -21,6 +22,7 @@ function App() {
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/jelajahi" element={<ExplorePage />} />
           <Route path="/umkm/:id" element={<DetailPage />} />
           <Route path="/tentang" element={<AboutPage />} />
           <Route path="/kontak" element={<ContactPage />} />

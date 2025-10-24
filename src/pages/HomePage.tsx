@@ -1,96 +1,33 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiFilter, FiMenu, FiMapPin } from 'react-icons/fi';
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import AnimatedWrapper from '../components/AnimatedWrapper';
-import SearchBar from '../components/SearchBar';
-import FilterDropdown from '../components/FilterDropdown';
-import AdvancedFiltersModal from '../components/AdvancedFiltersModal';
 import UmkmCard from '../components/UmkmCard';
-import UmkmList from '../components/UmkmList';
-import MapView from '../components/MapView';
-import { Umkm, UmkmCategory } from '../types/umkm';
+import { Umkm } from '../types/umkm';
 import umkmData from '../data/umkm.json';
 
-interface AdvancedFilters {
-  isOpenNow: boolean;
-  facilities: string[];
-}
-
 const HomePage: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [selectedCategory, setSelectedCategory] = useState<UmkmCategory>('Semua');
-  const [filteredUmkm, setFilteredUmkm] = useState<Umkm[]>(umkmData as Umkm[]);
-  const [isFilterModalOpen, setIsFilterModalOpen] = useState<boolean>(false);
-  const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
-  const [advancedFilters, setAdvancedFilters] = useState<AdvancedFilters>({
-    isOpenNow: false,
-    facilities: []
-  });
+  // Filter all UMKM with stories (length > 50 characters)
+  const storyUmkms = useMemo(() => 
+    umkmData.filter(umkm => umkm.story && umkm.story.length > 50), 
+    []
+  );
 
-  // Get unique facilities from all UMKM data
-  const availableFacilities = useMemo(() => {
-    const allFacilities = umkmData.flatMap(umkm => umkm.facilities);
-    return Array.from(new Set(allFacilities)).sort();
-  }, []);
+  // State for current slide index
+  const [currentStoryIndex, setCurrentStoryIndex] = useState<number>(0);
 
-  // Filter UMKM based on search term, category, and advanced filters
-  useEffect(() => {
-    let filtered = umkmData;
-
-    // Filter by category
-    if (selectedCategory !== 'Semua') {
-      filtered = filtered.filter(umkm => umkm.category === selectedCategory);
+  // Navigation handlers
+  const handleNextStory = () => {
+    if (storyUmkms.length > 0) {
+      setCurrentStoryIndex((prevIndex) => (prevIndex + 1) % storyUmkms.length);
     }
-
-    // Filter by search term
-    if (searchTerm.trim()) {
-      const searchLower = searchTerm.trim().toLowerCase();
-      const searchWords = searchLower.split(/\s+/).filter(word => word.length > 0);
-      
-      filtered = filtered.filter(umkm => {
-        // Create searchable text from all relevant fields
-        const searchableText = [
-          umkm.name,
-          umkm.description,
-          umkm.category,
-          umkm.address,
-          ...umkm.facilities,
-          ...umkm.products.map(product => product.name)
-        ].join(' ').toLowerCase();
-
-        // Check if all search words are found in the searchable text
-        // This provides basic typo tolerance by matching individual words
-        return searchWords.every(word => searchableText.includes(word));
-      });
-    }
-
-    // Filter by advanced filters
-    if (advancedFilters.isOpenNow) {
-      filtered = filtered.filter(umkm => umkm.isOpen);
-    }
-
-    if (advancedFilters.facilities.length > 0) {
-      filtered = filtered.filter(umkm => 
-        advancedFilters.facilities.every(facility => 
-          umkm.facilities.includes(facility)
-        )
-      );
-    }
-
-    setFilteredUmkm(filtered);
-  }, [searchTerm, selectedCategory, advancedFilters]);
-
-  const handleSearch = (term: string) => {
-    setSearchTerm(term);
   };
 
-  const handleApplyAdvancedFilters = (filters: AdvancedFilters) => {
-    setAdvancedFilters(filters);
-    setIsFilterModalOpen(false);
-  };
-
-  const handleCloseFilterModal = () => {
-    setIsFilterModalOpen(false);
+  const handlePrevStory = () => {
+    if (storyUmkms.length > 0) {
+      setCurrentStoryIndex((prevIndex) => (prevIndex - 1 + storyUmkms.length) % storyUmkms.length);
+    }
   };
 
   return (
@@ -134,16 +71,22 @@ const HomePage: React.FC = () => {
               layanan berkualitas, temukan semua kebutuhan Anda di satu tempat.
             </motion.p>
 
-            {/* Enhanced Search Section */}
+            {/* Call to Action */}
             <motion.div
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="max-w-4xl mx-auto"
+              className="max-w-2xl mx-auto"
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-2 border border-white/20 shadow-2xl">
-                <SearchBar onSearch={handleSearch} />
-              </div>
+              <Link to="/jelajahi">
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px -12px rgba(0, 0, 0, 0.25)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-white text-primary-700 px-8 py-4 rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 border border-white/20 backdrop-blur-sm"
+                >
+                  Jelajahi Semua UMKM
+                </motion.button>
+              </Link>
             </motion.div>
           </div>
         </section>
@@ -157,8 +100,8 @@ const HomePage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
-                UMKM Paling Wow Minggu Ini ✨
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-6">
+                UMKM Paling Wow Minggu Ini
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                 Pilihan terbaik yang sedang trending dan mendapat rating tertinggi dari komunitas
@@ -198,18 +141,144 @@ const HomePage: React.FC = () => {
           </div>
         </section>
 
+        {/* Highlight Cerita UMKM Carousel Section */}
+        {storyUmkms && storyUmkms.length > 0 && (
+          <section className="py-16 px-4 bg-gradient-to-b from-white to-slate-50 overflow-hidden">
+            <div className="max-w-7xl mx-auto">
+              {/* Section Header */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-12"
+              >
+                <span className="text-sm font-semibold text-primary-600 uppercase tracking-wider mb-2 block">
+                  Cerita Lokal
+                </span>
+                <h2 className="font-poppins font-bold text-3xl lg:text-4xl text-slate-900 mb-4 leading-tight">
+                  Highlight Cerita UMKM
+                </h2>
+                <p className="text-slate-600 max-w-2xl mx-auto">
+                  Temukan kisah inspiratif di balik setiap UMKM lokal yang telah berjuang membangun usahanya
+                </p>
+              </motion.div>
+
+              {/* Carousel Container */}
+              <div className="relative">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  {/* Image Column */}
+                  <div className="relative overflow-hidden">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={`image-${currentStoryIndex}`}
+                        initial={{ opacity: 0, x: 300 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -300 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                      >
+                        <img 
+                          src={storyUmkms[currentStoryIndex].placeGallery[0]} 
+                          alt={`Foto ${storyUmkms[currentStoryIndex].name}`} 
+                          className="rounded-2xl shadow-soft object-cover aspect-video w-full" 
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Text Column */}
+                  <div className="relative overflow-hidden">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={`content-${currentStoryIndex}`}
+                        initial={{ opacity: 0, x: 300 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -300 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                      >
+                        <h3 className="font-poppins font-bold text-3xl lg:text-4xl text-slate-900 mb-4 leading-tight">
+                          {storyUmkms[currentStoryIndex].name}
+                        </h3>
+                        <p className="text-slate-600 leading-relaxed mb-6 line-clamp-4">
+                          "{storyUmkms[currentStoryIndex].story}"
+                        </p>
+                        <Link to={`/umkm/${storyUmkms[currentStoryIndex].id}`}>
+                          <motion.button 
+                            whileHover={{ scale: 1.05 }} 
+                            whileTap={{ scale: 0.95 }} 
+                            className="inline-flex items-center space-x-2 bg-gradient-primary text-white px-6 py-3 rounded-full font-medium shadow-soft hover:shadow-soft-lg transition-shadow duration-200"
+                          >
+                            <span>Baca Kisah Lengkap</span>
+                            <FiChevronRight className="h-4 w-4" />
+                          </motion.button>
+                        </Link>
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+                {/* Navigation Buttons */}
+                {storyUmkms.length > 1 && (
+                  <>
+                    {/* Previous Button */}
+                    <motion.button
+                      onClick={handlePrevStory}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-slate-700 hover:text-primary-600 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-white/20 z-10"
+                      aria-label="Previous story"
+                    >
+                      <FiChevronLeft className="h-6 w-6" />
+                    </motion.button>
+
+                    {/* Next Button */}
+                    <motion.button
+                      onClick={handleNextStory}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-slate-700 hover:text-primary-600 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm border border-white/20 z-10"
+                      aria-label="Next story"
+                    >
+                      <FiChevronRight className="h-6 w-6" />
+                    </motion.button>
+                  </>
+                )}
+
+                {/* Carousel Indicators */}
+                {storyUmkms.length > 1 && (
+                  <div className="flex justify-center mt-8 space-x-2">
+                    {storyUmkms.map((_, index) => (
+                      <motion.button
+                        key={index}
+                        onClick={() => setCurrentStoryIndex(index)}
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.8 }}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          index === currentStoryIndex 
+                            ? 'bg-primary-600 shadow-lg' 
+                            : 'bg-slate-300 hover:bg-slate-400'
+                        }`}
+                        aria-label={`Go to story ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Thematic Sections */}
-        <section className="bg-slate-50 py-16 px-6">
-          <div className="max-w-7xl mx-auto space-y-16">
+        <section className="bg-gradient-to-b from-white via-slate-50/50 to-slate-100/30 py-20 px-6">
+          <div className="max-w-7xl mx-auto space-y-20">
             {/* Kopi Pilihan Section */}
-            {filteredUmkm.filter((umkm: Umkm) => umkm.category === 'Minuman').length > 0 && (
+            {umkmData.filter((umkm: Umkm) => umkm.category === 'Minuman').length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <div className="flex items-center justify-between mb-8">
-                  <h3 className="text-2xl md:text-3xl font-bold text-slate-800">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800">
                     Kopi Pilihan ☕
                   </h3>
                   <div className="text-sm text-slate-600">
@@ -218,7 +287,7 @@ const HomePage: React.FC = () => {
                 </div>
                 <div className="overflow-x-auto">
                   <div className="flex space-x-6 pb-4">
-                    {filteredUmkm
+                    {umkmData
                       .filter((umkm: Umkm) => umkm.category === 'Minuman')
                       .slice(0, 6)
                       .map((umkm: Umkm, index: number) => (
@@ -238,14 +307,14 @@ const HomePage: React.FC = () => {
             )}
 
             {/* Jajanan Populer Section */}
-            {filteredUmkm.filter((umkm: Umkm) => umkm.category === 'Makanan').length > 0 && (
+            {umkmData.filter((umkm: Umkm) => umkm.category === 'Makanan').length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 <div className="flex items-center justify-between mb-8">
-                  <h3 className="text-2xl md:text-3xl font-bold text-slate-800">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800">
                     Jajanan Populer 🍜
                   </h3>
                   <div className="text-sm text-slate-600">
@@ -254,7 +323,7 @@ const HomePage: React.FC = () => {
                 </div>
                 <div className="overflow-x-auto">
                   <div className="flex space-x-6 pb-4">
-                    {filteredUmkm
+                    {umkmData
                       .filter((umkm: Umkm) => umkm.category === 'Makanan')
                       .slice(0, 6)
                       .map((umkm: Umkm, index: number) => (
@@ -275,92 +344,7 @@ const HomePage: React.FC = () => {
           </div>
         </section>
 
-        {/* Main Content Area with Controls */}
-        <section className="bg-white py-16 px-6">
-          <div className="max-w-7xl mx-auto">
-            {/* Controls Bar */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-12 p-6 bg-slate-50 rounded-2xl border border-slate-200"
-            >
-              {/* Title and View Toggle */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <h2 className="text-2xl font-bold text-slate-800">
-                  Semua UMKM
-                </h2>
-                
-                {/* View Mode Toggle */}
-                <div className="flex bg-white rounded-xl p-1 shadow-sm border border-slate-200">
-                  <button
-                    onClick={() => setViewMode('grid')}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
-                      viewMode === 'grid'
-                        ? 'bg-primary-600 text-white shadow-sm'
-                        : 'text-slate-600 hover:text-slate-800 hover:bg-slate-50'
-                    }`}
-                  >
-                    <FiMenu className="h-[18px] w-[18px]" />
-                    <span className="font-medium">Grid</span>
-                  </button>
-                  <button
-                    onClick={() => setViewMode('map')}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
-                      viewMode === 'map'
-                        ? 'bg-primary-600 text-white shadow-sm'
-                        : 'text-slate-600 hover:text-slate-800 hover:bg-slate-50'
-                    }`}
-                  >
-                    <FiMapPin className="h-[18px] w-[18px]" />
-                    <span className="font-medium">Map</span>
-                  </button>
-                </div>
-              </div>
 
-              {/* Filters */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <FilterDropdown
-                  selectedCategory={selectedCategory}
-                  onFilter={setSelectedCategory}
-                />
-                <button
-                   onClick={() => setIsFilterModalOpen(true)}
-                   className="flex items-center gap-2 px-4 py-2 bg-white hover:bg-slate-50 text-slate-700 rounded-lg transition-colors duration-200 border border-slate-200 shadow-sm"
-                 >
-                  <FiFilter className="h-[18px] w-[18px]" />
-                  <span className="font-medium">Filter Lainnya</span>
-                </button>
-              </div>
-            </motion.div>
-
-            {/* Main Content with Fixed Toggle */}
-            <AnimatePresence mode="wait">
-              {viewMode === 'grid' ? (
-                <motion.div
-                  key="grid"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                >
-                  <UmkmList umkmList={filteredUmkm} />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="map"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="h-[600px] rounded-2xl overflow-hidden shadow-lg border border-slate-200"
-                >
-                  <MapView umkmList={filteredUmkm} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </section>
 
         {/* Stats Section */}
         <section className="bg-white py-20 px-6">
@@ -394,14 +378,7 @@ const HomePage: React.FC = () => {
         </section>
       </div>
 
-      {/* Advanced Filters Modal */}
-      <AdvancedFiltersModal
-        isOpen={isFilterModalOpen}
-        onClose={handleCloseFilterModal}
-        availableFacilities={availableFacilities}
-        currentFilters={advancedFilters}
-        onApplyFilters={handleApplyAdvancedFilters}
-      />
+
     </AnimatedWrapper>
   );
 };

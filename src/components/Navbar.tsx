@@ -33,30 +33,98 @@ const Navbar: React.FC = () => {
           {/* Navigation Links - Desktop */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <Link
-                to="/"
-                className="font-medium text-slate-700 hover:text-primary-600 transition-colors duration-300 px-3 py-2 rounded-lg text-sm"
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Beranda
-              </Link>
-              <Link
-                to="/tentang"
-                className="font-medium text-slate-700 hover:text-emerald-500 transition-colors duration-200 px-3 py-2 rounded-md text-sm"
+                <Link
+                  to="/"
+                  className="font-medium text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 px-3 py-2 rounded-lg text-sm relative overflow-hidden group"
+                >
+                  <span className="relative z-10">Beranda</span>
+                  <motion.div
+                    className="absolute inset-0 bg-primary-50 rounded-lg"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Tentang
-              </Link>
-              <Link
-                to="/kontak"
-                className="font-medium text-slate-700 hover:text-emerald-500 transition-colors duration-200 px-3 py-2 rounded-md text-sm"
+                <Link
+                  to="/jelajahi"
+                  className="font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 px-3 py-2 rounded-lg text-sm relative overflow-hidden group"
+                >
+                  <span className="relative z-10">Jelajahi</span>
+                  <motion.div
+                    className="absolute inset-0 bg-blue-50 rounded-lg"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Kontak
-              </Link>
+                <Link
+                  to="/tentang"
+                  className="font-medium text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-300 px-3 py-2 rounded-lg text-sm relative overflow-hidden group"
+                >
+                  <span className="relative z-10">Tentang</span>
+                  <motion.div
+                    className="absolute inset-0 bg-emerald-50 rounded-lg"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Link
+                  to="/kontak"
+                  className="font-medium text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-300 px-3 py-2 rounded-lg text-sm relative overflow-hidden group"
+                >
+                  <span className="relative z-10">Kontak</span>
+                  <motion.div
+                    className="absolute inset-0 bg-emerald-50 rounded-lg"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                </Link>
+              </motion.div>
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-emerald-500 to-green-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:shadow-lg transition-shadow duration-200"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.4)"
+                }}
+                whileTap={{ 
+                  scale: 0.95,
+                  boxShadow: "0 4px 15px -3px rgba(16, 185, 129, 0.3)"
+                }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 300, 
+                  damping: 20,
+                  boxShadow: { duration: 0.2 }
+                }}
+                className="bg-gradient-primary hover:from-primary-700 hover:to-primary-600 text-white px-6 py-2.5 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
               >
-                Daftar Bisnis
+                <span className="relative z-10">Daftar Bisnis</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-primary-500 to-primary-400"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileHover={{ scale: 1, opacity: 0.3 }}
+                  transition={{ duration: 0.3 }}
+                />
               </motion.button>
             </div>
           </div>
@@ -144,39 +212,84 @@ const Navbar: React.FC = () => {
                   initial={{ x: 50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 0.3 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Link
                     to="/"
                     onClick={closeMobileMenu}
-                    className="block text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 py-3 px-4 rounded-lg font-medium"
+                    className="block text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 py-3 px-4 rounded-lg font-medium relative overflow-hidden group"
                   >
-                    Beranda
+                    <span className="relative z-10">Beranda</span>
+                    <motion.div
+                      className="absolute inset-0 bg-primary-50 rounded-lg"
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileHover={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
                   </Link>
                 </motion.div>
                 <motion.div
                   initial={{ x: 50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.3 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Link
-                    to="/tentang"
+                    to="/jelajahi"
                     onClick={closeMobileMenu}
-                    className="block text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 py-3 px-4 rounded-lg font-medium"
+                    className="block text-slate-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 py-3 px-4 rounded-lg font-medium relative overflow-hidden group"
                   >
-                    Tentang
+                    <span className="relative z-10">Jelajahi</span>
+                    <motion.div
+                      className="absolute inset-0 bg-blue-50 rounded-lg"
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileHover={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
                   </Link>
                 </motion.div>
                 <motion.div
                   initial={{ x: 50, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.3 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Link
+                    to="/tentang"
+                    onClick={closeMobileMenu}
+                    className="block text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-300 py-3 px-4 rounded-lg font-medium relative overflow-hidden group"
+                  >
+                    <span className="relative z-10">Tentang</span>
+                    <motion.div
+                      className="absolute inset-0 bg-emerald-50 rounded-lg"
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileHover={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
+                  </Link>
+                </motion.div>
+                <motion.div
+                  initial={{ x: 50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.3 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Link
                     to="/kontak"
                     onClick={closeMobileMenu}
-                    className="block text-slate-700 hover:text-primary-600 hover:bg-primary-50 transition-all duration-300 py-3 px-4 rounded-lg font-medium"
+                    className="block text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-300 py-3 px-4 rounded-lg font-medium relative overflow-hidden group"
                   >
-                    Kontak
+                    <span className="relative z-10">Kontak</span>
+                    <motion.div
+                      className="absolute inset-0 bg-emerald-50 rounded-lg"
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileHover={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.2 }}
+                    />
                   </Link>
                 </motion.div>
               </div>
@@ -186,14 +299,34 @@ const Navbar: React.FC = () => {
                 <motion.div
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4, duration: 0.3 }}
+                  transition={{ delay: 0.5, duration: 0.3 }}
                 >
-                  <button
+                  <motion.button
                     onClick={closeMobileMenu}
-                    className="block w-full bg-gradient-to-r from-emerald-500 to-green-500 text-white text-center py-3 px-6 rounded-lg hover:from-emerald-600 hover:to-green-600 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+                    whileHover={{ 
+                      scale: 1.02,
+                      boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.4)"
+                    }}
+                    whileTap={{ 
+                      scale: 0.98,
+                      boxShadow: "0 4px 15px -3px rgba(16, 185, 129, 0.3)"
+                    }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 300, 
+                      damping: 20,
+                      boxShadow: { duration: 0.2 }
+                    }}
+                    className="block w-full bg-gradient-primary hover:from-primary-700 hover:to-primary-600 text-white text-center py-3 px-6 rounded-lg transition-all duration-300 font-medium shadow-lg hover:shadow-xl relative overflow-hidden group"
                   >
-                    Daftar Bisnis
-                  </button>
+                    <span className="relative z-10">Daftar Bisnis</span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-primary-500 to-primary-400"
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileHover={{ scale: 1, opacity: 0.3 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </motion.button>
                 </motion.div>
               </div>
             </motion.div>

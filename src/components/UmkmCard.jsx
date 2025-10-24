@@ -13,7 +13,7 @@ const UmkmCard = ({ umkm }) => {
           boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1)"
         }}
         transition={{ type: 'spring', stiffness: 300 }}
-        className="group bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer"
+        className="group bg-white rounded-xl shadow-soft hover:shadow-soft-lg overflow-hidden cursor-pointer transition-all duration-300"
       >
         {/* Image */}
         <div className="relative h-48 overflow-hidden">

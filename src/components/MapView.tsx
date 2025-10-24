@@ -35,7 +35,7 @@ const MapView: React.FC<MapViewProps> = ({ umkmList }) => {
     : 106.8456;
 
   return (
-    <div className="h-[500px] w-full rounded-lg shadow-md overflow-hidden">
+    <div className="h-[500px] w-full rounded-xl shadow-soft overflow-hidden">
       <MapContainer
         center={[centerLat, centerLng]}
         zoom={12}
