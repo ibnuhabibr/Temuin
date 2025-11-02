@@ -1,24 +1,24 @@
-\<div align="center"\>
+<div align="center">
 
-\<img src="src/assets/logo-temuin.svg" alt="Temuin Logo" width="120" height="120"\>
+<img src="src/assets/logo-temuin.svg" alt="Temuin Logo" width="120" height="120">
 
-# 🏪 TEMUIN
+# TEMUIN
 
 ### Platform Direktori UMKM Lokal Indonesia
 
-\<p\>
-\<img src="[https://img.shields.io/badge/React-19.2.0-61DAFB?style=for-the-badge\&logo=react\&logoColor=white](https://img.shields.io/badge/React-19.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)" alt="React"\>
-\<img src="[https://img.shields.io/badge/TypeScript-4.9.5-3178C6?style=for-the-badge\&logo=typescript\&logoColor=white](https://img.shields.io/badge/TypeScript-4.9.5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)" alt="TypeScript"\>
-\<img src="[https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge\&logo=tailwind-css\&logoColor=white](https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)" alt="Tailwind CSS"\>
-\<img src="[https://img.shields.io/badge/Framer_Motion-12.23.24-FF0055?style=flat-square\&logo=framer\&logoColor=white](https://img.shields.io/badge/Framer_Motion-12.23.24-FF0055?style=flat-square&logo=framer&logoColor=white)" alt="Framer Motion"\>
-\<img src="[https://img.shields.io/badge/Leaflet-1.9.4-199900?style=flat-square\&logo=leaflet\&logoColor=white](https://img.shields.io/badge/Leaflet-1.9.4-199900?style=flat-square&logo=leaflet&logoColor=white)" alt="Leaflet"\>
-\</p\>
+<p>
+<img src="https://img.shields.io/badge/React-19.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React">
+<img src="https://img.shields.io/badge/TypeScript-4.9.5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+<img src="https://img.shields.io/badge/Tailwind_CSS-3.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+<img src="https://img.shields.io/badge/Framer_Motion-12.23.24-FF0055?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion">
+<img src="https://img.shields.io/badge/Leaflet-1.9.4-199900?style=for-the-badge&logo=leaflet&logoColor=white" alt="Leaflet">
+</p>
 
 **Temuin** adalah aplikasi web modern yang dirancang untuk membantu masyarakat menemukan dan mendukung UMKM (Usaha Mikro, Kecil, dan Menengah) lokal di sekitar mereka dengan mudah dan cepat. Platform ini menyediakan direktori lengkap UMKM dengan fitur pencarian cerdas, filter kategori, dan tampilan peta interaktif.
 
-Jelajahi berbagai bisnis lokal, lihat detail produk lengkap, dan temukan UMKM favorit Anda\!
+Jelajahi berbagai bisnis lokal, lihat detail produk lengkap, dan temukan UMKM favorit Anda!
 
-\</div\>
+</div>
 
 ---
 
