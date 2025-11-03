@@ -194,129 +194,73 @@ const Navbar: React.FC = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop with blur */}
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/50 z-40 md:hidden"
               onClick={closeMobileMenu}
             />
 
-            {/* Sliding Menu Panel */}
+            {/* Sidebar */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{
-                type: "spring",
-                stiffness: 400,
-                damping: 40,
-              }}
-              className="fixed top-0 right-0 bottom-0 w-80 bg-gradient-to-br from-white via-slate-50 to-white shadow-2xl z-50 md:hidden overflow-y-auto"
+              transition={{ type: "tween", duration: 0.3 }}
+              className="fixed top-0 right-0 bottom-0 w-72 bg-white shadow-xl z-50 md:hidden flex flex-col justify-between"
             >
               {/* Header */}
-              <div className="sticky top-0 bg-white/80 backdrop-blur-xl border-b border-slate-200/50 p-6 flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <img src={logoSrc} alt="Temuin" className="h-10 w-auto" />
-                  <div>
-                    <h3 className="font-bold text-slate-900">Menu</h3>
-                    <p className="text-xs text-slate-500">Navigasi Temuin</p>
-                  </div>
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.1, rotate: 90 }}
-                  whileTap={{ scale: 0.9 }}
+              <div className="bg-white border-b border-gray-200 p-4 flex justify-between items-center">
+                <img src={logoSrc} alt="Temuin" className="h-8 w-auto" />
+                <button
                   onClick={closeMobileMenu}
-                  className="p-2 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors duration-200"
+                  className="p-2 hover:bg-gray-100 rounded-lg"
                 >
-                  <FiX className="h-5 w-5 text-slate-700" />
-                </motion.button>
+                  <FiX className="h-5 w-5 text-gray-700" />
+                </button>
               </div>
 
               {/* Menu Items */}
-              <div className="p-6 space-y-2">
-                {navLinks.map((link, index) => {
+              <div className="flex-1 py-4 flex flex-col justify-center bg-white">
+                {navLinks.map((link) => {
                   const IconComponent = HiIcons[
                     link.icon as keyof typeof HiIcons
                   ] as React.ComponentType<{ className?: string }>;
                   const active = isActive(link.path);
                   return (
-                    <motion.div
+                    <Link
                       key={link.path}
-                      initial={{ x: 50, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{
-                        delay: index * 0.1,
-                        type: "spring",
-                        stiffness: 300,
-                      }}
+                      to={link.path}
+                      onClick={closeMobileMenu}
+                      className={`flex items-center gap-3 px-6 py-4 text-base font-medium ${
+                        active
+                          ? "bg-primary-50 text-primary-700 border-r-4 border-primary-600"
+                          : "text-gray-700 hover:bg-gray-50"
+                      }`}
                     >
-                      <Link
-                        to={link.path}
-                        onClick={closeMobileMenu}
-                        className={`flex items-center gap-4 p-4 rounded-2xl font-medium transition-all duration-300 ${
-                          active
-                            ? `bg-gradient-to-br from-${link.color}-50 to-${link.color}-100/50 text-${link.color}-700 shadow-lg shadow-${link.color}-100/50`
-                            : "text-slate-700 hover:bg-slate-100/80"
-                        }`}
-                      >
-                        <div
-                          className={`p-2.5 rounded-xl ${
-                            active
-                              ? `bg-${link.color}-200/50 text-${link.color}-600`
-                              : "bg-slate-200/50 text-slate-600"
-                          }`}
-                        >
-                          <IconComponent className="h-5 w-5" />
-                        </div>
-                        <span className="flex-1">{link.label}</span>
-                        {active && (
-                          <motion.div
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            className={`w-2 h-2 rounded-full bg-${link.color}-600`}
-                          />
-                        )}
-                      </Link>
-                    </motion.div>
+                      <IconComponent className="h-6 w-6" />
+                      <span>{link.label}</span>
+                    </Link>
                   );
                 })}
               </div>
 
-              {/* CTA Section */}
-              <div className="p-6 mt-auto">
-                <motion.div
-                  initial={{ y: 30, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                  className="relative"
+              {/* CTA Button */}
+              <div className="p-4 border-t border-gray-200 bg-gray-50">
+                <button
+                  onClick={closeMobileMenu}
+                  className="w-full flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white py-4 px-4 rounded-lg font-semibold text-base"
                 >
-                  <div className="absolute -inset-4 bg-gradient-to-r from-primary-500 to-amber-500 rounded-3xl blur-2xl opacity-30" />
-                  <motion.button
-                    onClick={closeMobileMenu}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="relative w-full flex items-center justify-center gap-2 bg-gradient-to-r from-primary-600 via-primary-500 to-emerald-500 text-white py-4 rounded-2xl font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
-                  >
-                    {React.createElement(
-                      HiIcons.HiStar as React.ComponentType<{
-                        className?: string;
-                      }>,
-                      { className: "h-5 w-5" }
-                    )}
-                    <span>Daftar Bisnis</span>
-                  </motion.button>
-                </motion.div>
-
-                {/* Info Section */}
-                <div className="mt-6 p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100">
-                  <p className="text-sm text-blue-900 font-medium">💡 Tips!</p>
-                  <p className="text-xs text-blue-700 mt-1">
-                    Daftarkan bisnis Anda dan jangkau lebih banyak pelanggan
-                  </p>
-                </div>
+                  {React.createElement(
+                    HiIcons.HiStar as React.ComponentType<{
+                      className?: string;
+                    }>,
+                    { className: "h-5 w-5" }
+                  )}
+                  <span>Daftar Bisnis</span>
+                </button>
               </div>
             </motion.div>
           </>
