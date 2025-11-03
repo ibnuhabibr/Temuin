@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FiMapPin, FiExternalLink } from 'react-icons/fi';
+import { motion } from "framer-motion";
+import React from "react";
+import { FiExternalLink, FiMapPin } from "react-icons/fi";
 
 interface MapEmbedProps {
   embedUrl: string;
@@ -8,11 +8,15 @@ interface MapEmbedProps {
   businessName: string;
 }
 
-const MapEmbed: React.FC<MapEmbedProps> = ({ embedUrl, address, businessName }) => {
+const MapEmbed: React.FC<MapEmbedProps> = ({
+  embedUrl,
+  address,
+  businessName,
+}) => {
   const openInGoogleMaps = () => {
     const searchQuery = encodeURIComponent(`${businessName} ${address}`);
-    const googleMapsUrl = `https://www.google.com/maps/search/${searchQuery}`;
-    window.open(googleMapsUrl, '_blank');
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${searchQuery}`;
+    window.open(googleMapsUrl, "_blank");
   };
 
   return (
@@ -21,9 +25,7 @@ const MapEmbed: React.FC<MapEmbedProps> = ({ embedUrl, address, businessName }) 
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
           <FiMapPin className="h-5 w-5 text-primary-600 mr-2" />
-          <h1 className="font-semibold text-2xl text-slate-900">
-            Lokasi
-          </h1>
+          <h1 className="font-semibold text-2xl text-slate-900">Lokasi</h1>
         </div>
         <motion.button
           onClick={openInGoogleMaps}
@@ -74,8 +76,8 @@ const MapEmbed: React.FC<MapEmbedProps> = ({ embedUrl, address, businessName }) 
       {/* Additional Info */}
       <div className="mt-6 p-5 bg-slate-50/80 rounded-xl border border-slate-100/50">
         <p className="text-sm text-slate-600">
-          <strong>Tips:</strong> Klik "Buka di Maps" untuk mendapatkan petunjuk arah 
-          dan informasi lalu lintas terkini.
+          <strong>Tips:</strong> Klik "Buka di Maps" untuk mendapatkan petunjuk
+          arah dan informasi lalu lintas terkini.
         </p>
       </div>
     </div>

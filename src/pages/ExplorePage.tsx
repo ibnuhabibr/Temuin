@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiFilter, FiMenu, FiMapPin } from 'react-icons/fi';
-import AnimatedWrapper from '../components/AnimatedWrapper';
-import SearchBar from '../components/SearchBar';
-import FilterDropdown from '../components/FilterDropdown';
-import AdvancedFiltersModal from '../components/AdvancedFiltersModal';
-import UmkmList from '../components/UmkmList';
-import MapView from '../components/MapView';
-import { Umkm, UmkmCategory } from '../types/umkm';
-import umkmData from '../data/umkm.json';
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useMemo, useState } from "react";
+import { FiFilter, FiMapPin, FiMenu } from "react-icons/fi";
+import AdvancedFiltersModal from "../components/AdvancedFiltersModal";
+import AnimatedWrapper from "../components/AnimatedWrapper";
+import FilterDropdown from "../components/FilterDropdown";
+import MapView from "../components/MapView";
+import SearchBar from "../components/SearchBar";
+import UmkmList from "../components/UmkmList";
+import umkmData from "../data/umkm.json";
+import { Umkm, UmkmCategory } from "../types/umkm";
 
 interface AdvancedFilters {
   isOpenNow: boolean;
@@ -16,19 +16,20 @@ interface AdvancedFilters {
 }
 
 const ExplorePage: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [selectedCategory, setSelectedCategory] = useState<UmkmCategory>('Semua');
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] =
+    useState<UmkmCategory>("Semua");
   const [filteredUmkm, setFilteredUmkm] = useState<Umkm[]>(umkmData as Umkm[]);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState<boolean>(false);
-  const [viewMode, setViewMode] = useState<'grid' | 'map'>('grid');
+  const [viewMode, setViewMode] = useState<"grid" | "map">("grid");
   const [advancedFilters, setAdvancedFilters] = useState<AdvancedFilters>({
     isOpenNow: false,
-    facilities: []
+    facilities: [],
   });
 
   // Get unique facilities from all UMKM data
   const availableFacilities = useMemo(() => {
-    const allFacilities = umkmData.flatMap(umkm => umkm.facilities);
+    const allFacilities = umkmData.flatMap((umkm) => umkm.facilities);
     return Array.from(new Set(allFacilities)).sort();
   }, []);
 
@@ -37,16 +38,18 @@ const ExplorePage: React.FC = () => {
     let filtered = umkmData;
 
     // Filter by category
-    if (selectedCategory !== 'Semua') {
-      filtered = filtered.filter(umkm => umkm.category === selectedCategory);
+    if (selectedCategory !== "Semua") {
+      filtered = filtered.filter((umkm) => umkm.category === selectedCategory);
     }
 
     // Filter by search term
     if (searchTerm.trim()) {
       const searchLower = searchTerm.trim().toLowerCase();
-      const searchWords = searchLower.split(/\s+/).filter(word => word.length > 0);
-      
-      filtered = filtered.filter(umkm => {
+      const searchWords = searchLower
+        .split(/\s+/)
+        .filter((word) => word.length > 0);
+
+      filtered = filtered.filter((umkm) => {
         // Create searchable text from all relevant fields
         const searchableText = [
           umkm.name,
@@ -54,23 +57,25 @@ const ExplorePage: React.FC = () => {
           umkm.category,
           umkm.address,
           ...umkm.facilities,
-          ...umkm.products.map(product => product.name)
-        ].join(' ').toLowerCase();
+          ...umkm.products.map((product) => product.name),
+        ]
+          .join(" ")
+          .toLowerCase();
 
         // Check if all search words are found in the searchable text
         // This provides basic typo tolerance by matching individual words
-        return searchWords.every(word => searchableText.includes(word));
+        return searchWords.every((word) => searchableText.includes(word));
       });
     }
 
     // Filter by advanced filters
     if (advancedFilters.isOpenNow) {
-      filtered = filtered.filter(umkm => umkm.isOpen);
+      filtered = filtered.filter((umkm) => umkm.isOpen);
     }
 
     if (advancedFilters.facilities.length > 0) {
-      filtered = filtered.filter(umkm => 
-        advancedFilters.facilities.every(facility => 
+      filtered = filtered.filter((umkm) =>
+        advancedFilters.facilities.every((facility) =>
           umkm.facilities.includes(facility)
         )
       );
@@ -94,7 +99,7 @@ const ExplorePage: React.FC = () => {
 
   return (
     <AnimatedWrapper>
-      <div className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-slate-50 pt-20">
         {/* Header Section */}
         <section className="bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white py-16 px-6">
           <div className="max-w-7xl mx-auto text-center">
@@ -112,7 +117,8 @@ const ExplorePage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="text-lg text-white/90 mb-8 max-w-2xl mx-auto"
             >
-              Temukan dan jelajahi semua UMKM lokal yang tersedia di platform kami
+              Temukan dan jelajahi semua UMKM lokal yang tersedia di platform
+              kami
             </motion.p>
 
             {/* Search Section */}
@@ -144,18 +150,18 @@ const ExplorePage: React.FC = () => {
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800">
                   Semua UMKM ({filteredUmkm.length})
                 </h2>
-                
+
                 {/* View Mode Toggle */}
                 <div className="flex bg-slate-50 rounded-xl p-1 shadow-sm border border-slate-200">
                   <motion.button
-                    onClick={() => setViewMode('grid')}
+                    onClick={() => setViewMode("grid")}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 relative overflow-hidden ${
-                      viewMode === 'grid'
-                        ? 'bg-primary-600 text-white shadow-sm'
-                        : 'text-slate-600 hover:text-slate-800 hover:bg-white'
+                      viewMode === "grid"
+                        ? "bg-primary-600 text-white shadow-sm"
+                        : "text-slate-600 hover:text-slate-800 hover:bg-white"
                     }`}
                   >
                     <motion.div
@@ -165,7 +171,7 @@ const ExplorePage: React.FC = () => {
                       <FiMenu className="h-[18px] w-[18px]" />
                     </motion.div>
                     <span className="font-medium relative z-10">Grid</span>
-                    {viewMode !== 'grid' && (
+                    {viewMode !== "grid" && (
                       <motion.div
                         className="absolute inset-0 bg-white"
                         initial={{ scale: 0, opacity: 0 }}
@@ -175,14 +181,14 @@ const ExplorePage: React.FC = () => {
                     )}
                   </motion.button>
                   <motion.button
-                    onClick={() => setViewMode('map')}
+                    onClick={() => setViewMode("map")}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 relative overflow-hidden ${
-                      viewMode === 'map'
-                        ? 'bg-primary-600 text-white shadow-sm'
-                        : 'text-slate-600 hover:text-slate-800 hover:bg-white'
+                      viewMode === "map"
+                        ? "bg-primary-600 text-white shadow-sm"
+                        : "text-slate-600 hover:text-slate-800 hover:bg-white"
                     }`}
                   >
                     <motion.div
@@ -192,7 +198,7 @@ const ExplorePage: React.FC = () => {
                       <FiMapPin className="h-[18px] w-[18px]" />
                     </motion.div>
                     <span className="font-medium relative z-10">Map</span>
-                    {viewMode !== 'map' && (
+                    {viewMode !== "map" && (
                       <motion.div
                         className="absolute inset-0 bg-white"
                         initial={{ scale: 0, opacity: 0 }}
@@ -211,30 +217,32 @@ const ExplorePage: React.FC = () => {
                   onFilter={setSelectedCategory}
                 />
                 <motion.button
-                   onClick={() => setIsFilterModalOpen(true)}
-                   whileHover={{ 
-                     scale: 1.02,
-                     boxShadow: "0 4px 12px -2px rgba(0, 0, 0, 0.1)"
-                   }}
-                   whileTap={{ 
-                     scale: 0.98,
-                     boxShadow: "0 2px 8px -2px rgba(0, 0, 0, 0.1)"
-                   }}
-                   transition={{ 
-                     type: "spring", 
-                     stiffness: 300, 
-                     damping: 20,
-                     boxShadow: { duration: 0.2 }
-                   }}
-                   className="flex items-center gap-2 px-4 py-2 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-800 rounded-lg transition-all duration-200 border border-slate-200 hover:border-slate-300 shadow-sm relative overflow-hidden group"
-                 >
+                  onClick={() => setIsFilterModalOpen(true)}
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: "0 4px 12px -2px rgba(0, 0, 0, 0.1)",
+                  }}
+                  whileTap={{
+                    scale: 0.98,
+                    boxShadow: "0 2px 8px -2px rgba(0, 0, 0, 0.1)",
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20,
+                    boxShadow: { duration: 0.2 },
+                  }}
+                  className="flex items-center gap-2 px-4 py-2 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-800 rounded-lg transition-all duration-200 border border-slate-200 hover:border-slate-300 shadow-sm relative overflow-hidden group"
+                >
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.2 }}
                   >
                     <FiFilter className="h-[18px] w-[18px]" />
                   </motion.div>
-                  <span className="font-medium relative z-10">Filter Lainnya</span>
+                  <span className="font-medium relative z-10">
+                    Filter Lainnya
+                  </span>
                   <motion.div
                     className="absolute inset-0 bg-slate-50"
                     initial={{ scale: 0, opacity: 0 }}
@@ -247,7 +255,7 @@ const ExplorePage: React.FC = () => {
 
             {/* Main Content with Fixed Toggle */}
             <AnimatePresence mode="wait">
-              {viewMode === 'grid' ? (
+              {viewMode === "grid" ? (
                 <motion.div
                   key="grid"
                   initial={{ opacity: 0, y: 20 }}

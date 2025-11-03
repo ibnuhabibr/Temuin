@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 interface GalleryCarouselProps {
@@ -25,15 +25,11 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({
     );
   };
 
-  const goToImage = (index: number) => {
-    setCurrentIndex(index);
-  };
-
   // Auto-slide setiap 5 detik
   useEffect(() => {
     const interval = setInterval(nextImage, 5000);
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [currentIndex, nextImage]);
 
   if (!images || images.length === 0) {
     return (
@@ -109,8 +105,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({
               width: "100%",
               maxWidth: "900px", // sama seperti gambar utama
             }}
-          >
-          </div>
+          ></div>
         </div>
       )}
     </div>

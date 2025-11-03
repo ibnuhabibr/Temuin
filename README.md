@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="src/assets/logo-temuin.svg" alt="Temuin Logo" width="120" height="120">
+<img src="src/logo.png" alt="Temuin Logo" width="120" height="120">
 
 # TEMUIN
 

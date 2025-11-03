@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 interface GalleryMenuProps {
@@ -9,16 +9,18 @@ interface GalleryMenuProps {
 
 const GalleryMenu: React.FC<GalleryMenuProps> = ({ images, businessName }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [scrollDirection, setScrollDirection] = useState<"right" | "left">("right");
+  const [scrollDirection, setScrollDirection] = useState<"right" | "left">(
+    "right"
+  );
 
-  // Auto-scroll bolak-balik
+  // Auto-scroll bolak-balik (lebih cepat dan tetap berjalan)
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
 
     const scrollStep = () => {
       if (scrollDirection === "right") {
-        container.scrollBy({ left: 2, behavior: "smooth" });
+        container.scrollBy({ left: 3, behavior: "smooth" }); // Lebih cepat dari 2 ke 3
         if (
           Math.ceil(container.scrollLeft + container.clientWidth) >=
           container.scrollWidth
@@ -26,21 +28,26 @@ const GalleryMenu: React.FC<GalleryMenuProps> = ({ images, businessName }) => {
           setScrollDirection("left");
         }
       } else {
-        container.scrollBy({ left: -2, behavior: "smooth" });
+        container.scrollBy({ left: -3, behavior: "smooth" }); // Lebih cepat dari -2 ke -3
         if (container.scrollLeft <= 0) {
           setScrollDirection("right");
         }
       }
     };
 
-    const interval = setInterval(scrollStep, 20);
+    const interval = setInterval(scrollStep, 15); // Lebih cepat dari 20ms ke 15ms
     return () => clearInterval(interval);
   }, [scrollDirection]);
 
+  // User control untuk mengubah arah scroll
   const handleScroll = (direction: "left" | "right") => {
     const container = scrollRef.current;
     if (!container) return;
 
+    // User bisa mengubah arah auto-scroll
+    setScrollDirection(direction);
+
+    // Optional: Jump scroll untuk respons langsung
     const scrollAmount = direction === "right" ? 300 : -300;
     container.scrollBy({ left: scrollAmount, behavior: "smooth" });
   };
@@ -67,9 +74,9 @@ const GalleryMenu: React.FC<GalleryMenuProps> = ({ images, businessName }) => {
           onClick={() => handleScroll("left")}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur p-2 rounded-full shadow-md hover:bg-white hidden md:flex"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm p-2 md:p-2.5 rounded-full shadow-md hover:bg-white flex items-center justify-center"
         >
-          <FiChevronLeft className="h-5 w-5 text-slate-700" />
+          <FiChevronLeft className="h-4 w-4 md:h-5 md:w-5 text-slate-700" />
         </motion.button>
 
         {/* Carousel container */}
@@ -109,9 +116,9 @@ const GalleryMenu: React.FC<GalleryMenuProps> = ({ images, businessName }) => {
           onClick={() => handleScroll("right")}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 backdrop-blur p-2 rounded-full shadow-md hover:bg-white hidden md:flex"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm p-2 md:p-2.5 rounded-full shadow-md hover:bg-white flex items-center justify-center"
         >
-          <FiChevronRight className="h-5 w-5 text-slate-700" />
+          <FiChevronRight className="h-4 w-4 md:h-5 md:w-5 text-slate-700" />
         </motion.button>
       </div>
     </div>

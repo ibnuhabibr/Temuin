@@ -27,9 +27,15 @@ export interface Umkm {
 }
 
 // Additional utility types
-export type UmkmCategory = 'Semua' | 'Makanan' | 'Minuman' | 'Jasa' | 'Kerajinan';
+export type UmkmCategory =
+  | "Semua"
+  | "Makanan"
+  | "Minuman"
+  | "Fashion"
+  | "Jasa"
+  | "Kerajinan";
 
-export type RatingSize = 'sm' | 'md' | 'lg';
+export type RatingSize = "sm" | "md" | "lg";
 
 // Event handler types
 export type SearchHandler = (searchTerm: string) => void;
