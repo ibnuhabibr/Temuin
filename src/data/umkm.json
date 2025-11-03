@@ -5,7 +5,8 @@
     "category": "Minuman",
     "description": "Kedai kopi dengan berbagai pilihan kopi spesialti dan suasana yang nyaman untuk bersantai.",
     "story": "Ngopi Sek Mas didirikan pada tahun 2015 oleh sekelompok pecinta kopi yang ingin menghadirkan cita rasa kopi terbaik kepada masyarakat. Kami hanya menggunakan biji kopi pilihan yang diolah dengan teknik terbaik untuk memastikan setiap cangkir kopi memberikan pengalaman yang tak terlupakan.",
-    "address": "Jl. Raya ITS ",
+    "address": "Jl. Raya ITS",
+    "phone": "081234567890",
     "latitude": -7.275884233114674,
     "longitude": 112.79192708460566,
     "placeGallery": [
@@ -19,7 +20,6 @@
       "/img/gallery-umkm/ngopi-sek-mas/5.png",
       "/img/gallery-umkm/ngopi-sek-mas/6.png",
       "/img/gallery-umkm/ngopi-sek-mas/7.png"
-
     ],
     "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1978.8453085580559!2d112.79120447105!3d-7.27600129935749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb0040487d65%3A0xede9970d203511ee!2sNgopi%20Sek%20Mas!5e0!3m2!1sid!2sid!4v1762112743345!5m2!1sid!2sid",
     "rating": 4.5,
@@ -96,41 +96,53 @@
   },
   {
     "id": 2,
-    "name": "Bakso Pak Kumis",
-    "category": "Makanan",
-    "description": "Bakso legendaris dengan kuah kaldu sapi yang gurih dan daging yang kenyal.",
-    "story": "Pak Kumis telah menjual bakso selama 30 tahun dengan resep turun temurun dari keluarga. Setiap hari, beliau membuat bakso segar dengan daging sapi pilihan.",
-    "address": "Jl. Merdeka No. 45, Jakarta Pusat",
-    "latitude": -6.1751,
-    "longitude": 106.8650,
+    "name": "Es Teler Sultan",
+    "category": "Minuman",
+    "description": "Es teler segar dengan buah-buahan pilihan dan topping lengkap yang menyegarkan di cuaca panas.",
+    "story": "Es Teler Sultan hadir sejak 2018 dengan komitmen menghadirkan es teler berkualitas dengan buah-buahan segar pilihan. Setiap gelas es teler kami dibuat dengan penuh cinta dan kehati-hatian untuk memberikan kesegaran maksimal bagi pelanggan.",
+    "address": "Jl. Raya ITS, Surabaya",
+    "phone": "081234567891",
+    "latitude": -7.275884233114674,
+    "longitude": 112.79192708460566,
     "placeGallery": [
-      "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop"
+      "/img/umkm/es-teler-sultan.png"
     ],
     "menuGallery": [
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=600&fit=crop"
+      "/img/gallery-umkm/es-teler-sultan/1.png",
+      "/img/gallery-umkm/es-teler-sultan/2.png",
+      "/img/gallery-umkm/es-teler-sultan/3.png",
+      "/img/gallery-umkm/es-teler-sultan/4.png"
     ],
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1978.8453085580559!2d112.79120447105!3d-7.27600129935749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb0040487d65%3A0xede9970d203511ee!2sNgopi%20Sek%20Mas!5e0!3m2!1sid!2sid!4v1762112743345!5m2!1sid!2sid",
     "rating": 4.6,
     "isOpen": true,
-    "isFeatured": false,
+    "isFeatured": true,
+    "isWeeklyWow": false,
     "facilities": [
+      "Parkir",
       "Tempat Duduk",
       "Takeaway"
     ],
     "products": [
       {
-        "name": "Bakso Urat",
-        "price": 25000
+        "name": "Es Teler Original",
+        "price": 12000
       },
       {
-        "name": "Bakso Biasa",
-        "price": 20000
+        "name": "Es Teler Spesial",
+        "price": 15000
       },
       {
-        "name": "Mie Ayam Bakso",
-        "price": 22000
+        "name": "Es Teler Durian",
+        "price": 18000
+      },
+      {
+        "name": "Es Buah Segar",
+        "price": 10000
+      },
+      {
+        "name": "Es Kelapa Muda",
+        "price": 8000
       }
     ],
     "operationalHours": [
@@ -161,83 +173,287 @@
       },
       {
         "day": "Sabtu",
-        "hours": "09:00 - 22:00",
+        "hours": "10:00 - 22:00",
         "isOpen": true
       },
       {
         "day": "Minggu",
-        "hours": "09:00 - 21:00",
+        "hours": "10:00 - 22:00",
         "isOpen": true
       }
     ]
   },
   {
     "id": 3,
-    "name": "Salon Cantik Indah",
-    "category": "Jasa",
-    "description": "Salon kecantikan dengan layanan lengkap untuk perawatan rambut dan wajah.",
-    "story": "Salon Cantik Indah telah berdiri sejak 2010 dan menjadi pilihan utama wanita di sekitar area untuk perawatan kecantikan dengan harga terjangkau.",
-    "address": "Jl. Mawar No. 12, Jakarta Barat",
-    "latitude": -6.1944,
-    "longitude": 106.7761,
+    "name": "Srikandi Fried Chicken",
+    "category": "Makanan",
+    "description": "Ayam goreng crispy dengan bumbu rempah khas Indonesia yang gurih dan renyah di setiap gigitan.",
+    "story": "Srikandi Fried Chicken berdiri sejak 2016 dengan resep warisan turun temurun. Kami menggunakan ayam kampung pilihan dan bumbu rempah rahasia yang membuat ayam goreng kami istimewa. Setiap potongan ayam dimarinasi dengan sempurna untuk menghasilkan cita rasa yang khas dan tak terlupakan.",
+    "address": "Jl. Mulyosari, Surabaya",
+    "phone": "089677730609",
+    "latitude": -7.281841971565787,
+    "longitude": 112.78359577574385,
     "placeGallery": [
-      "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800&h=600&fit=crop"
+      "/img/umkm/srikandi.png"
     ],
-    "menuGallery": [],
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
-    "rating": 4.4,
-    "isOpen": false,
+    "menuGallery": [
+      "/img/gallery-umkm/srikandi/1.png",
+      "/img/gallery-umkm/srikandi/2.png",
+      "/img/gallery-umkm/srikandi/3.png",
+      "/img/gallery-umkm/srikandi/4.png",
+      "/img/gallery-umkm/srikandi/5.png",
+      "/img/gallery-umkm/srikandi/6.png"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.6390860781144!2d112.78359577574385!3d-7.281841971565787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb002c0dd1db%3A0x8df11f8fa6216438!2sSrikandi%20Fried%20Chicken!5e0!3m2!1sid!2sid!4v1762162677969!5m2!1sid!2sid",
+    "rating": 4.7,
+    "isOpen": true,
     "isFeatured": true,
+    "isWeeklyWow": false,
     "facilities": [
-      "AC",
-      "WiFi",
-      "Parkir"
+      "Dine In",
+      "Takeaway",
+      "Parkir",
+      "WiFi Gratis"
     ],
     "products": [
       {
-        "name": "Potong Rambut",
-        "price": 35000
+        "name": "Paket Ayam Goreng",
+        "price": 25000
       },
       {
-        "name": "Creambath",
-        "price": 50000
+        "name": "Ayam Geprek",
+        "price": 20000
       },
       {
-        "name": "Facial",
-        "price": 75000
+        "name": "Ayam Bakar",
+        "price": 22000
+      },
+      {
+        "name": "Nasi Goreng Ayam",
+        "price": 18000
+      },
+      {
+        "name": "Chicken Wings",
+        "price": 15000
+      },
+      {
+        "name": "Paket Hemat",
+        "price": 30000
       }
     ],
     "operationalHours": [
       {
         "day": "Senin",
-        "hours": "09:00 - 18:00",
+        "hours": "10:00 - 22:00",
         "isOpen": true
       },
       {
         "day": "Selasa",
-        "hours": "09:00 - 18:00",
+        "hours": "10:00 - 22:00",
         "isOpen": true
       },
       {
         "day": "Rabu",
-        "hours": "09:00 - 18:00",
+        "hours": "10:00 - 22:00",
         "isOpen": true
       },
       {
         "day": "Kamis",
-        "hours": "09:00 - 18:00",
+        "hours": "10:00 - 22:00",
         "isOpen": true
       },
       {
         "day": "Jumat",
-        "hours": "09:00 - 19:00",
+        "hours": "10:00 - 23:00",
         "isOpen": true
       },
       {
         "day": "Sabtu",
-        "hours": "08:00 - 19:00",
+        "hours": "10:00 - 23:00",
+        "isOpen": true
+      },
+      {
+        "day": "Minggu",
+        "hours": "10:00 - 23:00",
+        "isOpen": true
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Warung Emmak Bu Aisyatun",
+    "category": "Makanan",
+    "description": "Warung makan rumahan dengan menu masakan Jawa yang lezat dan harga terjangkau, cocok untuk makan sehari-hari.",
+    "story": "Warung Emmak dikelola oleh Bu Aisyatun sejak 2010. Dengan resep masakan rumahan yang autentik, warung ini menjadi favorit warga sekitar untuk menikmati makanan Jawa yang enak dan mengenyangkan. Setiap masakan dibuat dengan penuh kasih sayang seperti memasak untuk keluarga sendiri.",
+    "address": "Jl. Keputih, Surabaya",
+    "phone": "081331999567",
+    "latitude": -7.274570471486646,
+    "longitude": 112.7981573757436,
+    "placeGallery": [
+      "/img/umkm/warung-emmak.png"
+    ],
+    "menuGallery": [
+      "/img/gallery-umkm/warung-emak/1.png",
+      "/img/gallery-umkm/warung-emak/2.png",
+      "/img/gallery-umkm/warung-emak/3.png",
+      "/img/gallery-umkm/warung-emak/4.png",
+      "/img/gallery-umkm/warung-emak/5.png"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.703234741711!2d112.7981573757436!3d-7.274570471486646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb29833b0019%3A0xba68733133ab2716!2sWARUNG%20EMMAK%20BU%20AISYATUN!5e0!3m2!1sid!2sid!4v1762162717109!5m2!1sid!2sid",
+    "rating": 4.5,
+    "isOpen": true,
+    "isFeatured": false,
+    "isWeeklyWow": false,
+    "facilities": [
+      "Tempat Duduk",
+      "Takeaway",
+      "Parkir Motor"
+    ],
+    "products": [
+      {
+        "name": "Nasi Pecel",
+        "price": 10000
+      },
+      {
+        "name": "Nasi Campur",
+        "price": 12000
+      },
+      {
+        "name": "Soto Ayam",
+        "price": 13000
+      },
+      {
+        "name": "Rawon",
+        "price": 15000
+      },
+      {
+        "name": "Nasi Goreng",
+        "price": 12000
+      },
+      {
+        "name": "Ayam Goreng",
+        "price": 10000
+      }
+    ],
+    "operationalHours": [
+      {
+        "day": "Senin",
+        "hours": "06:00 - 21:00",
+        "isOpen": true
+      },
+      {
+        "day": "Selasa",
+        "hours": "06:00 - 21:00",
+        "isOpen": true
+      },
+      {
+        "day": "Rabu",
+        "hours": "06:00 - 21:00",
+        "isOpen": true
+      },
+      {
+        "day": "Kamis",
+        "hours": "06:00 - 21:00",
+        "isOpen": true
+      },
+      {
+        "day": "Jumat",
+        "hours": "06:00 - 21:00",
+        "isOpen": true
+      },
+      {
+        "day": "Sabtu",
+        "hours": "06:00 - 21:00",
+        "isOpen": true
+      },
+      {
+        "day": "Minggu",
+        "hours": "06:00 - 21:00",
+        "isOpen": true
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "YSL Motor",
+    "category": "Jasa",
+    "description": "Bengkel motor profesional dengan mekanik berpengalaman, melayani servis rutin hingga perbaikan berat.",
+    "story": "YSL Motor berdiri sejak 2012 dan telah dipercaya oleh ribuan pelanggan untuk merawat kendaraan mereka. Dengan tim mekanik yang profesional dan peralatan modern, kami memberikan layanan terbaik untuk menjaga motor Anda tetap prima. Kepuasan pelanggan adalah prioritas utama kami.",
+    "address": "Jl. Mulyosari, Surabaya",
+    "phone": "08153708090",
+    "latitude": -7.280935500000002,
+    "longitude": 112.78324219678954,
+    "placeGallery": [
+      "/img/umkm/ysl-motor.png"
+    ],
+    "menuGallery": [
+      "/img/gallery-umkm/ysl-motor/1.png"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.647086384586!2d112.78324219678954!3d-7.280935500000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb4cc2a1ee31%3A0x486fbffdba221e98!2sYSL%20MOTOR!5e0!3m2!1sid!2sid!4v1762159124225!5m2!1sid!2sid",
+    "rating": 4.8,
+    "isOpen": true,
+    "isFeatured": true,
+    "isWeeklyWow": false,
+    "facilities": [
+      "Ruang Tunggu",
+      "Parkir Luas",
+      "Garansi Servis"
+    ],
+    "products": [
+      {
+        "name": "Servis Ringan",
+        "price": 50000
+      },
+      {
+        "name": "Servis Berat",
+        "price": 150000
+      },
+      {
+        "name": "Ganti Oli",
+        "price": 35000
+      },
+      {
+        "name": "Tune Up",
+        "price": 75000
+      },
+      {
+        "name": "Ganti Ban",
+        "price": 100000
+      },
+      {
+        "name": "Cuci Motor",
+        "price": 15000
+      }
+    ],
+    "operationalHours": [
+      {
+        "day": "Senin",
+        "hours": "08:00 - 18:00",
+        "isOpen": true
+      },
+      {
+        "day": "Selasa",
+        "hours": "08:00 - 18:00",
+        "isOpen": true
+      },
+      {
+        "day": "Rabu",
+        "hours": "08:00 - 18:00",
+        "isOpen": true
+      },
+      {
+        "day": "Kamis",
+        "hours": "08:00 - 18:00",
+        "isOpen": true
+      },
+      {
+        "day": "Jumat",
+        "hours": "08:00 - 18:00",
+        "isOpen": true
+      },
+      {
+        "day": "Sabtu",
+        "hours": "08:00 - 16:00",
         "isOpen": true
       },
       {
@@ -248,43 +464,55 @@
     ]
   },
   {
-    "id": 4,
-    "name": "Toko Bunga Mawar",
-    "category": "Jasa",
-    "description": "Toko bunga dengan berbagai macam bunga segar untuk berbagai acara.",
-    "story": "Toko Bunga Mawar adalah bisnis keluarga yang telah melayani kebutuhan bunga untuk acara pernikahan, ulang tahun, dan berbagai perayaan lainnya sejak 2005.",
-    "address": "Jl. Melati No. 8, Jakarta Timur",
-    "latitude": -6.2088,
-    "longitude": 106.8456,
+    "id": 6,
+    "name": "Nissa Juice",
+    "category": "Minuman",
+    "description": "Jus buah segar tanpa bahan pengawet dengan berbagai pilihan buah lokal dan tropis yang menyehatkan.",
+    "story": "Nissa Juice hadir sejak 2019 dengan misi menghadirkan minuman sehat dari buah-buahan segar pilihan. Kami tidak menggunakan bahan pengawet dan selalu memastikan kesegaran setiap gelas jus yang kami sajikan. Kesehatan pelanggan adalah yang utama.",
+    "address": "Jl. Keputih, Surabaya",
+    "phone": "081234567892",
+    "latitude": -7.280590099999995,
+    "longitude": 112.7837240967895,
     "placeGallery": [
-      "https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop"
+      "/img/umkm/nissa-juice.png"
     ],
     "menuGallery": [
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&h=600&fit=crop"
+      "/img/gallery-umkm/nissa-juice/1.png"
     ],
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
-    "rating": 4.7,
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.650134543729!2d112.7837240967895!3d-7.280590099999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa15c11f3b79%3A0xf8ef60ab49b0a5d3!2snissa%20juice!5e0!3m2!1sid!2sid!4v1762159196869!5m2!1sid!2sid",
+    "rating": 4.4,
     "isOpen": true,
     "isFeatured": false,
-    "isWeeklyWow": true,
+    "isWeeklyWow": false,
     "facilities": [
+      "Takeaway",
       "Delivery",
-      "Custom Arrangement"
+      "Parkir"
     ],
     "products": [
       {
-        "name": "Buket Mawar",
-        "price": 150000
+        "name": "Jus Alpukat",
+        "price": 12000
       },
       {
-        "name": "Bunga Papan",
-        "price": 300000
+        "name": "Jus Mangga",
+        "price": 10000
       },
       {
-        "name": "Hand Bouquet",
-        "price": 100000
+        "name": "Jus Jeruk",
+        "price": 8000
+      },
+      {
+        "name": "Jus Strawberry",
+        "price": 15000
+      },
+      {
+        "name": "Jus Melon",
+        "price": 10000
+      },
+      {
+        "name": "Jus Jambu",
+        "price": 10000
       }
     ],
     "operationalHours": [
@@ -320,234 +548,175 @@
       },
       {
         "day": "Minggu",
-        "hours": "09:00 - 18:00",
-        "isOpen": true
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "name": "Es Teh Manis Pak Budi",
-    "category": "Minuman",
-    "description": "Warung es teh legendaris dengan rasa manis yang pas dan harga terjangkau.",
-    "story": "Pak Budi telah menjual es teh manis di pojok jalan selama 20 tahun. Resep es tehnya yang khas membuat pelanggan selalu kembali lagi.",
-    "address": "Jl. Raya Kemang No. 25, Jakarta Selatan",
-    "latitude": -6.2615,
-    "longitude": 106.8106,
-    "placeGallery": [
-      "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop"
-    ],
-    "menuGallery": [
-      "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=800&h=600&fit=crop"
-    ],
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
-    "rating": 4.3,
-    "isOpen": true,
-    "isFeatured": true,
-    "facilities": [
-      "Tempat Duduk",
-      "Takeaway"
-    ],
-    "products": [
-      {
-        "name": "Es Teh Manis",
-        "price": 5000
-      },
-      {
-        "name": "Es Jeruk",
-        "price": 8000
-      },
-      {
-        "name": "Es Campur",
-        "price": 12000
-      }
-    ],
-    "operationalHours": [
-      {
-        "day": "Senin",
-        "hours": "06:00 - 20:00",
-        "isOpen": true
-      },
-      {
-        "day": "Selasa",
-        "hours": "06:00 - 20:00",
-        "isOpen": true
-      },
-      {
-        "day": "Rabu",
-        "hours": "06:00 - 20:00",
-        "isOpen": true
-      },
-      {
-        "day": "Kamis",
-        "hours": "06:00 - 20:00",
-        "isOpen": true
-      },
-      {
-        "day": "Jumat",
-        "hours": "06:00 - 21:00",
-        "isOpen": true
-      },
-      {
-        "day": "Sabtu",
-        "hours": "06:00 - 21:00",
-        "isOpen": true
-      },
-      {
-        "day": "Minggu",
-        "hours": "07:00 - 19:00",
-        "isOpen": true
-      }
-    ]
-  },
-  {
-    "id": 6,
-    "name": "Nasi Gudeg Bu Sari",
-    "category": "Makanan",
-    "description": "Gudeg Yogya asli dengan cita rasa manis dan gurih yang autentik.",
-    "story": "Bu Sari membawa resep gudeg turun temurun dari Yogyakarta. Setiap hari, beliau memasak gudeg dengan bumbu tradisional yang khas.",
-    "address": "Jl. Sudirman No. 67, Jakarta Pusat",
-    "latitude": -6.2088,
-    "longitude": 106.8456,
-    "placeGallery": [
-      "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop"
-    ],
-    "menuGallery": [
-      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=800&h=600&fit=crop"
-    ],
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
-    "rating": 4.9,
-    "isOpen": true,
-    "isFeatured": false,
-    "isWeeklyWow": true,
-    "facilities": [
-      "AC",
-      "Tempat Duduk",
-      "Takeaway"
-    ],
-    "products": [
-      {
-        "name": "Gudeg Komplit",
-        "price": 25000
-      },
-      {
-        "name": "Gudeg Ayam",
-        "price": 30000
-      },
-      {
-        "name": "Gudeg Telur",
-        "price": 20000
-      }
-    ],
-    "operationalHours": [
-      {
-        "day": "Senin",
-        "hours": "11:00 - 21:00",
-        "isOpen": true
-      },
-      {
-        "day": "Selasa",
-        "hours": "11:00 - 21:00",
-        "isOpen": true
-      },
-      {
-        "day": "Rabu",
-        "hours": "11:00 - 21:00",
-        "isOpen": true
-      },
-      {
-        "day": "Kamis",
-        "hours": "11:00 - 21:00",
-        "isOpen": true
-      },
-      {
-        "day": "Jumat",
-        "hours": "11:00 - 22:00",
-        "isOpen": true
-      },
-      {
-        "day": "Sabtu",
-        "hours": "10:00 - 22:00",
-        "isOpen": true
-      },
-      {
-        "day": "Minggu",
-        "hours": "10:00 - 21:00",
+        "hours": "08:00 - 21:00",
         "isOpen": true
       }
     ]
   },
   {
     "id": 7,
-    "name": "Bengkel Motor Jaya",
+    "name": "Pangkas Rambut Mas Joen",
     "category": "Jasa",
-    "description": "Bengkel motor terpercaya dengan mekanik berpengalaman dan spare part lengkap.",
-    "story": "Bengkel Motor Jaya telah melayani perbaikan motor sejak 1998. Dengan mekanik yang berpengalaman, kami memberikan layanan terbaik untuk semua jenis motor.",
-    "address": "Jl. Gatot Subroto No. 89, Jakarta Selatan",
-    "latitude": -6.2297,
-    "longitude": 106.8253,
+    "description": "Barbershop modern dengan layanan potong rambut profesional untuk pria dengan harga terjangkau.",
+    "story": "Mas Joen membuka barbershop ini sejak 2017 dengan pengalaman lebih dari 10 tahun di bidang tata rambut. Kami mengikuti perkembangan tren gaya rambut terkini sambil tetap mempertahankan nilai tradisional pelayanan yang ramah dan berkualitas.",
+    "address": "Jl. Keputih, Surabaya",
+    "phone": "082140720343",
+    "latitude": -7.281679,
+    "longitude": 112.78885650000001,
     "placeGallery": [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=800&h=600&fit=crop"
+      "/img/umkm/mas-joen.png"
     ],
-    "menuGallery": [],
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
-    "rating": 4.5,
-    "isOpen": false,
+    "menuGallery": [
+      "/img/gallery-umkm/mas-joen/1.png"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.640524500156!2d112.78885650000001!3d-7.281679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb00205b9cd9%3A0xc05b9ebcad177d1c!2sPangkas%20Rambut%20Mas%20Joen!5e0!3m2!1sid!2sid!4v1762159000407!5m2!1sid!2sid",
+    "rating": 4.6,
+    "isOpen": true,
     "isFeatured": false,
+    "isWeeklyWow": false,
     "facilities": [
+      "AC",
       "Parkir",
-      "Ruang Tunggu",
-      "Spare Part"
+      "WiFi Gratis"
     ],
     "products": [
       {
-        "name": "Service Rutin",
-        "price": 50000
+        "name": "Potong Rambut",
+        "price": 20000
       },
       {
-        "name": "Ganti Oli",
+        "name": "Potong + Cuci",
+        "price": 25000
+      },
+      {
+        "name": "Styling Rambut",
+        "price": 30000
+      },
+      {
+        "name": "Cukur Jenggot",
+        "price": 15000
+      },
+      {
+        "name": "Creambath",
         "price": 35000
       },
       {
-        "name": "Tune Up",
-        "price": 75000
+        "name": "Hair Color",
+        "price": 50000
       }
     ],
     "operationalHours": [
       {
         "day": "Senin",
-        "hours": "08:00 - 17:00",
+        "hours": "09:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Selasa",
-        "hours": "08:00 - 17:00",
+        "hours": "09:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Rabu",
-        "hours": "08:00 - 17:00",
+        "hours": "09:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Kamis",
-        "hours": "08:00 - 17:00",
+        "hours": "09:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Jumat",
-        "hours": "08:00 - 17:00",
+        "hours": "09:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Sabtu",
-        "hours": "08:00 - 15:00",
+        "hours": "09:00 - 21:00",
+        "isOpen": true
+      },
+      {
+        "day": "Minggu",
+        "hours": "09:00 - 21:00",
+        "isOpen": true
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Permak Jeans Tretan",
+    "category": "Jasa",
+    "description": "Jasa permak dan modifikasi jeans dengan hasil rapi dan profesional, cocok untuk custom style Anda.",
+    "story": "Permak Jeans Tretan dimulai dari hobi yang berkembang menjadi bisnis sejak 2016. Dengan keahlian khusus dalam modifikasi jeans, kami dapat mewujudkan ide custom jeans sesuai keinginan pelanggan. Setiap jahitan dikerjakan dengan teliti untuk hasil yang sempurna.",
+    "address": "Jl. Mulyosari, Surabaya",
+    "phone": "085733909098",
+    "latitude": -7.284731252813615,
+    "longitude": 112.78039198389818,
+    "placeGallery": [
+      "/img/umkm/permak-tretan.png"
+    ],
+    "menuGallery": [],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.6135793454623!2d112.78039198389818!3d-7.284731252813615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa3ff2a9af45%3A0xa28656c0a5e5bdaf!2sPermak%20Jeans%20Tretan!5e0!3m2!1sid!2sid!4v1762158906686!5m2!1sid!2sid",
+    "rating": 4.7,
+    "isOpen": true,
+    "isFeatured": false,
+    "isWeeklyWow": false,
+    "facilities": [
+      "Custom Design",
+      "Konsultasi Gratis"
+    ],
+    "products": [
+      {
+        "name": "Permak Celana",
+        "price": 25000
+      },
+      {
+        "name": "Modifikasi Jeans",
+        "price": 50000
+      },
+      {
+        "name": "Repair Jeans",
+        "price": 30000
+      },
+      {
+        "name": "Custom Distressed",
+        "price": 40000
+      },
+      {
+        "name": "Tambah Patch",
+        "price": 20000
+      }
+    ],
+    "operationalHours": [
+      {
+        "day": "Senin",
+        "hours": "09:00 - 17:00",
+        "isOpen": true
+      },
+      {
+        "day": "Selasa",
+        "hours": "09:00 - 17:00",
+        "isOpen": true
+      },
+      {
+        "day": "Rabu",
+        "hours": "09:00 - 17:00",
+        "isOpen": true
+      },
+      {
+        "day": "Kamis",
+        "hours": "09:00 - 17:00",
+        "isOpen": true
+      },
+      {
+        "day": "Jumat",
+        "hours": "09:00 - 17:00",
+        "isOpen": true
+      },
+      {
+        "day": "Sabtu",
+        "hours": "09:00 - 15:00",
         "isOpen": true
       },
       {
@@ -557,115 +726,123 @@
       }
     ]
   },
-
   {
-    "id": 8,
-    "name": "Permak Jeans Busana",
-    "category": "Jasa",
-    "description": "Jasa permak dan penjahitan pakaian dengan kualitas terbaik.",
-    "story": "Permak Jeans Busana telah melayani pelanggan sejak 2010 dengan tenaga ahli di bidangnya.",
-    "address": "Jl. Gebang Lor No.44, Gebang Putih, Kec. Sukolilo, Surabaya",
-    "latitude": -7.280740020441303,
-    "longitude": 112.78742311883968,
-    "placeGallery": [ 
-      "/img/umkm/8.png"
+    "id": 9,
+    "name": "Warung Mak Ni",
+    "category": "Makanan",
+    "description": "Warung makan dengan menu khas Jawa Timur yang autentik dan harga bersahabat, favorit mahasiswa dan warga sekitar.",
+    "story": "Warung Mak Ni telah berdiri sejak 2008 dan menjadi langganan tetap mahasiswa serta warga sekitar. Dengan cita rasa masakan rumahan yang khas dan porsi yang mengenyangkan, warung ini selalu ramai dikunjungi terutama saat jam makan siang.",
+    "address": "Jl. Keputih, Surabaya",
+    "phone": "085733335656",
+    "latitude": -7.275423699999999,
+    "longitude": 112.80096789999999,
+    "placeGallery": [
+      "/img/umkm/warung-mak-ni.png"
     ],
     "menuGallery": [
-    
+      "/img/gallery-umkm/warung-mak-ni/1.png",
+      "/img/gallery-umkm/warung-mak-ni/2.png",
+      "/img/gallery-umkm/warung-mak-ni/3.png"
     ],
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7915.29311486282!2d112.78304575381397!3d-7.280995436296096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa158e39d62b%3A0x86e1acdf4e48ad2b!2sPermak%20Jeans%20Busana%20Pria%20%26%20Wanita!5e0!3m2!1sid!2sid!4v1762131460079!5m2!1sid!2sid",
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4694.610407094671!2d112.80096789999999!3d-7.275423699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x51044b7663c7505%3A0x7c683201debe70cf!2sWarung%20Mak%20Ni!5e1!3m2!1sid!2sid!4v1762158509507!5m2!1sid!2sid",
     "rating": 4.3,
     "isOpen": true,
     "isFeatured": false,
+    "isWeeklyWow": false,
     "facilities": [
       "Tempat Duduk",
-      "Tempat Parikir"
+      "Takeaway",
+      "Harga Mahasiswa"
     ],
     "products": [
       {
-        "name": "Permak Jeans Busana",
-        "price": 50000
+        "name": "Nasi Pecel",
+        "price": 8000
       },
       {
-        "name": "Jasa Resleting",
-        "price": 30000
+        "name": "Nasi Campur",
+        "price": 10000
       },
       {
-        "name": "Jasa Celana Panjang",
-        "price": 40000
+        "name": "Soto Lamongan",
+        "price": 12000
       },
       {
-        "name": "Jasa Kemeja",
-        "price": 35000
+        "name": "Nasi Goreng",
+        "price": 10000
       },
       {
-        "name": "Jasa Jas",
-        "price": 60000
+        "name": "Mie Goreng",
+        "price": 10000
       },
       {
-        "name": "Jasa Jahit",
-        "price": 25000
+        "name": "Tempe Mendoan",
+        "price": 5000
       }
     ],
     "operationalHours": [
       {
         "day": "Senin",
-        "hours": "10:00 - 21:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Selasa",
-        "hours": "10:00 - 20:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Rabu",
-        "hours": "10:00 - 20:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Kamis",
-        "hours": "10:00 - 20:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Jumat",
-        "hours": "10:00 - 20:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Sabtu",
-        "hours": "10:00 - 20:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Minggu",
-        "hours": "10:00 - 20:00",
+        "hours": "06:00 - 14:00",
         "isOpen": true
       }
     ]
   },
   {
-    "id": 9,
-    "name": "Warung Pecel Lele Mas Agus",
+    "id": 10,
+    "name": "Bubur Kepagian Keputih",
     "category": "Makanan",
-    "description": "Pecel lele dengan sambal yang pedas dan gurih, disajikan dengan lalapan segar.",
-    "story": "Mas Agus telah menjual pecel lele selama 15 tahun. Sambal pecelnya yang pedas dan lele yang selalu segar membuat warung ini selalu ramai pengunjung.",
-    "address": "Jl. Kebon Jeruk No. 56, Jakarta Barat",
-    "latitude": -6.1867,
-    "longitude": 106.7834,
+    "description": "Bubur ayam hangat dengan topping lengkap, sempurna untuk sarapan pagi yang mengenyangkan dan bergizi.",
+    "story": "Bubur Kepagian hadir sejak 2014 dengan menu bubur ayam yang legendaris. Setiap pagi kami menyajikan bubur hangat dengan ayam suwir, telur, dan topping lainnya yang melimpah. Resep turun temurun kami membuat bubur ini menjadi favorit untuk memulai hari.",
+    "address": "Jl. Keputih, Surabaya",
+    "phone": "085878425266",
+    "latitude": -7.2893881,
+    "longitude": 112.80024399999999,
     "placeGallery": [
-      "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop"
+      "/img/umkm/bubur-kepagian.png"
     ],
     "menuGallery": [
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=600&fit=crop"
+      "/img/gallery-umkm/bubur-kepagian/1.png",
+      "/img/gallery-umkm/bubur-kepagian/2.png",
+      "/img/gallery-umkm/bubur-kepagian/3.png",
+      "/img/gallery-umkm/bubur-kepagian/4.png",
+      "/img/gallery-umkm/bubur-kepagian/5.png"
     ],
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
-    "rating": 4.4,
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4694.464191999396!2d112.80024399999999!3d-7.2893881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb55f8c6d1b5%3A0xa1ddcc9d177dbd9f!2sBubur%20Kepagian%20Keputih!5e1!3m2!1sid!2sid!4v1762158531864!5m2!1sid!2sid",
+    "rating": 4.5,
     "isOpen": true,
     "isFeatured": false,
+    "isWeeklyWow": true,
     "facilities": [
       "Tempat Duduk",
       "Takeaway",
@@ -673,128 +850,247 @@
     ],
     "products": [
       {
-        "name": "Pecel Lele",
-        "price": 18000
+        "name": "Bubur Ayam Original",
+        "price": 10000
       },
       {
-        "name": "Ayam Penyet",
-        "price": 20000
+        "name": "Bubur Ayam Spesial",
+        "price": 13000
       },
       {
-        "name": "Tahu Tempe Penyet",
+        "name": "Bubur Ayam + Telur",
         "price": 12000
+      },
+      {
+        "name": "Nasi Kuning",
+        "price": 8000
+      },
+      {
+        "name": "Nasi Uduk",
+        "price": 8000
       }
     ],
     "operationalHours": [
       {
         "day": "Senin",
-        "hours": "16:00 - 23:00",
+        "hours": "05:00 - 11:00",
         "isOpen": true
       },
       {
         "day": "Selasa",
-        "hours": "16:00 - 23:00",
+        "hours": "05:00 - 11:00",
         "isOpen": true
       },
       {
         "day": "Rabu",
-        "hours": "16:00 - 23:00",
+        "hours": "05:00 - 11:00",
         "isOpen": true
       },
       {
         "day": "Kamis",
-        "hours": "16:00 - 23:00",
+        "hours": "05:00 - 11:00",
         "isOpen": true
       },
       {
         "day": "Jumat",
-        "hours": "16:00 - 24:00",
+        "hours": "05:00 - 11:00",
         "isOpen": true
       },
       {
         "day": "Sabtu",
-        "hours": "15:00 - 24:00",
+        "hours": "05:00 - 12:00",
         "isOpen": true
       },
       {
         "day": "Minggu",
-        "hours": "15:00 - 23:00",
+        "hours": "05:00 - 12:00",
         "isOpen": true
       }
     ]
   },
   {
-    "id": 10,
-    "name": "Laundry Express 24 Jam",
-    "category": "Jasa",
-    "description": "Layanan laundry 24 jam dengan kualitas terbaik dan harga terjangkau.",
-    "story": "Laundry Express hadir untuk memenuhi kebutuhan masyarakat yang sibuk. Dengan layanan 24 jam, kami memastikan pakaian Anda bersih dan wangi.",
-    "address": "Jl. Cempaka No. 78, Jakarta Utara",
-    "latitude": -6.1384,
-    "longitude": 106.8677,
+    "id": 11,
+    "name": "Depot J-One",
+    "category": "Makanan",
+    "description": "Depot dengan menu masakan Indonesia lengkap, dari nasi goreng hingga menu Chinese food dengan cita rasa istimewa.",
+    "story": "Depot J-One berdiri sejak 2013 dan dikenal dengan variasi menu yang lengkap. Dari masakan Nusantara hingga Chinese food, semua tersedia dengan cita rasa yang konsisten dan kualitas bahan baku pilihan. Tempat favorit untuk makan bersama keluarga.",
+    "address": "Jl. Keputih, Surabaya",
+    "phone": "081231199758",
+    "latitude": -7.2874756,
+    "longitude": 112.79455200000001,
     "placeGallery": [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800&h=600&fit=crop"
+      "/img/umkm/depot-j-one.png"
     ],
-    "menuGallery": [],
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666427382894!2d106.82496417498969!3d-6.17539239380962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1697871234567!5m2!1sid!2sid",
-    "rating": 4.2,
+    "menuGallery": [
+      "/img/gallery-umkm/depot-j-one/1.png",
+      "/img/gallery-umkm/depot-j-one/2.png",
+      "/img/gallery-umkm/depot-j-one/3.png",
+      "/img/gallery-umkm/depot-j-one/4.png",
+      "/img/gallery-umkm/depot-j-one/5.png",
+      "/img/gallery-umkm/depot-j-one/6.png"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4694.484233426978!2d112.79455200000001!3d-7.2874756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa6c423dccdb%3A0x7b849481ae3113ab!2sDepot%20J-One!5e1!3m2!1sid!2sid!4v1762158691139!5m2!1sid!2sid",
+    "rating": 4.6,
     "isOpen": true,
     "isFeatured": true,
+    "isWeeklyWow": false,
     "facilities": [
-      "24 Jam",
-      "Pickup & Delivery",
-      "Express Service"
+      "AC",
+      "Tempat Luas",
+      "Parkir",
+      "WiFi Gratis"
     ],
     "products": [
       {
-        "name": "Cuci Kering",
-        "price": 8000
+        "name": "Nasi Goreng Spesial",
+        "price": 18000
       },
       {
-        "name": "Cuci Setrika",
-        "price": 12000
+        "name": "Cap Cay",
+        "price": 20000
       },
       {
-        "name": "Dry Clean",
+        "name": "Ayam Koloke",
         "price": 25000
+      },
+      {
+        "name": "Fuyunghai",
+        "price": 20000
+      },
+      {
+        "name": "Mie Goreng",
+        "price": 15000
+      },
+      {
+        "name": "Nasi Campur",
+        "price": 15000
       }
     ],
     "operationalHours": [
       {
         "day": "Senin",
-        "hours": "24 Jam",
+        "hours": "10:00 - 22:00",
         "isOpen": true
       },
       {
         "day": "Selasa",
-        "hours": "24 Jam",
+        "hours": "10:00 - 22:00",
         "isOpen": true
       },
       {
         "day": "Rabu",
-        "hours": "24 Jam",
+        "hours": "10:00 - 22:00",
         "isOpen": true
       },
       {
         "day": "Kamis",
-        "hours": "24 Jam",
+        "hours": "10:00 - 22:00",
         "isOpen": true
       },
       {
         "day": "Jumat",
-        "hours": "24 Jam",
+        "hours": "10:00 - 23:00",
         "isOpen": true
       },
       {
         "day": "Sabtu",
-        "hours": "24 Jam",
+        "hours": "10:00 - 23:00",
         "isOpen": true
       },
       {
         "day": "Minggu",
-        "hours": "24 Jam",
+        "hours": "10:00 - 23:00",
+        "isOpen": true
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Ryns Laundry Mulyosari",
+    "category": "Jasa",
+    "description": "Layanan laundry kiloan dan satuan dengan harga terjangkau, hasil bersih wangi dan rapi.",
+    "story": "Ryns Laundry hadir sejak 2017 untuk membantu masyarakat dengan layanan laundry berkualitas. Dengan peralatan modern dan deterjen ramah lingkungan, kami memastikan pakaian Anda bersih, wangi, dan terawat dengan baik. Kepercayaan pelanggan adalah aset terbesar kami.",
+    "address": "Jl. Mulyosari, Surabaya",
+    "phone": "081234567893",
+    "latitude": -7.2738318,
+    "longitude": 112.7977944,
+    "placeGallery": [
+      "/img/umkm/ryns-laundry.png"
+    ],
+    "menuGallery": [
+      "/img/gallery-umkm/ryns-laundry/1.png",
+      "/img/gallery-umkm/ryns-laundry/2.png"
+    ],
+    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15830.83899073244!2d112.7977944!3d-7.2738318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb918ecfacdf%3A0xe6b1971135281838!2sRyns%20laundry%20Mulyosari!5e0!3m2!1sid!2sid!4v1762158421405!5m2!1sid!2sid",
+    "rating": 4.5,
+    "isOpen": true,
+    "isFeatured": false,
+    "isWeeklyWow": false,
+    "facilities": [
+      "Antar Jemput",
+      "Express Service",
+      "Membership"
+    ],
+    "products": [
+      {
+        "name": "Cuci Kering (per kg)",
+        "price": 5000
+      },
+      {
+        "name": "Cuci Setrika (per kg)",
+        "price": 7000
+      },
+      {
+        "name": "Setrika Saja (per kg)",
+        "price": 4000
+      },
+      {
+        "name": "Cuci Sepatu",
+        "price": 20000
+      },
+      {
+        "name": "Cuci Karpet",
+        "price": 15000
+      },
+      {
+        "name": "Express 1 Hari",
+        "price": 10000
+      }
+    ],
+    "operationalHours": [
+      {
+        "day": "Senin",
+        "hours": "08:00 - 20:00",
+        "isOpen": true
+      },
+      {
+        "day": "Selasa",
+        "hours": "08:00 - 20:00",
+        "isOpen": true
+      },
+      {
+        "day": "Rabu",
+        "hours": "08:00 - 20:00",
+        "isOpen": true
+      },
+      {
+        "day": "Kamis",
+        "hours": "08:00 - 20:00",
+        "isOpen": true
+      },
+      {
+        "day": "Jumat",
+        "hours": "08:00 - 20:00",
+        "isOpen": true
+      },
+      {
+        "day": "Sabtu",
+        "hours": "08:00 - 20:00",
+        "isOpen": true
+      },
+      {
+        "day": "Minggu",
+        "hours": "08:00 - 18:00",
         "isOpen": true
       }
     ]
