@@ -204,8 +204,8 @@ const HomePage: React.FC = () => {
               className="mt-20 grid grid-cols-3 gap-8 max-w-3xl mx-auto"
             >
               {[
-                { number: "100+", label: "UMKM Terdaftar" },
-                { number: "20+", label: "Kategori Bisnis" },
+                { number: "10+", label: "UMKM Terdaftar" },
+                { number: "5+", label: "Kategori Bisnis" },
                 { number: "1000+", label: "Pengunjung/Bulan" },
               ].map((stat, index) => (
                 <motion.div
