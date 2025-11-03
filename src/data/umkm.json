@@ -9,9 +9,7 @@
     "phone": "081234567890",
     "latitude": -7.275884233114674,
     "longitude": 112.79192708460566,
-    "placeGallery": [
-      "/img/umkm/1.png"
-    ],
+    "placeGallery": ["/img/umkm/1.png"],
     "menuGallery": [
       "/img/gallery-umkm/ngopi-sek-mas/1.png",
       "/img/gallery-umkm/ngopi-sek-mas/2.png",
@@ -26,10 +24,7 @@
     "isOpen": true,
     "isFeatured": false,
     "isWeeklyWow": true,
-    "facilities": [
-      "Area Merokok",
-      "Parkir"
-    ],
+    "facilities": ["Area Merokok", "Parkir"],
     "products": [
       {
         "name": "Americano",
@@ -104,9 +99,7 @@
     "phone": "081234567891",
     "latitude": -7.275884233114674,
     "longitude": 112.79192708460566,
-    "placeGallery": [
-      "/img/umkm/es-teler-sultan.png"
-    ],
+    "placeGallery": ["/img/umkm/es-teler-sultan.png"],
     "menuGallery": [
       "/img/gallery-umkm/es-teler-sultan/1.png",
       "/img/gallery-umkm/es-teler-sultan/2.png",
@@ -118,67 +111,59 @@
     "isOpen": true,
     "isFeatured": true,
     "isWeeklyWow": false,
-    "facilities": [
-      "Parkir",
-      "Tempat Duduk",
-      "Takeaway"
-    ],
+    "facilities": ["Parkir", "Tempat Duduk", "Takeaway"],
     "products": [
       {
-        "name": "Es Teler Original",
-        "price": 12000
-      },
-      {
-        "name": "Es Teler Spesial",
-        "price": 15000
-      },
-      {
-        "name": "Es Teler Durian",
-        "price": 18000
-      },
-      {
-        "name": "Es Buah Segar",
+        "name": "Es Teler Nangka",
         "price": 10000
       },
       {
-        "name": "Es Kelapa Muda",
+        "name": "Es Cendol Nangka",
         "price": 8000
+      },
+      {
+        "name": "Es Cendol Durian",
+        "price": 12000
+      },
+      {
+        "name": "Es Teler Durian",
+        "price": 15000
       }
     ],
     "operationalHours": [
       {
         "day": "Senin",
-        "hours": "10:00 - 21:00",
+        "hours": "09:00 - 17:00",
         "isOpen": true
       },
       {
         "day": "Selasa",
-        "hours": "10:00 - 21:00",
+        "hours": "09:00 - 17:00",
         "isOpen": true
       },
       {
         "day": "Rabu",
-        "hours": "10:00 - 21:00",
+        "hours": "09:00 - 17:00",
         "isOpen": true
       },
       {
         "day": "Kamis",
-        "hours": "10:00 - 21:00",
+        "hours": "09:00 - 17:00",
         "isOpen": true
       },
       {
         "day": "Jumat",
-        "hours": "10:00 - 22:00",
+        "hours": "09:00 - 17:00",
         "isOpen": true
       },
       {
         "day": "Sabtu",
-        "hours": "10:00 - 22:00",
+        "hours": "09:00 - 17:00",
         "isOpen": true
       },
       {
         "day": "Minggu",
-        "hours": "10:00 - 22:00",
+        "hours": "09:00 - 17:00",
         "isOpen": true
       }
     ]
@@ -193,9 +178,7 @@
     "phone": "089677730609",
     "latitude": -7.281841971565787,
     "longitude": 112.78359577574385,
-    "placeGallery": [
-      "/img/umkm/srikandi.png"
-    ],
+    "placeGallery": ["/img/umkm/srikandi.png"],
     "menuGallery": [
       "/img/gallery-umkm/srikandi/1.png",
       "/img/gallery-umkm/srikandi/2.png",
@@ -209,72 +192,91 @@
     "isOpen": true,
     "isFeatured": true,
     "isWeeklyWow": false,
-    "facilities": [
-      "Dine In",
-      "Takeaway",
-      "Parkir",
-      "WiFi Gratis"
-    ],
+    "facilities": ["Dine In", "Takeaway", "Parkir", "WiFi Gratis"],
     "products": [
       {
-        "name": "Paket Ayam Goreng",
-        "price": 25000
+        "name": "Geprek Super Hemat",
+        "price": 10000
       },
       {
-        "name": "Ayam Geprek",
-        "price": 20000
+        "name": "Dada/Paha Atas",
+        "price": 10000
       },
       {
-        "name": "Ayam Bakar",
-        "price": 22000
+        "name": "Sayap/Paha Bawah",
+        "price": 9000
       },
       {
-        "name": "Nasi Goreng Ayam",
-        "price": 18000
+        "name": "Sayap/Paha Bawah + Nasi",
+        "price": 10000
       },
       {
-        "name": "Chicken Wings",
+        "name": "Dada/Paha Atas + Nasi",
+        "price": 13000
+      },
+      {
+        "name": "Sayap/Paha Bawah + Nasi + Minum",
+        "price": 13000
+      },
+      {
+        "name": "Dada/Paha Atas + Nasi + Minum",
         "price": 15000
       },
       {
-        "name": "Paket Hemat",
-        "price": 30000
+        "name": "Nasi",
+        "price": 3000
+      },
+      {
+        "name": "Hot Lava",
+        "price": 3000
+      },
+      {
+        "name": "Keju",
+        "price": 3000
+      },
+      {
+        "name": "Es Teh",
+        "price": 3000
+      },
+      {
+        "name": "Air Mineral",
+        "price": 3000
       }
     ],
     "operationalHours": [
       {
         "day": "Senin",
-        "hours": "10:00 - 22:00",
+        "hours": "07:00 - 23:00",
         "isOpen": true
       },
       {
         "day": "Selasa",
-        "hours": "10:00 - 22:00",
+        "hours": "07:00 - 23:00",
         "isOpen": true
       },
       {
         "day": "Rabu",
-        "hours": "10:00 - 22:00",
+        "hours": "07:00 - 23:00",
         "isOpen": true
       },
       {
         "day": "Kamis",
-        "hours": "10:00 - 22:00",
+        "hours": "07:00 - 23:00",
         "isOpen": true
       },
       {
         "day": "Jumat",
-        "hours": "10:00 - 23:00",
+        "hours": "07:00 - 23:00",
         "isOpen": true
       },
       {
         "day": "Sabtu",
-        "hours": "10:00 - 23:00",
+        "hours": "07:00 - 23:00",
         "isOpen": true
       },
       {
         "day": "Minggu",
-        "hours": "10:00 - 23:00",
+        "hours": "07:00 - 23:00",
         "isOpen": true
       }
     ]
@@ -289,9 +291,7 @@
     "phone": "081331999567",
     "latitude": -7.274570471486646,
     "longitude": 112.7981573757436,
-    "placeGallery": [
-      "/img/umkm/warung-emmak.png"
-    ],
+    "placeGallery": ["/img/umkm/warung-emmak.png"],
     "menuGallery": [
       "/img/gallery-umkm/warung-emak/1.png",
       "/img/gallery-umkm/warung-emak/2.png",
@@ -304,71 +304,67 @@
     "isOpen": true,
     "isFeatured": false,
     "isWeeklyWow": false,
-    "facilities": [
-      "Tempat Duduk",
-      "Takeaway",
-      "Parkir Motor"
-    ],
+    "facilities": ["Tempat Duduk", "Takeaway", "Parkir Motor"],
     "products": [
       {
+        "name": "Nasi Lodeh",
+        "price": 8000
+      },
+      {
+        "name": "Nasi Rawon",
+        "price": 14000
+      },
+      {
         "name": "Nasi Pecel",
-        "price": 10000
+        "price": 8000
+      },
+      {
+        "name": "Nasi Gulai",
+        "price": 14000
       },
       {
         "name": "Nasi Campur",
-        "price": 12000
+        "price": 8000
       },
       {
-        "name": "Soto Ayam",
-        "price": 13000
-      },
-      {
-        "name": "Rawon",
-        "price": 15000
-      },
-      {
-        "name": "Nasi Goreng",
-        "price": 12000
-      },
-      {
-        "name": "Ayam Goreng",
-        "price": 10000
+        "name": "Aneka Lauk",
+        "price": 2000
       }
     ],
     "operationalHours": [
       {
         "day": "Senin",
-        "hours": "06:00 - 21:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Selasa",
-        "hours": "06:00 - 21:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Rabu",
-        "hours": "06:00 - 21:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Kamis",
-        "hours": "06:00 - 21:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Jumat",
-        "hours": "06:00 - 21:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Sabtu",
-        "hours": "06:00 - 21:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       },
       {
         "day": "Minggu",
-        "hours": "06:00 - 21:00",
+        "hours": "06:00 - 20:00",
         "isOpen": true
       }
     ]
@@ -383,22 +379,14 @@
     "phone": "08153708090",
     "latitude": -7.280935500000002,
     "longitude": 112.78324219678954,
-    "placeGallery": [
-      "/img/umkm/ysl-motor.png"
-    ],
-    "menuGallery": [
-      "/img/gallery-umkm/ysl-motor/1.png"
-    ],
+    "placeGallery": ["/img/umkm/ysl-motor.png"],
+    "menuGallery": ["/img/gallery-umkm/ysl-motor/1.png"],
     "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.647086384586!2d112.78324219678954!3d-7.280935500000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb4cc2a1ee31%3A0x486fbffdba221e98!2sYSL%20MOTOR!5e0!3m2!1sid!2sid!4v1762159124225!5m2!1sid!2sid",
     "rating": 4.8,
     "isOpen": true,
     "isFeatured": true,
     "isWeeklyWow": false,
-    "facilities": [
-      "Ruang Tunggu",
-      "Parkir Luas",
-      "Garansi Servis"
-    ],
+    "facilities": ["Ruang Tunggu", "Parkir Luas", "Garansi Servis"],
     "products": [
       {
         "name": "Servis Ringan",
@@ -473,22 +461,14 @@
     "phone": "081234567892",
     "latitude": -7.280590099999995,
     "longitude": 112.7837240967895,
-    "placeGallery": [
-      "/img/umkm/nissa-juice.png"
-    ],
-    "menuGallery": [
-      "/img/gallery-umkm/nissa-juice/1.png"
-    ],
+    "placeGallery": ["/img/umkm/nissa-juice.png"],
+    "menuGallery": ["/img/gallery-umkm/nissa-juice/1.png"],
     "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.650134543729!2d112.7837240967895!3d-7.280590099999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa15c11f3b79%3A0xf8ef60ab49b0a5d3!2snissa%20juice!5e0!3m2!1sid!2sid!4v1762159196869!5m2!1sid!2sid",
     "rating": 4.4,
     "isOpen": true,
     "isFeatured": false,
     "isWeeklyWow": false,
-    "facilities": [
-      "Takeaway",
-      "Delivery",
-      "Parkir"
-    ],
+    "facilities": ["Takeaway", "Delivery", "Parkir"],
     "products": [
       {
         "name": "Jus Alpukat",
@@ -563,22 +543,14 @@
     "phone": "082140720343",
     "latitude": -7.281679,
     "longitude": 112.78885650000001,
-    "placeGallery": [
-      "/img/umkm/mas-joen.png"
-    ],
-    "menuGallery": [
-      "/img/gallery-umkm/mas-joen/1.png"
-    ],
+    "placeGallery": ["/img/umkm/mas-joen.png"],
+    "menuGallery": ["/img/gallery-umkm/mas-joen/1.png"],
     "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.640524500156!2d112.78885650000001!3d-7.281679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb00205b9cd9%3A0xc05b9ebcad177d1c!2sPangkas%20Rambut%20Mas%20Joen!5e0!3m2!1sid!2sid!4v1762159000407!5m2!1sid!2sid",
     "rating": 4.6,
     "isOpen": true,
     "isFeatured": false,
     "isWeeklyWow": false,
-    "facilities": [
-      "AC",
-      "Parkir",
-      "WiFi Gratis"
-    ],
+    "facilities": ["AC", "Parkir", "WiFi Gratis"],
     "products": [
       {
         "name": "Potong Rambut",
@@ -653,19 +625,14 @@
     "phone": "085733909098",
     "latitude": -7.284731252813615,
     "longitude": 112.78039198389818,
-    "placeGallery": [
-      "/img/umkm/permak-tretan.png"
-    ],
+    "placeGallery": ["/img/umkm/permak-tretan.png"],
     "menuGallery": [],
     "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.6135793454623!2d112.78039198389818!3d-7.284731252813615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa3ff2a9af45%3A0xa28656c0a5e5bdaf!2sPermak%20Jeans%20Tretan!5e0!3m2!1sid!2sid!4v1762158906686!5m2!1sid!2sid",
     "rating": 4.7,
     "isOpen": true,
     "isFeatured": false,
     "isWeeklyWow": false,
-    "facilities": [
-      "Custom Design",
-      "Konsultasi Gratis"
-    ],
+    "facilities": ["Custom Design", "Konsultasi Gratis"],
     "products": [
       {
         "name": "Permak Celana",
@@ -736,9 +703,7 @@
     "phone": "085733335656",
     "latitude": -7.275423699999999,
     "longitude": 112.80096789999999,
-    "placeGallery": [
-      "/img/umkm/warung-mak-ni.png"
-    ],
+    "placeGallery": ["/img/umkm/warung-mak-ni.png"],
     "menuGallery": [
       "/img/gallery-umkm/warung-mak-ni/1.png",
       "/img/gallery-umkm/warung-mak-ni/2.png",
@@ -749,11 +714,7 @@
     "isOpen": true,
     "isFeatured": false,
     "isWeeklyWow": false,
-    "facilities": [
-      "Tempat Duduk",
-      "Takeaway",
-      "Harga Mahasiswa"
-    ],
+    "facilities": ["Tempat Duduk", "Takeaway", "Harga Mahasiswa"],
     "products": [
       {
         "name": "Nasi Pecel",
@@ -828,9 +789,7 @@
     "phone": "085878425266",
     "latitude": -7.2893881,
     "longitude": 112.80024399999999,
-    "placeGallery": [
-      "/img/umkm/bubur-kepagian.png"
-    ],
+    "placeGallery": ["/img/umkm/bubur-kepagian.png"],
     "menuGallery": [
       "/img/gallery-umkm/bubur-kepagian/1.png",
       "/img/gallery-umkm/bubur-kepagian/2.png",
@@ -843,11 +802,7 @@
     "isOpen": true,
     "isFeatured": false,
     "isWeeklyWow": true,
-    "facilities": [
-      "Tempat Duduk",
-      "Takeaway",
-      "Parkir"
-    ],
+    "facilities": ["Tempat Duduk", "Takeaway", "Parkir"],
     "products": [
       {
         "name": "Bubur Ayam Original",
@@ -918,9 +873,7 @@
     "phone": "081231199758",
     "latitude": -7.2874756,
     "longitude": 112.79455200000001,
-    "placeGallery": [
-      "/img/umkm/depot-j-one.png"
-    ],
+    "placeGallery": ["/img/umkm/depot-j-one.png"],
     "menuGallery": [
       "/img/gallery-umkm/depot-j-one/1.png",
       "/img/gallery-umkm/depot-j-one/2.png",
@@ -934,12 +887,7 @@
     "isOpen": true,
     "isFeatured": true,
     "isWeeklyWow": false,
-    "facilities": [
-      "AC",
-      "Tempat Luas",
-      "Parkir",
-      "WiFi Gratis"
-    ],
+    "facilities": ["AC", "Tempat Luas", "Parkir", "WiFi Gratis"],
     "products": [
       {
         "name": "Nasi Goreng Spesial",
@@ -1014,9 +962,7 @@
     "phone": "081234567893",
     "latitude": -7.2738318,
     "longitude": 112.7977944,
-    "placeGallery": [
-      "/img/umkm/ryns-laundry.png"
-    ],
+    "placeGallery": ["/img/umkm/ryns-laundry.png"],
     "menuGallery": [
       "/img/gallery-umkm/ryns-laundry/1.png",
       "/img/gallery-umkm/ryns-laundry/2.png"
@@ -1026,11 +972,7 @@
     "isOpen": true,
     "isFeatured": false,
     "isWeeklyWow": false,
-    "facilities": [
-      "Antar Jemput",
-      "Express Service",
-      "Membership"
-    ],
+    "facilities": ["Antar Jemput", "Express Service", "Membership"],
     "products": [
       {
         "name": "Cuci Kering (per kg)",
