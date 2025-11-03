@@ -8,6 +8,7 @@ import MapEmbed from '../components/MapEmbed';
 import RatingStars from '../components/RatingStars';
 import { Umkm } from '../types/umkm';
 import umkmData from '../data/umkm.json';
+import GalleryMenu from '../components/GalleryMenu';
 
 const DetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,8 +20,8 @@ const DetailPage: React.FC = () => {
         <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
           <div className="text-center bg-white rounded-2xl shadow-soft p-12 border border-slate-100/50">
             <h1 className="text-3xl font-bold text-slate-900 mb-6">UMKM tidak ditemukan</h1>
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="text-primary-600 hover:text-primary-700 font-medium transition-colors duration-300"
             >
               Kembali ke beranda
@@ -51,7 +52,7 @@ const DetailPage: React.FC = () => {
         <div className="bg-white shadow-soft border-b border-slate-100/50">
           <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex items-center">
-              <Link 
+              <Link
                 to="/"
                 aria-label="Kembali ke halaman utama"
                 className="flex items-center text-slate-600 hover:text-primary-600 transition-colors duration-300"
@@ -67,10 +68,10 @@ const DetailPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 py-12">
           {/* Two-Column Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-            
+
             {/* Left Column - Visual Elements (2/3 width on large screens) */}
             <div className="lg:col-span-2 space-y-8 lg:space-y-12">
-              
+
               {/* Galeri Tempat Section */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -107,7 +108,7 @@ const DetailPage: React.FC = () => {
                   <h3 className="font-bold text-xl lg:text-3xl text-slate-900 mb-8">
                     Galeri Menu
                   </h3>
-                  <GalleryCarousel images={umkm.menuGallery} businessName={umkm.name} />
+                  <GalleryMenu images={umkm.menuGallery} businessName={umkm.name} />
                 </motion.div>
               )}
 
@@ -118,11 +119,8 @@ const DetailPage: React.FC = () => {
                 transition={{ duration: 0.4, delay: 0.3 }}
                 className="bg-white rounded-2xl shadow-soft border border-slate-100/50 p-6 lg:p-8"
               >
-                <h3 className="font-semibold text-xl lg:text-2xl text-slate-900 mb-6">
-                  Lokasi
-                </h3>
                 <div className="rounded-xl overflow-hidden">
-                  <MapEmbed 
+                  <MapEmbed
                     embedUrl={umkm.googleMapsEmbedUrl}
                     address={umkm.address}
                     businessName={umkm.name}
@@ -133,7 +131,7 @@ const DetailPage: React.FC = () => {
 
             {/* Right Column - Textual Content & Actions (1/3 width, sticky on large screens) */}
             <div className="lg:col-span-1 lg:sticky lg:top-24 lg:self-start space-y-6">
-              
+
               {/* Basic Info Block */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -155,8 +153,8 @@ const DetailPage: React.FC = () => {
 
                 {/* Name */}
                 <h1 className="font-bold text-3xl lg:text-4xl xl:text-5xl text-slate-900 mb-6 leading-tight">
-                {umkm.name}
-              </h1>
+                  {umkm.name}
+                </h1>
 
                 {/* Rating */}
                 <div className="mb-4">
@@ -165,11 +163,10 @@ const DetailPage: React.FC = () => {
 
                 {/* Status */}
                 <div className="mb-4">
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                    umkm.isOpen 
-                      ? 'bg-green-100 text-green-800' 
-                      : 'bg-red-100 text-red-800'
-                  }`}>
+                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${umkm.isOpen
+                    ? 'bg-green-100 text-green-800'
+                    : 'bg-red-100 text-red-800'
+                    }`}>
                     <FiClock className="h-4 w-4 mr-1" />
                     {umkm.isOpen ? 'Buka' : 'Tutup'}
                   </span>
@@ -189,54 +186,21 @@ const DetailPage: React.FC = () => {
                 transition={{ duration: 0.4, delay: 0.2 }}
                 className="space-y-3"
               >
-                <motion.button
-                  onClick={() => alert('Fitur "Hubungi" segera hadir!')}
-                  aria-label="Hubungi UMKM ini"
-                  whileHover={{ 
-                    scale: 1.03,
-                    boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.4)"
-                  }}
-                  whileTap={{ 
-                    scale: 0.97,
-                    boxShadow: "0 4px 15px -3px rgba(16, 185, 129, 0.3)"
-                  }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 300, 
-                    damping: 20,
-                    boxShadow: { duration: 0.2 }
-                  }}
-                  className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-3.5 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <FiPhone className="h-4 w-4" />
-                  </motion.div>
-                  <span className="relative z-10">Hubungi</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-teal-500"
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileHover={{ scale: 1, opacity: 0.2 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.button>
-                
+               
                 <motion.button
                   onClick={shareUrl}
                   aria-label="Bagikan halaman ini"
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.02,
                     boxShadow: "0 8px 20px -5px rgba(0, 0, 0, 0.1)"
                   }}
-                  whileTap={{ 
+                  whileTap={{
                     scale: 0.98,
                     boxShadow: "0 2px 10px -3px rgba(0, 0, 0, 0.1)"
                   }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 300, 
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
                     damping: 20,
                     boxShadow: { duration: 0.2 }
                   }}
@@ -392,11 +356,10 @@ const DetailPage: React.FC = () => {
                         </p>
                         <div className="flex items-center justify-between">
                           <RatingStars rating={relatedUmkm.rating} size="sm" />
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                            relatedUmkm.isOpen 
-                              ? 'bg-green-100 text-green-800' 
-                              : 'bg-red-100 text-red-800'
-                          }`}>
+                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${relatedUmkm.isOpen
+                            ? 'bg-green-100 text-green-800'
+                            : 'bg-red-100 text-red-800'
+                            }`}>
                             {relatedUmkm.isOpen ? 'Buka' : 'Tutup'}
                           </span>
                         </div>

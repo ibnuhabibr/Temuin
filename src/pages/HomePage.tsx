@@ -9,8 +9,8 @@ import umkmData from '../data/umkm.json';
 
 const HomePage: React.FC = () => {
   // Filter all UMKM with stories (length > 50 characters)
-  const storyUmkms = useMemo(() => 
-    umkmData.filter(umkm => umkm.story && umkm.story.length > 50), 
+  const storyUmkms = useMemo(() =>
+    umkmData.filter(umkm => umkm.story && umkm.story.length > 50),
     []
   );
 
@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M60 60c16.569 0 30-13.431 30-30S76.569 0 60 0 30 13.431 30 30s13.431 30 30 30zm0-2c15.464 0 28-12.536 28-28S75.464 2 60 2 32 14.536 32 30s12.536 28 28 28z'/%3E%3Ccircle cx='60' cy='60' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }} />
           </div>
-          
+
           {/* Floating Elements */}
           <div className="absolute top-20 left-10 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
           <div className="absolute bottom-20 right-10 w-32 h-32 bg-amber-300/10 rounded-full blur-2xl"></div>
@@ -67,7 +67,7 @@ const HomePage: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="text-lg md:text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
-              Jelajahi UMKM lokal terbaik di sekitar Anda. Dari kuliner lezat hingga 
+              Jelajahi UMKM lokal terbaik di sekitar Anda. Dari kuliner lezat hingga
               layanan berkualitas, temukan semua kebutuhan Anda di satu tempat.
             </motion.p>
 
@@ -121,8 +121,8 @@ const HomePage: React.FC = () => {
                     key={umkm.id}
                     initial={{ opacity: 0, y: 30, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ 
-                      duration: 0.6, 
+                    transition={{
+                      duration: 0.6,
                       delay: 0.6 + (index * 0.1),
                       ease: "easeOut"
                     }}
@@ -176,10 +176,10 @@ const HomePage: React.FC = () => {
                         exit={{ opacity: 0, x: -300 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
                       >
-                        <img 
-                          src={storyUmkms[currentStoryIndex].placeGallery[0]} 
-                          alt={`Foto ${storyUmkms[currentStoryIndex].name}`} 
-                          className="rounded-2xl shadow-soft object-cover aspect-video w-full" 
+                        <img
+                          src={storyUmkms[currentStoryIndex].placeGallery[0]}
+                          alt={`Foto ${storyUmkms[currentStoryIndex].name}`}
+                          className="rounded-2xl shadow-soft object-cover aspect-video w-full"
                         />
                       </motion.div>
                     </AnimatePresence>
@@ -202,9 +202,9 @@ const HomePage: React.FC = () => {
                           "{storyUmkms[currentStoryIndex].story}"
                         </p>
                         <Link to={`/umkm/${storyUmkms[currentStoryIndex].id}`}>
-                          <motion.button 
-                            whileHover={{ scale: 1.05 }} 
-                            whileTap={{ scale: 0.95 }} 
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                             className="inline-flex items-center space-x-2 bg-gradient-primary text-white px-6 py-3 rounded-full font-medium shadow-soft hover:shadow-soft-lg transition-shadow duration-200"
                           >
                             <span>Baca Kisah Lengkap</span>
@@ -252,11 +252,10 @@ const HomePage: React.FC = () => {
                         onClick={() => setCurrentStoryIndex(index)}
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.8 }}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                          index === currentStoryIndex 
-                            ? 'bg-primary-600 shadow-lg' 
-                            : 'bg-slate-300 hover:bg-slate-400'
-                        }`}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentStoryIndex
+                          ? 'bg-primary-600 shadow-lg'
+                          : 'bg-slate-300 hover:bg-slate-400'
+                          }`}
                         aria-label={`Go to story ${index + 1}`}
                       />
                     ))}
@@ -271,76 +270,41 @@ const HomePage: React.FC = () => {
         <section className="bg-gradient-to-b from-white via-slate-50/50 to-slate-100/30 py-20 px-6">
           <div className="max-w-7xl mx-auto space-y-20">
             {/* Kopi Pilihan Section */}
-            {umkmData.filter((umkm: Umkm) => umkm.category === 'Minuman').length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <div className="flex items-center justify-between mb-8">
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800">
-                    Kopi Pilihan ☕
-                  </h3>
-                  <div className="text-sm text-slate-600">
-                    Swipe untuk melihat lebih banyak →
+            {umkmData.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  <div className="flex items-center justify-between mb-8">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800">
+                      Daftar UMKM
+                    </h3>
+                    <div className="text-sm text-slate-600">
+                      Swipe untuk melihat lebih banyak →
+                    </div>
                   </div>
-                </div>
-                <div className="overflow-x-auto">
-                  <div className="flex space-x-6 pb-4">
-                    {umkmData
-                      .filter((umkm: Umkm) => umkm.category === 'Minuman')
-                      .slice(0, 6)
-                      .map((umkm: Umkm, index: number) => (
-                        <motion.div
-                          key={umkm.id}
-                          initial={{ opacity: 0, x: 50 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.6, delay: index * 0.1 }}
-                          className="flex-shrink-0 w-80"
-                        >
-                          <UmkmCard umkm={umkm} />
-                        </motion.div>
-                      ))}
+                  <div className="overflow-x-auto">
+                    <div className="flex space-x-6 pb-4">
+                      {umkmData
+                        .slice(0, 10)
+                        .map((umkm: Umkm, index: number) => (
+                          <motion.div
+                            key={umkm.id}
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            className="flex-shrink-0 w-80"
+                          >
+                            <UmkmCard umkm={umkm} />
+                          </motion.div>
+                        ))}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            )}
+                </motion.div>
+              )}
 
-            {/* Jajanan Populer Section */}
-            {umkmData.filter((umkm: Umkm) => umkm.category === 'Makanan').length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <div className="flex items-center justify-between mb-8">
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800">
-                    Jajanan Populer 🍜
-                  </h3>
-                  <div className="text-sm text-slate-600">
-                    Swipe untuk melihat lebih banyak →
-                  </div>
-                </div>
-                <div className="overflow-x-auto">
-                  <div className="flex space-x-6 pb-4">
-                    {umkmData
-                      .filter((umkm: Umkm) => umkm.category === 'Makanan')
-                      .slice(0, 6)
-                      .map((umkm: Umkm, index: number) => (
-                        <motion.div
-                          key={umkm.id}
-                          initial={{ opacity: 0, x: 50 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.6, delay: index * 0.1 }}
-                          className="flex-shrink-0 w-80"
-                        >
-                          <UmkmCard umkm={umkm} />
-                        </motion.div>
-                      ))}
-                  </div>
-                </div>
-              </motion.div>
-            )}
+
           </div>
         </section>
 

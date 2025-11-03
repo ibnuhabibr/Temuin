@@ -21,9 +21,9 @@ const MapEmbed: React.FC<MapEmbedProps> = ({ embedUrl, address, businessName }) 
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
           <FiMapPin className="h-5 w-5 text-primary-600 mr-2" />
-          <h3 className="font-semibold text-xl text-slate-900">
+          <h1 className="font-semibold text-2xl text-slate-900">
             Lokasi
-          </h3>
+          </h1>
         </div>
         <motion.button
           onClick={openInGoogleMaps}
