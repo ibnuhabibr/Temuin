@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
           {/* Logo with enhanced animation */}
           <Link to="/" className="flex items-center group">
             <motion.div
-              whileHover={{ scale: 1.08, rotate: [0, -5, 5, 0] }}
+              whileHover={{ scale: 1.08, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
               className="relative"

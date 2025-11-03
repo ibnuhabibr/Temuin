@@ -50,42 +50,63 @@ const HomePage: React.FC = () => {
           {/* Animated Gradient Orbs */}
           <motion.div
             animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 90, 0],
+              scale: [1, 1.2],
+              rotate: [0, 90],
             }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "linear",
+            }}
             className="absolute top-20 -left-20 w-96 h-96 bg-gradient-to-br from-amber-400/30 to-orange-500/30 rounded-full blur-3xl"
           />
           <motion.div
             animate={{
-              scale: [1.2, 1, 1.2],
-              rotate: [90, 0, 90],
+              scale: [1.2, 1],
+              rotate: [90, 0],
             }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "linear",
+            }}
             className="absolute -bottom-20 -right-20 w-96 h-96 bg-gradient-to-br from-blue-400/30 to-purple-500/30 rounded-full blur-3xl"
           />
           <motion.div
             animate={{
-              y: [0, -20, 0],
-              scale: [1, 1.1, 1],
+              y: [0, -20],
+              scale: [1, 1.1],
             }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            }}
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/5 rounded-full blur-2xl"
           />
 
           {/* Floating Icons/Elements */}
           <motion.div
-            animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: [-15, 0], rotate: [5, 0] }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            }}
             className="absolute top-32 left-20 text-6xl opacity-10"
           >
             🍔
           </motion.div>
           <motion.div
-            animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
+            animate={{ y: [15, 0], rotate: [-5, 0] }}
             transition={{
               duration: 6,
               repeat: Infinity,
+              repeatType: "reverse",
               ease: "easeInOut",
               delay: 1,
             }}
@@ -94,10 +115,11 @@ const HomePage: React.FC = () => {
             ☕
           </motion.div>
           <motion.div
-            animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
+            animate={{ y: [-20, 0], rotate: [10, 0] }}
             transition={{
               duration: 7,
               repeat: Infinity,
+              repeatType: "reverse",
               ease: "easeInOut",
               delay: 2,
             }}
