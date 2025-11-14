@@ -8,7 +8,7 @@ interface UmkmListProps {
   title?: string;
 }
 
-const UmkmList: React.FC<UmkmListProps> = ({ umkmList, title = "Semua UMKM" }) => {
+const UmkmList: React.FC<UmkmListProps> = ({ umkmList, title = "Datftar UMKM" }) => {
   const containerVariants = {
     hidden: { opacity: 1 }, // Keep opacity 1 for smooth container appearance
     visible: {

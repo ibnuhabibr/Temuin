@@ -167,7 +167,7 @@ const ContactPage: React.FC = () => {
         </div>
 
         {/* Social Media */}
-        <div className="bg-white rounded-2xl shadow-soft p-8 text-center">
+        {/* <div className="bg-white rounded-2xl shadow-soft p-8 text-center">
           <h2 className="text-2xl font-semibold text-slate-800 mb-6">
             Ikuti Kami
           </h2>
@@ -237,7 +237,7 @@ const ContactPage: React.FC = () => {
               </svg>
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </AnimatedWrapper>
   );

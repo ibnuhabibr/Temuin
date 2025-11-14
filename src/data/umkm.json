@@ -467,7 +467,7 @@
     "rating": 4.4,
     "isOpen": true,
     "isFeatured": false,
-    "isWeeklyWow": false,
+    "isWeeklyWow": true,
     "facilities": ["Takeaway", "Delivery", "Parkir"],
     "products": [
       {

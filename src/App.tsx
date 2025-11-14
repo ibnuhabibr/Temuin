@@ -8,6 +8,7 @@ import DetailPage from './pages/DetailPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ScrollToTop from './components/ScrollToTop';
+import Footer from './components/Footer';
 
 function App() {
   const location = useLocation();
@@ -28,6 +29,7 @@ function App() {
           <Route path="/kontak" element={<ContactPage />} />
         </Routes>
       </AnimatePresence>
+      <Footer/>
     </div>
   );
 }
